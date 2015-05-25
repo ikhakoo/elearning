@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   	resources :lessons
 	end
 
+  get 'markdowns/:page_id', to: 'markdowns#show', as: :markdown
+
+
   root :to => "dashboard#front"
 
   get '/front', to: 'dashboard#front'

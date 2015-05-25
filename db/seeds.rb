@@ -9,6 +9,8 @@
 Course.delete_all
 Enrollment.delete_all
 User.delete_all
+Lesson.delete_all
+Step.delete_all
 
 User.create!(
   first_name: "David",
@@ -62,16 +64,45 @@ end
 puts "Course Seed Complete"
 
 courses = Course.all
+courses.each do |course|
+  order = 1
+  rand(6..10).times do
+    Lesson.create!(
+      name: Faker::Lorem.sentence,
+      description: Faker::Lorem.paragraph,
+      course_id: course.id,
+      lesson_order: order
+      )
+    order += 1
+  end
+end
+
 students = User.where(role: "student")
 
 60.times do
-    Enrollment.create!(
-      course_id: courses.sample.id,
-      user_id: students.sample.id
-    )
-    x = ["|","/","-","+","#"]
-    print x.shuffle.sample
+  Enrollment.create!(
+    course_id: courses.sample.id,
+    user_id: students.sample.id
+  )
+  x = ["|","/","-","+","#"]
+  print x.shuffle.sample
 end
+
+puts "Enrollments seeded."
+
+# progress for dummy user
+all_students_of_first_course = Course.first.users
+all_students_of_first_course.each do |student|
+  Step.create!(
+    lesson_id: Course.first.lessons.where(lesson_order: 1)[0].id, #Ugliest code ever written!!!
+    user_id: student.id,
+    completed: true
+    )
+  print "^"
+end
+
+puts "Progress (Steps) seeded."
+
 puts "Succesfully Registered For Courses ... Time To Get Rich Bitch!"
 
 

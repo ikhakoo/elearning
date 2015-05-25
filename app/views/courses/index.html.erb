@@ -8,42 +8,42 @@
   <div class="container">
       <% @courses.each do |course| %>
           <table class="ui celled structured table">
-    <thead>
-      <tr>
-        <th rowspan="2">Course</th>
-        <th rowspan="2">Price ($)</th>
-        <th colspan="5">Languages</th>
-      </tr>
-      <tr>
-        <th>Ruby on Rails</th>
-        <th>JavaScript</th>
-        <th>jQuery</th>
-        <th>AJAX</th>
-        <th>HTML5/CSS3</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><%= link_to course.name, course %></td>
-        <td><%= course.price %></td>
-        <td>
-          <i class="large green checkmark icon"></i>
-        </td>
-        <td>
-            <i class="large green checkmark icon"></i>
-        </td>
-        <td>
-            <i class="large green checkmark icon"></i>
-        </td>
-        <td>
-            <i class="large green checkmark icon"></i>
-        </td>
-        <td>
-            <i class="large green checkmark icon"></i>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+            <thead>
+              <tr>
+                <th rowspan="2">Course</th>
+                <th rowspan="2">Price ($)</th>
+                <th colspan="5">Languages</th>
+              </tr>
+              <tr>
+                <th>Ruby on Rails</th>
+                <th>JavaScript</th>
+                <th>jQuery</th>
+                <th>AJAX</th>
+                <th>HTML5/CSS3</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><%= link_to course.name, course %></td>
+                <td><%= course.price %></td>
+                <td>
+                  <i class="large green checkmark icon"></i>
+                </td>
+                <td>
+                    <i class="large green checkmark icon"></i>
+                </td>
+                <td>
+                    <i class="large green checkmark icon"></i>
+                </td>
+                <td>
+                    <i class="large green checkmark icon"></i>
+                </td>
+                <td>
+                    <i class="large green checkmark icon"></i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
       <% end %>
   </div>
 </div>

@@ -2,7 +2,7 @@ require 'test_helper'
 
 class LessonsControllerTest < ActionController::TestCase
   setup do
-    @lesson = lessons(:one)
+    @lesson = create(:lesson)
   end
 
   test "should get index" do

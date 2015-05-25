@@ -34,6 +34,9 @@ gem 'faker'
 
 gem 'font-awesome-rails'
 
+# redcarpet gem to parse markdown
+gem 'redcarpet'
+
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -58,6 +61,8 @@ group :development, :test do
   # Tired of waiting for the test environment to load
   gem 'guard'
   gem 'guard-minitest'
+
+  gem 'rb-fsevent', '~> 0.9.4'
 
 end
 
