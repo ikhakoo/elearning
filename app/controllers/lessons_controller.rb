@@ -1,6 +1,10 @@
 class LessonsController < ApplicationController
  # before_filter :ensure_logged_in, only: [:create, :destroy]
 
+  def index
+    @lessons = Lesson.all
+  end
+
   def show 
     @course = load_course
     @lesson = Lesson.find(params[:id])

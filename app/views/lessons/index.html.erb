@@ -13,13 +13,13 @@
   </thead>
 
   <tbody>
-    <% course.lesson.each do |l| %>
+    <% @lessons.each do |lesson| %>
       <tr>
-        <td><%= l.name %></td>
-        <td><%= l.description %></td>
-        <td><%= l.course %></td>
-        <td><%= link_to 'Show', lesson %></td>
-        <td><%= link_to 'Edit', edit_lesson_path(lesson) %></td>
+        <td><%= lesson.name %></td>
+        <td><%= lesson.description %></td>
+        <td><%= lesson.course.name %></td>
+        <td><%= link_to 'Show', course_lesson_path(lesson) %></td>
+        <td><%= link_to 'Edit', edit_course_lesson_path(lesson) %></td>
         <td><%= link_to 'Destroy', lesson, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
