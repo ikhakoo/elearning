@@ -17,7 +17,7 @@
       <tr>
         <td><%= lesson.name %></td>
         <td><%= lesson.description %></td>
-        <td><%= lesson.course.name %></td>
+        <td><%= lesson.name %></td>
         <% if current_user.role == 'admin' || current_user.role == 'instructor' %>
           <td><%= link_to 'Show', course_lesson_path(lesson, @course) %></td>
           <td><%= link_to 'Edit', edit_course_lesson_path(lesson, @course) %></td>

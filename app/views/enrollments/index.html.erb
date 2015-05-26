@@ -6,3 +6,35 @@
     <%= course.description %>
   </p>
 <% end %>
+
+<%= render :partial => 'dashboard/left_sidebar' %>
+ <% color = ['blue', 'orange', 'green', 'red', 'purple', 'teal'] %>
+
+<div class="ui three column grid">
+  <div class="three wide column"></div>
+
+   <div class="ten wide column">
+    <div class="ui <%= color.sample %> segment" style="margin-top: 40px;">
+      <%  @courses.each do |course| %>
+        
+        <div class="ui cards">
+          <div class="card">
+            <div class="content">
+              <div class="header"><%= course.name %></div>
+              <div class="description">
+                <%= course.description %>
+              </div>
+            </div>
+            <div class="ui bottom attached button">
+              <i class="add icon"></i>
+              Enroll
+            </div>
+          </div>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+
+  <div class="three wide column"></div>
+</div>
