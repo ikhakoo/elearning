@@ -1,0 +1,8 @@
+<!-- index view for courses the user is enrolled in -->
+
+<% @courses_enrolled_in.each do |course|%>
+  <p>
+    <%= link_to course.name, course_lessons_path(course) %> <br>
+    <%= course.description %>
+  </p>
+<% end %>

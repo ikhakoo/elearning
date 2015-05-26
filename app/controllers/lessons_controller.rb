@@ -1,11 +1,13 @@
 class LessonsController < ApplicationController
- # before_filter :ensure_logged_in, only: [:create, :destroy]
+  before_action :access_rights, only: [:edit, :create, :update, :destroy]
 
   def index
+    @course = load_course
     @lessons = Lesson.all
   end
 
-  def show 
+
+  def show
     @course = load_course
     @lesson = Lesson.find(params[:id])
   end
@@ -22,7 +24,7 @@ class LessonsController < ApplicationController
     respond_to do |format|
       if @lesson.save
         format.html do
-          redirect_to course_path(@course.id), notice: 'lesson created successfully' 
+          redirect_to course_path(@course.id), notice: 'lesson created successfully'
         end
         format.js
       else
@@ -43,7 +45,13 @@ private
   end
 
   def load_course
-    @course = Course.find(params[:course_id])
+    Course.find(params[:course_id])
+  end
+
+  def access_rights
+    if current_user.role != 'admin' || current_user.role != 'instructor'
+      render text: 'Permissions error!'
+    end
   end
 
 end

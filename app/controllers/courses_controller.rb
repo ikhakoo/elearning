@@ -1,11 +1,12 @@
 class CoursesController < ApplicationController
+  before_action :access_rights, only: [:edit, :create, :update, :destroy]
+
   def index
-  @courses = Course.all
+    @courses = Course.all
   end
 
   def show
-    @course = Course.find(params[:id])
-
+    load_coarse
     if current_user
       @lesson = @course.lessons.build
     end
@@ -16,7 +17,7 @@ class CoursesController < ApplicationController
   end
 
   def edit
-    @course = Course.find(params[:id])
+    load_coarse
   end
 
   def create
@@ -30,7 +31,7 @@ class CoursesController < ApplicationController
   end
 
   def update
-    @course = Course.find(params[:id])
+    load_coarse
 
     if @course.update_attributes(course_params)
       redirect_to course_path(@course)
@@ -40,13 +41,24 @@ class CoursesController < ApplicationController
   end
 
   def destroy
-    @course = Course.find(params[:id])
+    load_coarse
     @course.destroy
     redirect_to courses_path
   end
 
+
   private
-  def course_params
-    params.require(:course).permit(:name, :price, :description, :date)
-  end
+    def course_params
+      params.require(:course).permit(:name, :price, :description, :date)
+    end
+
+    def load_coarse
+      @course = Course.find(params[:id])
+    end
+
+    def access_rights
+      if current_user.role != 'admin' || current_user.role != 'instructor'
+        render text: 'Permissions error!'
+      end
+    end
 end

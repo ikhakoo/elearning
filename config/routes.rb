@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
 
-  devise_for :users do
-  	:enrollments
-  end
-
+  devise_for :users
+  resources :enrollments, only: [:index, :new]
   resources :courses do
   	resources :lessons
 	end
