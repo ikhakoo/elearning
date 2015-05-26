@@ -10,4 +10,9 @@ class ApplicationController < ActionController::Base
   def after_sign_out_path_for(user)
     front_path
   end
+
+  def color_change
+    ['blue', 'orange', 'green', 'red', 'purple', 'teal'].sample
+  end
+
 end
