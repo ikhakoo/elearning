@@ -1,5 +1,12 @@
 class EnrollmentsController < ApplicationController
   def index
+    # user must be logged in
+    if current_user.role == 'student'
+      # display all courses enrolled in
+      @courses_enrolled_in = User.find(current_user.id).courses
+    else
+      render text: "You are not a student"
+    end
   end
 
 	def new

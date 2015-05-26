@@ -16,17 +16,21 @@
 <!-- Admin has full access to editing function -->
 <!-- Instructor can edit course title and description, but not price -->
 <!-- Student does not have edit priviledge -->
+<% if current_user.role == "admin" || current_user.role == "instuctor" %>
+  <%= link_to 'Edit', edit_course_path(@course) %> |
+<% end %>
+<%= link_to 'Back', courses_path %> |
+<!-- If user has not already registered for the course then enable register link -->
+<%= link_to_if Enrollment.where(user_id: current_user.id, course_id: @course.id).nil?,'Register Now', new_enrollment_path %>
 
-<%= link_to 'Edit', edit_course_path(@course) %> |
-<%= link_to 'Back', courses_path %>
 
 <br>
 
-<div id="placeholder-div1"></div>
+<!-- <div id="placeholder-div1"></div>
 <script>
   gapi.hangout.render('placeholder-div1', {
     'render': 'createhangout',
     'initial_apps': [{'app_id' : '184219133185', 'start_data' : 'dQw4w9WgXcQ', 'app_type' : 'ROOM_APP' }]
   });
 </script>
-</div>
+</div> -->

@@ -1,7 +1,11 @@
 class LessonsController < ApplicationController
  # before_filter :ensure_logged_in, only: [:create, :destroy]
 
-  def show 
+  def index
+    @lessons = Lesson.all
+  end
+
+  def show
     @course = load_course
     @lesson = Lesson.find(params[:id])
   end
@@ -18,7 +22,7 @@ class LessonsController < ApplicationController
     respond_to do |format|
       if @lesson.save
         format.html do
-          redirect_to course_path(@course.id), notice: 'lesson created successfully' 
+          redirect_to course_path(@course.id), notice: 'lesson created successfully'
         end
         format.js
       else
