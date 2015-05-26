@@ -1,29 +1,35 @@
 <div class="ui left vertical inverted labeled icon sidebar menu">
-  <a href="<%= root_path %>"class="item">
+  <a href="<%= root_path %>" class="item">
     <i class="home icon"></i>
     Home
   </a>
   <a class="item">
-    <i class="calendar icon"></i>
-    History
+    <i class="dashboard icon"></i>
+    Dashboard
+  </a>
+  <a href="<%= courses_path %>" class="item">
+    <i class="tasks icon"></i>
+    Courses
   </a>
   <a class="item">
-    <i class="mail icon"></i>
-    Messages
+    <i class="record icon"></i>
+    Interactive
   </a>
-  <a class="item">
-    <i class="chat icon"></i>
-    Discussion
+  <a href="<%= courses_path %>" class="item">
+    <i class="add circle icon"></i>
+    Enroll
   </a>
-  <a class="item">
+  <a href="<%= edit_user_registration_path %>" class="item">
     <i class="setting icon"></i>
     Settings
   </a>
-  <a class="item"> 
-    <i class="sign out icon"></i>
-    Log Out
-  </a>
+ <%= link_to destroy_user_session_path, { :method => :delete, class: "item"} do %>
+       <i class="sign out icon"></i> Log Out
+<% end %> 
+    
 </div>
+
+
 
 <div class="ui black big launch right attached fixed button" id="menu-trigger">
   <i class="content icon"></i>
