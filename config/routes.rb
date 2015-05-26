@@ -15,5 +15,6 @@ Rails.application.routes.draw do
 
   get '/front', to: 'dashboard#front'
   get '/tracks', to: 'dashboard#tracks'
+  get '/registered', to: 'dashboard#registered'
 
 end

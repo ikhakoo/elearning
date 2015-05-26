@@ -4,8 +4,9 @@ class DashboardController < ApplicationController
 
   def tracks
   	# @user = current_user
-  	# @enrollment = @user.enrollments.find(:user_id)
-  	# @courses = Course.all
-  	# @lessons = @user.lessons.where(course: @courses.@enrollments.course_id)
+  	# @enrollments = @user.enrollments
+  	# @courses = @user.enrollments.find(:course_id)
+  	# @lessons = @user.lessons.where(course: @courses)
   end
+
 end
