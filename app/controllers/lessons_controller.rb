@@ -5,6 +5,7 @@ class LessonsController < ApplicationController
     @lessons = Lesson.all
   end
 
+
   def show
     @course = load_course
     @lesson = Lesson.find(params[:id])

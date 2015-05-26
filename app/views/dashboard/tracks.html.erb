@@ -33,12 +33,12 @@ $(function() {
 
 
 <%= render 'left_sidebar' %>
-
+<% color = ['blue', 'orange', 'green', 'red', 'purple', 'teal'] %>
 <div class="pusher">
   <div class="ui grid">
     <div class="two wide column sticky top"></div>
     <div class="nine wide column main container">
-    <div class="ui piled segment" style="margin-top: 40px;">
+    <div class="ui <%= color.sample %> segment" style="margin-top: 40px; margin-bottom: 40px;">
       <div class="ui fluid card">
           <div class="image">
             <h2 style="text-align: center;">
@@ -247,7 +247,7 @@ $(function() {
            <h2 style="text-align: center;">6. Javascript and jQuery</h2>
           </div>
           <div class="content">
-            <a class="header">Make Your Websites Really Dance</a>
+            <%= link_to 'Make Your Websites Really Dance', markdown_path(page_id: "ruby/conclusion"), class: "header" %>
 
             <div class="description">
               The last component in your web development arsenal is the ability to make your front ends dynamically react to the user. In this course you'll learn how to use Javascript and jQuery to interact with the DOM and make things like dropdown menus, parallax scroll effects, single page applications, and even games. It will tie together everything you've learned already into one awesome package.
