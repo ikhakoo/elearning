@@ -224,5 +224,9 @@
   color: white;
 }
 
+#firepad-container {
+      width: 100%;
+      height: 100%;
+    }
 
 
