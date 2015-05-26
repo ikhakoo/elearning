@@ -10,8 +10,8 @@ class EnrollmentsController < ApplicationController
   end
 
 	def new
-  	@course = load_course
-    @enrollment = @course.enrollments.build
+    load_course
+    @enrollment = @course.enrollments.new
   end
 
   def create

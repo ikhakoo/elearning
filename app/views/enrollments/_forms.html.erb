@@ -1,9 +1,13 @@
-<%= form_for @registers do |f| %>
-	<% if @registers.errors.any? %>
-		<div class="error_messages">
-      <h2>Form is invalid</h2>
-    </div>
-
-	<% end %>
-
+<% if @enrollment.errors.any? %>
+  <div class="error_messages">
+    <h2>There was a problem with your enrollment. Please try again or contact our admissions.</h2>
+  </div>
 <% end %>
+
+<p>Enrollment for: <%= @course.name %></p>
+<p><%= @course.description %></p>
+<p>Price: <%= @course.price %></p>
+
+<!-- Link should direct to some form of payment method, and then create enrollment -->
+<!-- User should receive email confirmation of enrollment -->
+<%= button_to 'Confirm Enrollment', enrollments_path, method: :get %>

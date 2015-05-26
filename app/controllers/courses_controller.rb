@@ -8,8 +8,10 @@ class CoursesController < ApplicationController
   def show
     load_course
     if current_user
-      @lesson = @course.lessons.build
+      # @lesson = @course.lessons.build
     end
+    @not_enrolled = Enrollment.where(user_id: current_user.id, course_id: @course.id).empty?
+    @admin_or_instructor = (current_user.role == "admin" || current_user.role == "instuctor")
   end
 
   def new
