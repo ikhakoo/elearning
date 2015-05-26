@@ -14,5 +14,6 @@ Rails.application.routes.draw do
   get '/front', to: 'dashboard#front'
   get '/tracks', to: 'dashboard#tracks'
   get '/interactive', to: 'dashboard#interactive'
+  get '/material', to: 'dashboard#material'
 
 end

@@ -6,7 +6,7 @@ class CoursesController < ApplicationController
   end
 
   def show
-    load_coarse
+    load_course
     if current_user
       @lesson = @course.lessons.build
     end
@@ -17,7 +17,7 @@ class CoursesController < ApplicationController
   end
 
   def edit
-    load_coarse
+    load_course
   end
 
   def create
@@ -41,7 +41,7 @@ class CoursesController < ApplicationController
   end
 
   def destroy
-    load_coarse
+    load_course
     @course.destroy
     redirect_to courses_path
   end
@@ -52,7 +52,7 @@ class CoursesController < ApplicationController
       params.require(:course).permit(:name, :price, :description, :date)
     end
 
-    def load_coarse
+    def load_course
       @course = Course.find(params[:id])
     end
 
