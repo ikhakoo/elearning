@@ -1,0 +1,46 @@
+<%= render 'left_sidebar' %>
+<% color = ['blue', 'orange', 'green', 'red', 'purple', 'teal'] %>
+<% current_user.courses.each do |course| %>
+  <%= course.name %>
+    <% course.lessons.each do |lesson| %>
+    <div class="pusher">
+      <div class="ui grid">
+        <div class="two wide column sticky top"></div>
+        <div class="nine wide column main container">
+        <div class="ui <%= color.sample %> segment" style="margin-top: 40px; margin-bottom: 40px;">
+          <div class="ui fluid card">
+              <div class="image">
+                <h2 style="text-align: center;">
+                  <%= lesson.name %>
+                </h2>
+              </div>
+              <div class="content">
+                <a class="header">Start Here!</a>
+                <div class="description">
+                  <%= lesson.description %>
+                </div>
+              </div>
+              <div class="extra content">
+                <a>
+                  <div class="left-fact">
+                    <h4 style="color:black">You Will Learn</h4>
+                    <ul>
+                      <li><%= lesson.will_learn.split() %>
+                    </ul>
+                  </div>
+                  <div class="right-fact">
+                    <h4 style="color:black">You Will Build</h4>
+                    <ul>
+                      <li><%= lesson.will_build.split() %></li>
+                    </ul>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div class="progress">
+              <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:14%">
+                <span class="sr-only">14% Complete</span>
+              </div>
+            </div>
+        <% end %>
+<% end %>
