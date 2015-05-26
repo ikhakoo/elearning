@@ -51,64 +51,33 @@
 
 -->
 <%= render :partial => 'dashboard/left_sidebar' %>
+ <% color = ['blue', 'orange', 'green', 'red', 'purple', 'teal'] %>
 
-<div class="container">
+<div class="ui three column grid">
+  <div class="three wide column"></div>
 
-
-    <% color = ['blue', 'orange', 'green', 'red', 'purple', 'teal'] %>
+   <div class="ten wide column">
     <div class="ui <%= color.sample %> segment" style="margin-top: 40px;">
-
-    <div class="ui cards" style="margin-top: 20px;">
-      <div class="card">
-        <div class="content">
-          <div class="header">Web Development</div>
-          <div class="description">
-            Elliot Fu is a film-maker from New York. She also isnt very good
+      <%  @courses.each do |course| %>
+        
+        <div class="ui cards">
+          <div class="card">
+            <div class="content">
+              <div class="header"><%= course.name %></div>
+              <div class="description">
+                <%= course.description %>
+              </div>
+            </div>
+            <div class="ui bottom attached button">
+              <i class="add icon"></i>
+              Enroll
+            </div>
           </div>
         </div>
-        <div class="ui bottom attached button">
-          <i class="add icon"></i>
-          Add Course
-        </div>
-      </div>
-      <div class="card">
-        <div class="content">
-          <div class="header">Mobile Development</div>
-          <div class="description">
-            Veronika Ossi is a set designer living in New York who enjoys kittens, music, and partying.
-          </div>
-        </div>
-        <div class="ui bottom attached button">
-          <i class="add icon"></i>
-          Add Course
-        </div>
-      </div>
-      <div class="card">
-        <div class="content">
-          <div class="header">Game Development</div>
-          <div class="description">
-            Jenny is a student studying Media Management at the New School
-          </div>
-        </div>
-        <div class="ui bottom attached button">
-          <i class="add icon"></i>
-          Add Course
-        </div>
-      </div>
-      <div class="card">
-        <div class="content">
-          <div class="header">Front End Development</div>
-          <div class="description">
-            Jenny is a student studying Media Management at the New School
-          </div>
-        </div>
-        <div class="ui bottom attached button">
-          <i class="add icon"></i>
-          Add Course
-        </div>
-      </div>
-    </div>
+      <% end %>
 
     </div>
+  </div>
 
+  <div class="three wide column"></div>
 </div>

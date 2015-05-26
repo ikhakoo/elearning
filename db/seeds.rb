@@ -63,19 +63,19 @@ x = ["|","/","-","+","#"]
 end
 puts "Course Seed Complete"
 
-courses = Course.all
-courses.each do |course|
-  order = 1
-  rand(6..10).times do
-    Lesson.create!(
-      name: Faker::Lorem.sentence,
-      description: Faker::Lorem.paragraph,
-      course_id: course.id,
-      lesson_order: order
-      )
-    order += 1
-  end
-end
+# courses = Course.all
+# courses.each do |course|
+#   order = 1
+#   rand(6..10).times do
+#     Lesson.create!(
+#       name: Faker::Lorem.sentence,
+#       description: Faker::Lorem.paragraph,
+#       course_id: course.id,
+#       lesson_order: order
+#       )
+#     order += 1
+#   end
+# end
 
 students = User.where(role: "student")
 
