@@ -49,7 +49,7 @@ private
   end
 
   def access_rights
-    if current_user.role != 'admin' || current_user.role != 'instructor'
+    if current_user.role != 'admin' && current_user.role != 'instructor'
       render text: 'Permissions error!'
     end
   end
