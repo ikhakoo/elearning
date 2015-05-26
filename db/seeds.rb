@@ -48,17 +48,22 @@ end
 puts
 puts "Users seeded."
 
-name  = "Web Development Immersive"
-price = "9000"
-description = "Everything you need to know to be become a professional web developer and launch your own start-up"
-x = ["|","/","-","+","#"]
+names  = ["Web Development Immersive", "Intro to Git and Github",
+  "Bashment Time: Learning Unix command line", "Front-End with JavaScript", "Dev Ops Technology"]
+prices = ["9000", "2000", "2000", "5000", "3000"]
+descriptions = ["Everything you need to know to be become a professional web developer and launch your own start-up",
+  "Learning the essentials of version control", "Embrace the power of the command line", "Style away with JS, HTML, and CSS",
+  "Learn back-end and web hosting technology"]
 
+x = ["|","/","-","+","#"]
+i = 0
 5.times do
     Course.create!(
-      name: name,
-      price: price,
-      description: description
+      name: names[i],
+      price: prices[i],
+      description: descriptions[i]
   	)
+    i+=1
     print x.shuffle.sample
 end
 puts "Course Seed Complete"

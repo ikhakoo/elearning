@@ -21,7 +21,7 @@
 <% end %>
 <%= link_to 'Back', courses_path %> |
 <!-- If user has not already registered for the course then enable register link -->
-<%= link_to_if Enrollment.where(user_id: current_user.id, course_id: @course.id).nil?,'Register Now', new_enrollment_path %>
+<%= link_to_if Enrollment.where(user_id: current_user.id, course_id: @course.id).empty?,'Register Now', new_enrollment_path %>
 
 
 <br>

@@ -1,7 +1,8 @@
 class LessonsController < ApplicationController
- # before_filter :ensure_logged_in, only: [:create, :destroy]
+  before_action :access_rights, only: [:edit, :create, :update, :destroy]
 
   def index
+    @course = load_course
     @lessons = Lesson.all
   end
 
@@ -44,7 +45,13 @@ private
   end
 
   def load_course
-    @course = Course.find(params[:course_id])
+    Course.find(params[:course_id])
+  end
+
+  def access_rights
+    if current_user.role != 'admin' || current_user.role != 'instructor'
+      render text: 'Permissions error!'
+    end
   end
 
 end
