@@ -10,6 +10,7 @@ class CoursesController < ApplicationController
     if current_user
       # @lesson = @course.lessons.build
     end
+    @enrollment = @course.enrollments.build
     @not_enrolled = Enrollment.where(user_id: current_user.id, course_id: @course.id).empty?
     @admin_or_instructor = (current_user.role == "admin" || current_user.role == "instuctor")
   end

@@ -1,13 +1,21 @@
 Rails.application.routes.draw do
 
   devise_for :users
+
   resources :enrollments, only: [:index, :new]
+
+  resources :courses
 
   resources :courses do
   	resources :lessons
 	end
 
-  get 'courses/:course_id/enrollments/new', to: 'enrollments#new', as: :new_course_enrollment
+  resources :courses do
+    resources :enrollments, only: [:index, :new, :create]
+  end
+
+
+  # get 'courses/:course_id/enrollments/new', to: 'enrollments#new', as: :new_course_enrollment
   get 'markdowns/:page_id', to: 'markdowns#show', as: :markdown
 
 

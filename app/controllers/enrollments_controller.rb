@@ -3,7 +3,8 @@ class EnrollmentsController < ApplicationController
     # user must be logged in
     if current_user.role == 'student'
       # display all courses enrolled in
-      @courses_enrolled_in = User.find(current_user.id).courses
+      @user = current_user
+      @courses_enrolled_in = @user.courses
     else
       render text: "You are not a student"
     end
@@ -20,7 +21,7 @@ class EnrollmentsController < ApplicationController
     @enrollment = @course.enrollments.new(course_id: @course.id, user_id: current_user.id)
 
   	if @enrollment.save
-       redirect_to course_path(@course.id), notice: 'Registration created successfully. Please check your e-mail for confirmation'
+       redirect_to course_enrollments_path, notice: 'Registration created successfully. Please check your e-mail for confirmation'
       # UserMailer.conf_email(current_user).deliver_now
     else
       redirect_to root_path, notice: 'Registration failed. Please try again'

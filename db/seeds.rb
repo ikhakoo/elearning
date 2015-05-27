@@ -21,6 +21,15 @@ User.create!(
   role: "admin"
 )
 
+User.create!(
+  first_name: "me",
+  last_name: "me",
+  email: "me@me.com",
+  password: 'password',
+  password_confirmation: 'password',
+  role: "student"
+)
+
 50.times do
   User.create!(
     first_name: Faker::Name.first_name,
