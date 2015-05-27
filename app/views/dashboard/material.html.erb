@@ -1,12 +1,12 @@
 <%= render 'left_sidebar' %>
 <% color = ['blue', 'orange', 'green', 'red', 'purple', 'teal'] %>
-<% current_user.courses.each do |course| %>
-  <% course.lessons.each do |lesson| %>
-    <div class="pusher">
+<div class="pusher">
       <div class="ui grid">
         <div class="two wide column sticky top"></div>
         <div class="nine wide column main container">
         <div class="ui <%= color.sample %> segment" style="margin-top: 40px; margin-bottom: 40px;">
+<% current_user.courses.each do |course| %>
+  <% course.lessons.each do |lesson| %>
           <div class="ui fluid card">
               <div class="image">
                 <h2 style="text-align: center;">
