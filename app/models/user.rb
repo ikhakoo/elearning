@@ -13,4 +13,12 @@ class User < ActiveRecord::Base
   	self.role = 'admin' 
   end
 
+  def is_instructor?
+  	self.role = 'instructor' 
+  end
+
+  def is_student?
+  	self.role = 'student'
+  end
+
 end
