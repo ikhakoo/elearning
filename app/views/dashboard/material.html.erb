@@ -25,13 +25,17 @@
                   <div class="left-fact">
                     <h4 style="color:black">You Will Learn</h4>
                     <ul>
-                      <li><%= lesson.will_learn.split() %>
+                      <%= lesson.wl_show.each do |wl| %>
+                      <li> <% wl %>
+                      <% end %>
                     </ul>
                   </div>
                   <div class="right-fact">
                     <h4 style="color:black">You Will Build</h4>
                     <ul>
-                      <li><%= lesson.will_build.split() %></li>
+                      <%= lesson.wb_show.each do |wb| %>
+                      <li> <% wb %>
+                      <% end %>
                     </ul>
                   </div>
                 </a>
