@@ -11,13 +11,7 @@
  <h2>My Courses</h2> 
 
 <% @courses_enrolled_in.each do |course|%>
-  <p>
-    <%= link_to course.name, course_lessons_path(course) %> <br>
-    <%= course.description %>
-  </p>
-<% end %>
-
-<div class="ui fluid card">
+        <div class="ui fluid card">
           <div class="image">
            <h3 style="text-align: center;"><%= link_to course.name, course_lessons_path(course) %></h3>
           </div>
@@ -29,6 +23,9 @@
             </div>
           </div>
         </div>
+<% end %>
+
+
 
     </div>
     <div class="three wide column"></div>
