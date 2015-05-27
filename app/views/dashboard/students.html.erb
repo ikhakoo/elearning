@@ -6,12 +6,20 @@
 <% end %>
 
 <% @users.each do |user| %>
-	<strong>Email:</strong> <%= user.email %> <strong>Role:</strong> <%= user.role %><br>
-	<strong>Courses:</strong>
-		<% user.courses.each do |course| %>
-			<%= course.name %>
-		<% end %>
-		<br>
+<div class="ui cards">
+  <div class="card">
+		<div class="content">
+			<div class="header"><%= user.email %></div>
+				<div class="description">
+					<p>Courses:</p>
+					<p><% user.courses.each do |course| %>
+					<%= course.name %>
+					<% end %></p>
+				</div>
+			</div>
+	</div>
+</div>
+
 
 <% end %>
 <% else %>
