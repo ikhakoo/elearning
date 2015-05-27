@@ -10,4 +10,6 @@
 
 <!-- Link should direct to some form of payment method, and then create enrollment -->
 <!-- User should receive email confirmation of enrollment -->
-<%= button_to 'Confirm Enrollment', enrollments_path, method: :get %>
+<%= form_for [@course, @enrollment] do |f| %>
+  <%= f.submit 'Confirm Enrollment' %>
+<% end %>

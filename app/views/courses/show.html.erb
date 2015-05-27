@@ -13,19 +13,28 @@
   <%= @course.description %>
 </p>
 
+
 <!-- Admin has full access to editing function -->
 <!-- Instructor can edit course title and description, but not price -->
 <!-- Student does not have edit priviledge -->
 <% if  @admin_or_instructor %>
   <%= link_to 'Edit', edit_course_path(@course) %> |
 <% end %>
-<%= link_to 'Back', courses_path %> |
 <!-- If user has not already registered for the course then enable register link -->
-<%= link_to_if (@not_enrolled && !@admin_or_instructor),'Register Now', new_course_enrollment_path(@course) %>
+<% if @not_enrolled && !@admin_or_instructor %>
+  <%= form_for [@course, @enrollment] do |f| %>
+    <%= f.submit 'Confirm Enrollment' %>
+  <% end %>
+<% end %>
+<%= link_to 'Back', courses_path %> 
 
-<br>
 
-<!-- <div id="placeholder-div1"></div>
+
+<!--
+ <%= link_to_if (@not_enrolled && !@admin_or_instructor),'Register Now', new_course_enrollment_path(@course) %>
+
+ <div id="placeholder-div1"></div>
+
 <script>
   gapi.hangout.render('placeholder-div1', {
     'render': 'createhangout',

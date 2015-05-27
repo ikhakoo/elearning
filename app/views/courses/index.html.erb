@@ -59,20 +59,25 @@
 
    <div class="ten wide column">
     <div class="ui <%= color.sample %> segment" style="margin-top: 40px;">
-      <%  @courses.each do |course| %>
+      <% @courses.each do |course| %>
         
         <div class="ui cards">
           <div class="card">
             <div class="content">
-              <div class="header"><%= course.name %></div>
+              <div class="header">
+                <%= course.name %>
+              </div>
               <div class="description">
                 <%= course.description %>
               </div>
-            </div>
+
+            </div> 
+            <%= link_to course_path(course) do %>
             <div class="ui bottom attached button">
-              <i class="add icon"></i>
+            <i class="add icon"></i>
               Enroll
-            </div>
+            </div>  
+            <% end %>      
           </div>
         </div>
       <% end %>
