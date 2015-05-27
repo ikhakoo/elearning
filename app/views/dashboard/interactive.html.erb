@@ -1,7 +1,10 @@
+ <div id="firepad"></div>
+
+
+
 <script>
   var firepadRef = new Firebase('https://intense-torch-861.firebaseio.com');
   var codeMirror = CodeMirror(document.getElementById('firepad'), { lineWrapping: true });
   var firepad = Firepad.fromCodeMirror(firepadRef, codeMirror,
       { richTextShortcuts: true, richTextToolbar: true, defaultText: 'Hello, World!' });
 </script>
- <div id="firepad"></div>
