@@ -9,4 +9,16 @@ class User < ActiveRecord::Base
   has_many :steps
   has_many :steps, through: :lessons
 
+  def is_admin?
+  	self.role = 'admin' 
+  end
+
+  def is_instructor?
+  	self.role = 'instructor' 
+  end
+
+  def is_student?
+  	self.role = 'student'
+  end
+
 end

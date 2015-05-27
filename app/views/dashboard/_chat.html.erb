@@ -1,0 +1,70 @@
+<!-- FIREBASE AUTH -->
+<script>
+// Create a new Firebase reference, and a new instance of the Login client
+var chatRef = new Firebase('https://intense-torch-861.firebaseio.com/chat');
+chatRef.onAuth(authDataCallback);
+
+
+function login(provider) {
+  chatRef.authWithOAuthPopup(provider, function(error, authData) {
+    if (error) {
+      console.log(error);
+    }
+  });
+}
+
+function authDataCallback(authData) {
+  if (authData) {
+    $("#logged-in-as").text("User " + authData[authData.provider].displayName + " is logged in with " + authData.provider);
+  } else {
+    console.log("User is logged out");
+  }
+}
+chatRef.onAuth(function(authData) {
+  // Once authenticated, instantiate Firechat with our user id and user name
+  if (authData) {
+    initChat(authData);
+  }
+});
+</script>
+
+<script>
+function initChat(authData) {
+  var chat = new FirechatUI(chatRef, document.getElementById('firechat-wrapper'));
+  chat.setUser(authData.uid, authData[authData.provider].displayName);
+}
+$(function() {
+  $("#login-firechat").on('click', function(){
+    $('#login-firechat').hide();
+  })
+});
+</script>
+
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1447766292205972',
+      xfbml      : true,
+      version    : 'v2.3'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="five wide column fixed top center aligned">
+  <br><br>
+  <h1><i class="chat icon"></i>Chat Section</h1>
+  <div id='firechat-wrapper'></div>    
+    <h3>Choose from the options below</h3>
+    <p id="logged-in-as"></p>
+    <a class="item ui button" id="login-firechat" onclick='login("facebook");'>Facebook</a>
+    <a class="item ui button" id="login-firechat" onclick='login("twitter");'>Twitter</a>
+    <a class="item ui button" id="login-firechat" onclick='login("google");'>Google</a>
+</div>

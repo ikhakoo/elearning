@@ -1,7 +1,6 @@
 <%= render 'left_sidebar' %>
 <% color = ['blue', 'orange', 'green', 'red', 'purple', 'teal'] %>
 <% current_user.courses.each do |course| %>
-  <%= course.name %>
     <% course.lessons.each do |lesson| %>
     <div class="pusher">
       <div class="ui grid">
@@ -25,13 +24,17 @@
                   <div class="left-fact">
                     <h4 style="color:black">You Will Learn</h4>
                     <ul>
-                      <li><%= lesson.will_learn.split() %>
+                      <%= lesson.wl_show.each do |wl| %>
+                      <li> <% wl %>
+                      <% end %>
                     </ul>
                   </div>
                   <div class="right-fact">
                     <h4 style="color:black">You Will Build</h4>
                     <ul>
-                      <li><%= lesson.will_build.split() %></li>
+                      <%= lesson.wb_show.each do |wb| %>
+                      <li> <% wb %>
+                      <% end %>
                     </ul>
                   </div>
                 </a>
@@ -43,4 +46,11 @@
               </div>
             </div>
         <% end %>
-<% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <%= render 'chat' %>
+
+</div>
+</div>
