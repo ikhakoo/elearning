@@ -1,4 +1,37 @@
 <div class="ui left vertical inverted labeled icon sidebar menu">
+
+  <% if current_user.is_admin? %>
+
+  <a href="<%= root_path %>" class="item">
+    <i class="home icon"></i>
+    Home
+  </a>
+  <a href="<%= tracks_path %>" class="item">
+    <i class="dashboard icon"></i>
+    Courses
+  </a>
+  <a href="<%= courses_path %>" class="item">
+    <i class="add circle icon"></i>
+    Lessons
+  </a>
+  <a href="<%= courses_path %>" class="item">
+    <i class="tasks icon"></i>
+    Users
+  </a>
+  <a href="<%= interactive_path %>" class="item">
+    <i class="record icon"></i>
+    Placeholder
+  </a>
+  <a href="<%= edit_user_registration_path %>" class="item">
+    <i class="setting icon"></i>
+    Placeholder
+  </a>
+ <%= link_to destroy_user_session_path, { :method => :delete, class: "item"} do %>
+       <i class="sign out icon"></i> Log Out
+<% end %> 
+
+  <% else %>
+
   <a href="<%= root_path %>" class="item">
     <i class="home icon"></i>
     Home
@@ -26,8 +59,12 @@
  <%= link_to destroy_user_session_path, { :method => :delete, class: "item"} do %>
        <i class="sign out icon"></i> Log Out
 <% end %> 
+
+<% end %>
     
 </div>
+
+
 
 
 

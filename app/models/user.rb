@@ -9,4 +9,8 @@ class User < ActiveRecord::Base
   has_many :steps
   has_many :steps, through: :lessons
 
+  def is_admin?
+  	self.role = 'admin' 
+  end
+
 end
