@@ -1,5 +1,6 @@
 class Lesson < ActiveRecord::Base
 	belongs_to :course
+	has_many :chapters
 
 	def wl_show
 		self.will_learn.split()
