@@ -6,4 +6,8 @@ class DashboardController < ApplicationController
   def tracks
   end
 
+  def students
+  	@users = User.all
+  end
+
 end
