@@ -1,6 +1,18 @@
 <% if current_user.is_admin? %>
+<%= form_tag students_path, {method: :get, authentication: false, id: 'search-form'} do %>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag "Search" %>
+        <br>
+<% end %>
+
 <% @users.each do |user| %>
-	<strong>email:</strong> <%= user.email %> <strong>role:</strong> <%= user.role %><br> 
+	<strong>Email:</strong> <%= user.email %> <strong>Role:</strong> <%= user.role %><br>
+	<strong>Courses: 
+		<% user.courses.each do |course| %>
+			<%= course.name %>
+		<% end %>
+		<br>
+
 <% end %>
 <% else %>
 Access Denied
