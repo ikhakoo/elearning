@@ -57,7 +57,7 @@ end
 puts
 puts "Users seeded."
 
-names  = ["Web Development Immersive", "Intro to Git and Github",
+names  = ["Web Development", "Intro to Git and Github",
   "Bashment Time: Learning Unix command line", "Front-End with JavaScript", "Dev Ops Technology"]
 prices = ["9000", "2000", "2000", "5000", "3000"]
 descriptions = ["Everything you need to know to be become a professional web developer and launch your own start-up",
