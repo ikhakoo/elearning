@@ -26,9 +26,7 @@ chatRef.onAuth(function(authData) {
     initChat(authData);
   }
 });
-</script>
 
-<script>
 function initChat(authData) {
   var chat = new FirechatUI(chatRef, document.getElementById('firechat-wrapper'));
   chat.setUser(authData.uid, authData[authData.provider].displayName);

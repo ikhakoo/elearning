@@ -3,3 +3,8 @@
 1. Create tracks page that displays course information based on enrollment
 2. Display Lessons individually based on previous step
 3. Provide links to each "markdown" and a continuation link to the next "markdown"
+
+
+## NEW TO DO'S ##
+1. Implement a private chat area for students with instructors
+2. Integrate a interactive firepad area for shared coding areas as well as video chat
