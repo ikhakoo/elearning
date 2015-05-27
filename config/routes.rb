@@ -22,7 +22,7 @@ Rails.application.routes.draw do
 
   get '/front', to: 'dashboard#front'
   get '/tracks', to: 'dashboard#tracks'
-  get '/interactive', to: 'dashboard#interactive'
+  get '/private_help', to: 'dashboard#private_help'
   get '/material', to: 'dashboard#material'
   get '/students', to: 'dashboard#students'
 
