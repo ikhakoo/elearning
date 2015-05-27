@@ -34,6 +34,13 @@
             <%= f.password_field :current_password, autocomplete: "off" %>
           </div>
 
+          <% if current_user.is_admin? %>
+          <div class="field">
+            <%= f.label :role %><br />
+            <%= f.text_field :role, autocomplete: "off" %>
+          </div>
+          <% end %>
+
           <div class="actions">
             <%= f.submit "Update", :class => "ui primary button" %>
           </div>

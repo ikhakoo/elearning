@@ -10,15 +10,15 @@ class User < ActiveRecord::Base
   has_many :steps, through: :lessons
 
   def is_admin?
-  	self.role = 'admin' 
+  	self.role != 'instructor' && self.role != 'student' 
   end
 
   def is_instructor?
-  	self.role = 'instructor' 
+  	self.role != 'admin' && self.role != 'student' 
   end
 
   def is_student?
-  	self.role = 'student'
+  	self.role != 'instructor' && self.role != 'admin'
   end
 
 end
