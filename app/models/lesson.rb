@@ -9,4 +9,13 @@ class Lesson < ActiveRecord::Base
 		self.will_build.split()
 	end
 
+	# <iframe width="854" height="510" src="https://www.youtube.com/embed/0TEyAPae_f0" frameborder="0" allowfullscreen></iframe>
+	def video_id
+		if video_url =~ /https?:\/\/(?:(?:www\.)?youtube\.com\/watch\?v=|youtu\.be\/)(.+)/
+			$1
+		else
+			raise "Cannot find youtube video url: #{video_url}"
+		end
+	end
+
 end

@@ -19,6 +19,7 @@
 <!-- Student does not have edit priviledge -->
 <% if current_user.is_admin? || current_user.is_instructor? %>
   <%= link_to 'Edit', edit_course_path(@course) %> |
+  <%= link_to 'New Lesson', new_course_lesson_path(@course) %> |
 <% end %>
 <!-- If user has not already registered for the course then enable register link -->
 <% if @not_enrolled && !@admin_or_instructor %>

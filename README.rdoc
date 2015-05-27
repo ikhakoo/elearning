@@ -1,29 +1,35 @@
-== User Stories	
+== User Stories
 
 Iteration 1:
 
-* Users need to be able to sign up
+* Users need to be able to sign up ** [User Controller/Devise Gem]
 
-* Users need to be able to select from a number of course options
+* Users need to be able to select from a number of course options ** [Courses & Enrollments Controller]
 
-* Users need to be able to process payment for selected courses
+* Users need to be able to process payment for selected courses (2nd iteration)
 
-* Users need to have a profile page for all the info pertaining to the course
+* Users need to have a user dashboard page [Dashboard controller]
+    My Courses page: user's associated/enrolled course (student or instructor) [Course/Enrollment Controller]
+    Tracks page: displays lessons for each course enrolled in [Lessons controller]
 
-* Users will need a link to the google hangout lecture on their profile page
+* User should be able watch video lessons [Video Controller]
 
-* User will need a submission page for all the assignments
+* User should be able to complete course (Student progress shown on My Course page)
+    User should be able to start a lesson (lesson have several chapters)
+    User should be able to stop a lesson
 
-* Users will need access to a progress page with a list of all the students
+* Users can chat with T.A. (2nd iteration)
 
-* Users will be able to chat with the instructor and the class through a chat messenger
+* Peer to peer chat (2nd iteration)
 
-* Users will be able to register for private lessons with instructors in the afternoon
+* User will need a submission page for all the assignments (3rd iteration)
 
-* Admin will be able to upload new courses and pricing plans
+* Admin will need access to a progress page with a list of all the students [Course/ controller]
 
-* Admin can upload new instructors into the system
+* Users will be able to register for private lessons with instructors in the afternoon (2nd iteration)
 
-* Instructors login and have access to the create hangout button, as well as curriculum for the day or week or whole course
+* Admin will be able to upload new courses and pricing plans **
 
-* Instructors have access to all the students video windows and chat messenger
+* Admin can upload new instructors into the system **
+
+* Instructors login and have access to curriculum for the day or week or whole course
