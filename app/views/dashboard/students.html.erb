@@ -7,7 +7,7 @@
 
 <% @users.each do |user| %>
 	<strong>Email:</strong> <%= user.email %> <strong>Role:</strong> <%= user.role %><br>
-	<strong>Courses: 
+	<strong>Courses:</strong>
 		<% user.courses.each do |course| %>
 			<%= course.name %>
 		<% end %>
