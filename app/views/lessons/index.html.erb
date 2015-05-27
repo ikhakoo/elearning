@@ -18,6 +18,7 @@
         <td><%= lesson.name %></td>
         <td><%= lesson.description %></td>
         <td><%= lesson.name %></td>
+        <td><iframe width="550" height="315" src="https://www.youtube.com/embed/<%= lesson.video_id %>" frameborder="0" allowfullscreen></iframe></td>
         <% if current_user.role == 'admin' || current_user.role == 'instructor' %>
           <td><%= link_to 'Show', course_lesson_path(lesson, @course) %></td>
           <td><%= link_to 'Edit', edit_course_lesson_path(lesson, @course) %></td>

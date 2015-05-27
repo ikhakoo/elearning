@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150526200107) do
+ActiveRecord::Schema.define(version: 20150527215737) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20150526200107) do
     t.integer  "lesson_order"
     t.string   "will_learn"
     t.string   "will_build"
+    t.string   "video_url"
   end
 
   create_table "steps", force: :cascade do |t|
