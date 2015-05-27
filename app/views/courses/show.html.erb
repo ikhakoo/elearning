@@ -16,7 +16,7 @@
 <!-- Admin has full access to editing function -->
 <!-- Instructor can edit course title and description, but not price -->
 <!-- Student does not have edit priviledge -->
-<% if  @admin_or_instructor %>
+<% if current_user.is_admin? || current_user.is_instructor? %>
   <%= link_to 'Edit', edit_course_path(@course) %> |
 <% end %>
 <%= link_to 'Back', courses_path %> |
