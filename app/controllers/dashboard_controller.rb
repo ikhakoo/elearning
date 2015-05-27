@@ -10,7 +10,7 @@ class DashboardController < ApplicationController
   	@users = if params[:search]
       User.where("LOWER(email) LIKE LOWER(?)", "%#{params[:search]}%")
     else
-      User.all
+      User.where(role: 'student')
     end
 
     respond_to do |format|
