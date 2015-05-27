@@ -59,8 +59,15 @@
 
    <div class="ten wide column">
     <div class="ui <%= color.sample %> segment" style="margin-top: 40px;">
+
+      <h2 style="text-align: center; margin-bottom: 20px;">Enroll In a Course</h2>
+
+      <div class="ui two wide centered column grid">
+
       <% @courses.each do |course| %>
         
+        <div class="six wide column">
+
         <div class="ui cards">
           <div class="card">
             <div class="content">
@@ -80,8 +87,10 @@
             <% end %>      
           </div>
         </div>
+      </div>
       <% end %>
 
+      </div>
     </div>
   </div>
 
