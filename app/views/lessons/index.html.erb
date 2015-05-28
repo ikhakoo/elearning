@@ -39,6 +39,16 @@
                 </a>
               </div>
             </div>
+            <% if lesson.video_id.nil? %>
+        <% else %>
+        <iframe width="550" height="315" src="https://www.youtube.com/embed/<%= lesson.video_id %>" frameborder="0" allowfullscreen></iframe>
+        <% end %>
+        <p><strong>Description: </strong><%= lesson.description %></p>
+        <% if current_user.role == 'admin' || current_user.role == 'instructor' %>
+          <p><%= link_to 'Show', course_lesson_path(@course, lesson) %></p>
+          <p><%= link_to 'Edit', edit_course_lesson_path(@course, lesson) %></p>
+          <p><%= link_to 'Destroy', course_lesson_path(@course, lesson), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+        <% end %>
             <div class="progress">
               <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:14%">
                 <span class="sr-only">14% Complete</span>
