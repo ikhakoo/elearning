@@ -1,35 +1,30 @@
 <p id="notice"><%= notice %></p>
-<%= render 'dashboard/left_sidebar' %>
-<h1>Listing Lessons</h1>
+<div style="text-align:center;">
+  <h1 style="text-align:center;">Listing Lessons</h1>
+  <% if current_user.role == 'admin' || current_user.role == 'instructor' %>
+    <%= link_to 'New Lesson', new_course_lesson_path(@course), class: "ui button" %>
+  <% end %>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Course</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @lessons.each do |lesson| %>
-      <tr>
-        <td><%= lesson.name %></td>
-        <td><%= lesson.description %></td>
-        <td><%= lesson.name %></td>
+<div class="ui grid">
+  <div class="two wide column">
+    <%= render 'dashboard/left_sidebar' %>
+  </div>
+  <div class="twelve wide column center aligned">
+    <div class="ui segment">
+      <% @lessons.each do |lesson| %>
+        <h2>Name: <%= lesson.name %></h2>
+        <iframe width="550" height="315" src="https://www.youtube.com/embed/<%= lesson.video_id %>" frameborder="0" allowfullscreen></iframe>
+        <p><strong>Description: </strong><%= lesson.description %></p>
         <% if current_user.role == 'admin' || current_user.role == 'instructor' %>
-          <td><%= link_to 'Show', course_lesson_path(lesson, @course) %></td>
-          <td><%= link_to 'Edit', edit_course_lesson_path(lesson, @course) %></td>
-          <td><%= link_to 'Destroy', course_lesson_path(@course,lesson), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <p><%= link_to 'Show', course_lesson_path(lesson, @course) %></p>
+          <p><%= link_to 'Edit', edit_course_lesson_path(lesson, @course) %></p>
+          <p><%= link_to 'Destroy', course_lesson_path(@course,lesson), method: :delete, data: { confirm: 'Are you sure?' } %></p>
         <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+        <hr />
+      <% end %>
+    </div>
+  </div>
+  <div class="two wide column"></div>
+</div><br>
 <br>
-
-<% if current_user.role == 'admin' || current_user.role == 'instructor' %>
-  <%= link_to 'New Lesson', new_course_lesson_path(@course) %>
-<% end %>
