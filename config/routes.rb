@@ -2,9 +2,10 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  resources :enrollments, only: [:new, :create, :index]
+
   resources :courses do
     # resources :lessons
-    resources :enrollments, only: [:new, :create, :index]
     resources :lessons, shallow: true do
       resources :chapters, shallow: true
     end
