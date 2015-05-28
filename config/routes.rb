@@ -6,6 +6,10 @@ Rails.application.routes.draw do
 
   resources :courses
 
+  resources :lessons do
+    resources :chapters
+  end
+
   resources :courses do
   	resources :lessons
 	end
