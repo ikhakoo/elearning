@@ -89,6 +89,8 @@ def seed_that_shit
       print x.shuffle.sample
   end
 
+
+
   puts "Course Seed Complete"
 
   courses = Course.all
@@ -105,6 +107,8 @@ def seed_that_shit
       order += 1
     end
   end
+
+
 
   students = User.where(role: "student")
 
