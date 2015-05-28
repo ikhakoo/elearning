@@ -3,9 +3,14 @@ Rails.application.routes.draw do
   devise_for :users
   resources :enrollments, only: :index
   resources :courses do
-    resources :lessons
+    # resources :lessons
     resources :enrollments, only: [:new, :create]
-  end
+    resources :lessons, shallow: true do
+      resources :chapters, shallow: true
+    end
+	end
+
+
 
   # get 'courses/:course_id/enrollments/new', to: 'enrollments#new', as: :new_course_enrollment
   get 'markdowns/:page_id', to: 'markdowns#show', as: :markdown
