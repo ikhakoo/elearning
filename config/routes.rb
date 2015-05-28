@@ -1,17 +1,10 @@
 Rails.application.routes.draw do
 
   devise_for :users
-
-  resources :enrollments, only: [:index, :new]
-
-  resources :courses
-
+  resources :enrollments, only: :index
   resources :courses do
-  	resources :lessons
-	end
-
-  resources :courses do
-    resources :enrollments, only: [:index, :new, :create]
+    resources :lessons
+    resources :enrollments, only: [:new, :create]
   end
 
   # get 'courses/:course_id/enrollments/new', to: 'enrollments#new', as: :new_course_enrollment
@@ -25,7 +18,5 @@ Rails.application.routes.draw do
   get '/private_help', to: 'dashboard#private_help'
   get '/material', to: 'dashboard#material'
   get '/students', to: 'dashboard#students'
-
-  
 
 end
