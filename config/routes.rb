@@ -12,8 +12,6 @@ Rails.application.routes.draw do
     end
 	end
 
-
-
   # get 'courses/:course_id/enrollments/new', to: 'enrollments#new', as: :new_course_enrollment
   get 'markdowns/:page_id', to: 'markdowns#show', as: :markdown
   
@@ -25,5 +23,6 @@ Rails.application.routes.draw do
   get '/private_help', to: 'dashboard#private_help'
   get '/material', to: 'dashboard#material'
   get '/students', to: 'dashboard#students'
+  get '/test', to: 'dashboard#test'
 
 end

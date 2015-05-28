@@ -28,10 +28,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'pg'
 
-
-
+gem 'markdown-rails'
 
 gem 'devise'
+
 gem 'faker'
 
 gem 'font-awesome-rails'

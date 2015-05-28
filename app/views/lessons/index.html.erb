@@ -14,7 +14,10 @@
     <div class="ui segment">
       <% @lessons.each do |lesson| %>
         <h2>Name: <%= lesson.name %></h2>
+        <% if lesson.video_id.nil? %>
+        <% else %>
         <iframe width="550" height="315" src="https://www.youtube.com/embed/<%= lesson.video_id %>" frameborder="0" allowfullscreen></iframe>
+        <% end %>
         <p><strong>Description: </strong><%= lesson.description %></p>
         <% if current_user.role == 'admin' || current_user.role == 'instructor' %>
           <p><%= link_to 'Show', course_lesson_path(lesson, @course) %></p>
