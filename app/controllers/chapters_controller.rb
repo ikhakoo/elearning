@@ -17,12 +17,18 @@ class ChaptersController < ApplicationController
   end
 
    def create
-    @chapter = Chapter.new(chapter_params)
+    @lesson = load_lesson
+    @chapter = @lesson.chapters.build(chapter_params)
 
-    if @chapter.save
-      redirect_to chapters_url
-    else
-      render :new
+    respond_to do |format|
+      if @chapter.save
+        format.html do
+          redirect_to course_lesson_chapter_path(@lesson.id), notice: 'Chapter created successfully'
+        end
+        format.js
+      else
+        format.html { render 'lessons/show', alert: 'There was an error' }
+      end
     end
   end
 
@@ -43,11 +49,11 @@ class ChaptersController < ApplicationController
   end
 
 private
-    def load_course
-      @chapter = Chapter.find(params[:id])
+    def load_lesson
+      @lesson = Lesson.find(params[:id])
     end
 
     def chapter_params
-      params.require(:chapter).permit(:title, :content)
+      params.require(:chapter).permit(:title, :content, :lesson_id)
     end
 end
