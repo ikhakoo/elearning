@@ -23,6 +23,5 @@ Rails.application.routes.draw do
   get '/private_help', to: 'dashboard#private_help'
   get '/material', to: 'dashboard#material'
   get '/students', to: 'dashboard#students'
-  get '/test', to: 'dashboard#test'
 
 end
