@@ -1,48 +1,62 @@
-<p id="notice"><%= notice %></p>
-<div class="ui grid">
-  <div class="two wide column">
-    <%= render 'dashboard/left_sidebar' %>
+<% if current_user.nil? %>
+
+  <!-- Provide regular course details page for site visitors -->
+  <div>
+    <h2>Course Detail Page for Site Visitors</h2>
+    <p>
+      <%= @course.name %> <br>
+      <%= @course.description %> <br>
+      <%= @course.price %>
+    </p>
   </div>
-  <div class="twelve wide column">
-    <div class="ui segment">
-      <div class="ui ribbon label">Course</div>
-        <div style="text-align:center;">
-          <p>
-            <strong>Name:</strong>
-            <%= @course.name %>
-          </p>
-          <p>
-            <strong>Price:</strong>
-            <%= @course.price %>
-          </p>
-          <p>
-            <strong>Description:</strong>
-            <%= @course.description %>
-          </p><br>
-        </div>
-      <div class="ui bottom attached label">
-        <% if @not_enrolled && !@admin_or_instructor %>
-          <%= form_for [@course, @enrollment] do |f| %>
-            <%= f.submit 'Confirm Enrollment' %>
+
+<% else %>
+
+  <p id="notice"><%= notice %></p>
+  <div class="ui grid">
+    <div class="two wide column">
+      <%= render 'dashboard/left_sidebar' %>
+    </div>
+    <div class="twelve wide column">
+      <div class="ui segment">
+        <div class="ui ribbon label">Course</div>
+          <div style="text-align:center;">
+            <p>
+              <strong>Name:</strong>
+              <%= @course.name %>
+            </p>
+            <p>
+              <strong>Price:</strong>
+              <%= @course.price %>
+            </p>
+            <p>
+              <strong>Description:</strong>
+              <%= @course.description %>
+            </p><br>
+          </div>
+        <div class="ui bottom attached label">
+          <% if @not_enrolled && !@admin_or_instructor %>
+            <%= form_for [@course, @enrollment] do |f| %>
+              <%= f.submit 'Confirm Enrollment' %>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
       </div>
     </div>
+    <div class="zero wide column"></div>
   </div>
-  <div class="zero wide column"></div>
-</div>
 
+  <!-- Admin has full access to editing function -->
+  <!-- Instructor can edit course title and description, but not price -->
+  <!-- Student does not have edit priviledge -->
+  <% if current_user.is_admin? || current_user.is_instructor? %>
+    <%= link_to 'Edit', edit_course_path(@course) %> |
+    <%= link_to 'New Lesson', new_course_lesson_path(@course) %> |
+  <% end %>
 
-
-<!-- Admin has full access to editing function -->
-<!-- Instructor can edit course title and description, but not price -->
-<!-- Student does not have edit priviledge -->
-<% if current_user.is_admin? || current_user.is_instructor? %>
-  <%= link_to 'Edit', edit_course_path(@course) %> |
-  <%= link_to 'New Lesson', new_course_lesson_path(@course) %> |
 <% end %>
-<!-- If user has not already registered for the course then enable register link -->
 
+<!-- If user has not already registered for the course then enable register link -->
 
 
 
