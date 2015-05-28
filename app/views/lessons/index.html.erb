@@ -1,49 +1,28 @@
-<%= render 'dashboard/left_sidebar' %>
-<% color = ['blue', 'orange', 'green', 'red', 'purple', 'teal'] %>
-<div class="pusher">
-      <div class="ui grid">
-        <div class="two wide column sticky top"></div>
-        <div class="nine wide column main container">
-        <div class="ui <%= color.sample %> segment" style="margin-top: 40px; margin-bottom: 40px;">
-          <% @course.lessons.each do |lesson| %>
-          <div class="ui fluid card">
-              <div class="image">
-                <h2 style="text-align: center;">
-                  <%= lesson.name %>
-                </h2>
-              </div>
-              <div class="content">
-                <a class="header" href="<%= "courses/#{lesson.course}/lessons/" %>">Start Here!</a>
-                <div class="description">
-                  <%= lesson.description %>
-                </div>
-              </div>
-              <div class="extra content">
-                <a>
-                  <div class="left-fact">
-                    <h4 style="color:black">You Will Learn</h4>
-                    <ul>
-                      <% lesson.wl_show.each do |wl| %>
-                        <li><%= wl %></li>
-                      <% end %>
-                    </ul>
-                  </div>
-                  <div class="right-fact">
-                    <h4 style="color:black">You Will Build</h4>
-                    <ul>
-                      <% lesson.wb_show.each do |wb| %>
-                      <li> <%= wb %>
-                      <% end %>
-                    </ul>
-                  </div>
-                </a>
-              </div>
-            </div>
-            <div class="progress">
-              <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:14%">
-                <span class="sr-only">14% Complete</span>
-              </div>
-            </div>
+<p id="notice"><%= notice %></p>
+<div style="text-align:center;">
+  <h1 style="text-align:center;">Listing Lessons</h1>
+  <% if current_user.role == 'admin' || current_user.role == 'instructor' %>
+    <%= link_to 'New Lesson', new_course_lesson_path(@course), class: "ui button" %>
+  <% end %>
+</div>
+
+<div class="ui grid">
+  <div class="two wide column">
+    <%= render 'dashboard/left_sidebar' %>
+  </div>
+  <div class="twelve wide column center aligned">
+    <div class="ui segment">
+      <% @lessons.each do |lesson| %>
+        <h2>Name: <%= lesson.name %></h2>
+        <% if lesson.video_id.nil? %>
+        <% else %>
+        <iframe width="550" height="315" src="https://www.youtube.com/embed/<%= lesson.video_id %>" frameborder="0" allowfullscreen></iframe>
+        <% end %>
+        <p><strong>Description: </strong><%= lesson.description %></p>
+        <% if current_user.role == 'admin' || current_user.role == 'instructor' %>
+          <p><%= link_to 'Show', course_lesson_path(@course, lesson) %></p>
+          <p><%= link_to 'Edit', edit_course_lesson_path(@course, lesson) %></p>
+          <p><%= link_to 'Destroy', course_lesson_path(@course, lesson), method: :delete, data: { confirm: 'Are you sure?' } %></p>
         <% end %>
     </div>
   </div>
