@@ -1,11 +1,14 @@
 class ChaptersController < ApplicationController
 
   def index
+    @course = Course.find(params[:course_id])
+    @lesson = Lesson.find(params[:lesson_id])
     @chapters = Chapter.all
   end
 
   def show
     @chapter = Chapter.find(params[:id])
+
   end
 
   def new
