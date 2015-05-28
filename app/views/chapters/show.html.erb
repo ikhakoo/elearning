@@ -1,14 +1,11 @@
-<p id="notice"><%= notice %></p>
+<%= render :partial => 'dashboard/left_sidebar' %>
+<% color = ['blue', 'orange', 'green', 'red', 'purple', 'teal'] %>
+<div class="ui three column grid">
+ <div class="four wide column"></div>
+   <div class="eight wide column">
+     <div class="ui segment" style="margin-top: 20px; margin-bottom: 20px;">
+     <%= render :partial => 'show' %>
+   </div>
+ </div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @chapter.title %>
-</p>
-
-<p>
-  <strong>Chapter:</strong>
-  <%= @chapter.content %>
-</p>
-
-<%= link_to 'Edit', edit_course_lesson_path %> |
-<%= link_to 'Back', course_lessons_path %>
+ <div class="four wide column"></div>
