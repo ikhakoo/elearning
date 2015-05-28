@@ -13,6 +13,7 @@ def destroy_that_shit
   User.delete_all
   Lesson.delete_all
   Step.delete_all
+  Chapter.delete_all
 end
 
 def seed_that_shit
@@ -151,9 +152,8 @@ def marking_it_down(file_path)
   end
 end
 
-Dir.glob("lib/curriculum/*/*.md").each {|file_path| marking_it_down(file_path)}
-
 destroy_that_shit
+Dir.glob("lib/curriculum/*/*.md").each {|file_path| marking_it_down(file_path)}
 seed_that_shit
 
 
