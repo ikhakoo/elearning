@@ -1,7 +1,7 @@
 require 'pry'
 require 'redcarpet'
 
-page = File.open(File.join(Rails.root, 'dashboard', "test.md"), 'r') { |f| f.read }
+page = File.open(File.join("/Users/sump/Desktop/bitmakerlabs/elearning/lib/config/curriculum/getting_hired_as_web_dev.md"), 'r') { |f| f.read }
 
 # puts page
 
