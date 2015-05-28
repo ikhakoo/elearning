@@ -1,6 +1,4 @@
 <% @chapters.each do |chapter| %>
-
- <p> <%= chapter.title %></p>
-  <p><%= chapter.content %></p>
-
-  <% end %>
+	<p><%= chapter.content.html_safe %></p>
+	<hr />
+<% end %>
