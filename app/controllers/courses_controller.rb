@@ -1,5 +1,5 @@
 class CoursesController < ApplicationController
-  before_action :access_rights, only: [:edit, :create, :update, :destroy]
+  before_action :access_rights, only: [:new, :edit, :create, :update, :destroy]
 
   def index
     @courses = Course.all
@@ -8,11 +8,10 @@ class CoursesController < ApplicationController
   def show
     load_course
     if current_user
-      # @lesson = @course.lessons.build
+      @enrollment = @course.enrollments.build
+      @not_enrolled = Enrollment.where(user_id: current_user.id, course_id: @course.id).empty?
+      @admin_or_instructor = (current_user.role == "admin" || current_user.role == "instuctor")
     end
-    @enrollment = @course.enrollments.build
-    @not_enrolled = Enrollment.where(user_id: current_user.id, course_id: @course.id).empty?
-    @admin_or_instructor = (current_user.role == "admin" || current_user.role == "instuctor")
   end
 
   def new
@@ -60,7 +59,10 @@ class CoursesController < ApplicationController
     end
 
     def access_rights
-      if current_user.role != 'admin' && current_user.role != 'instructor'
+      if current_user.nil?
+        render text: "You must be logged in!
+        Need to redirect visitor to login / sign-up page."
+      elsif current_user.role != 'admin' && current_user.role != 'instructor'
         render text: 'Permissions error!'
       end
     end

@@ -1,5 +1,5 @@
 class LessonsController < ApplicationController
-  before_action :access_rights, only: [:edit, :create, :update, :destroy]
+  before_action :logged_in?
 
   def index
     @course = load_course
@@ -48,10 +48,9 @@ private
     Course.find(params[:course_id])
   end
 
-  def access_rights
-    if current_user.role != 'admin' && current_user.role != 'instructor'
-      render text: 'Permissions error!'
+  def logged_in?
+    if current_user.nil?
+      render text: "You must be logged in to see lessons!"
     end
   end
-
 end
