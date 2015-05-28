@@ -6,10 +6,10 @@ Rails.application.routes.draw do
 
   resources :courses do
     # resources :lessons
-    resources :enrollments, only: [:new, :create]
-    resources :lessons, shallow: true do
-      resources :chapters, shallow: true
+    resources :lessons do
+      resources :chapters
     end
+    resources :enrollments, only: [:new, :create]
 	end
 
   # get 'courses/:course_id/enrollments/new', to: 'enrollments#new', as: :new_course_enrollment
@@ -23,6 +23,5 @@ Rails.application.routes.draw do
   get '/private_help', to: 'dashboard#private_help'
   get '/material', to: 'dashboard#material'
   get '/students', to: 'dashboard#students'
-  get '/test', to: 'dashboard#test'
 
 end
