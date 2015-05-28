@@ -14,8 +14,8 @@ class Lesson < ActiveRecord::Base
 	def video_id
 		if video_url =~ /https?:\/\/(?:(?:www\.)?youtube\.com\/watch\?v=|youtu\.be\/)(.+)/
 			$1
-		else
-			raise "Cannot find youtube video url: #{video_url}"
+		# else
+		# 	raise "Cannot find youtube video url"
 		end
 	end
 

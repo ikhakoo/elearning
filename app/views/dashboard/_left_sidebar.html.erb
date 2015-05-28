@@ -1,6 +1,7 @@
 <div class="ui left vertical inverted labeled icon sidebar menu">
-
-  <% if current_user.is_admin? %>
+  <% if !current_user %>
+    <%= new_user_session_path %>
+  <% elsif current_user.is_admin? %>
 
     <a href="<%= root_path %>" class="item">
       <i class="home icon"></i>
@@ -30,7 +31,7 @@
          <i class="sign out icon"></i> Log Out
     <% end %>
 
-  <% else %>
+  <% elsif current_user.is_student?%>
 
     <a href="<%= root_path %>" class="item">
       <i class="home icon"></i>

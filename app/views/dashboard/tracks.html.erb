@@ -32,8 +32,8 @@
                   <div class="right-fact">
                     <h4 style="color:black">You Will Build</h4>
                     <ul>
-                      <%= lesson.wb_show.each do |wb| %>
-                      <li> <% wb %>
+                      <% lesson.wb_show.each do |wb| %>
+                      <li> <%= wb %>
                       <% end %>
                     </ul>
                   </div>
