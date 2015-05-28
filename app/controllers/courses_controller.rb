@@ -34,7 +34,7 @@ class CoursesController < ApplicationController
   end
 
   def update
-    load_coarse
+    load_course
 
     if @course.update_attributes(course_params)
       redirect_to course_path(@course)
