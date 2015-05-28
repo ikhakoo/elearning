@@ -17,6 +17,22 @@ class LessonsController < ApplicationController
     @lesson = @course.lessons.build
   end
 
+  def update
+    @course = load_course
+    @lesson = Lesson.find(params[:id])
+
+    if @lesson.update_attributes(lesson_params)
+      redirect_to course_lesson_path
+    else
+      render :edit
+    end
+  end
+
+  def edit
+    @course = load_course
+    @lesson = Lesson.find(params[:id])
+  end
+
   def create
     @course = load_course
     @lesson = @course.lessons.build(lesson_params)
@@ -36,6 +52,7 @@ class LessonsController < ApplicationController
   def destroy
     @lesson = Lesson.find(params[:id])
     @lesson.destroy
+    redirect_to course_path
   end
 
 

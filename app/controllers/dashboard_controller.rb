@@ -4,8 +4,7 @@ class DashboardController < ApplicationController
   def index
   end
 
-  def tracks
-  end
+ 
 
   def students
   	@users = if params[:search]

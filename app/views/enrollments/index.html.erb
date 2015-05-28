@@ -19,7 +19,7 @@
             <div class="description">
               <%= course.description %>
             </div>
-            <a class="header"><%= link_to "Start", course_lessons_path(course), :class => "ui green button", :style => "width: 100%; margin-top: 20px;" %></a>
+            <a class="header"><%= link_to "Start", course_lessons_path(course.id), :class => "ui green button", :style => "width: 100%; margin-top: 20px;" %></a>
           </div>
         </div>
 <% end %>
