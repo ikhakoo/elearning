@@ -3,8 +3,6 @@ class DashboardController < ApplicationController
   def index
   end
 
- 
-
   def students
   	@users = if params[:search]
       User.where("LOWER(email) LIKE LOWER(?)", "%#{params[:search]}%")
