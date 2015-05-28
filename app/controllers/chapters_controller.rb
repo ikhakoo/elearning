@@ -13,6 +13,8 @@ class ChaptersController < ApplicationController
 
   def new
     @chapter = Chapter.new
+    @lesson = load_lesson
+    @course = @lesson.course
   end
 
   def edit
