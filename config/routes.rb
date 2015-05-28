@@ -6,12 +6,12 @@ Rails.application.routes.draw do
 
   resources :courses
 
-  resources :lessons do
-    resources :chapters
-  end
+  
 
   resources :courses do
-  	resources :lessons
+  	resources :lessons, shallow: true do
+      resources :chapters, shallow: true
+    end
 	end
 
   resources :courses do
