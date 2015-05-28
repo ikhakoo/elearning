@@ -20,9 +20,9 @@
         <% end %>
         <p><strong>Description: </strong><%= lesson.description %></p>
         <% if current_user.role == 'admin' || current_user.role == 'instructor' %>
-          <p><%= link_to 'Show', course_lesson_path(lesson, @course) %></p>
-          <p><%= link_to 'Edit', edit_course_lesson_path(lesson, @course) %></p>
-          <p><%= link_to 'Destroy', course_lesson_path(@course,lesson), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+          <p><%= link_to 'Show', course_lesson_path(@course, lesson) %></p>
+          <p><%= link_to 'Edit', edit_course_lesson_path(@course, lesson) %></p>
+          <p><%= link_to 'Destroy', course_lesson_path(@course, lesson), method: :delete, data: { confirm: 'Are you sure?' } %></p>
         <% end %>
         <hr />
       <% end %>
