@@ -24,8 +24,8 @@
                   <div class="left-fact">
                     <h4 style="color:black">You Will Learn</h4>
                     <ul>
-                      <%= lesson.wl_show.each do |wl| %>
-                      <li> <% wl %>
+                      <% lesson.wl_show.each do |wl| %>
+                        <li><%= wl %></li>
                       <% end %>
                     </ul>
                   </div>
