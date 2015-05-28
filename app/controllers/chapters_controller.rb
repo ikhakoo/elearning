@@ -1,11 +1,14 @@
 class ChaptersController < ApplicationController
 
   def index
+    @course = Course.find(params[:course_id])
+    @lesson = Lesson.find(params[:lesson_id])
     @chapters = Chapter.all
   end
 
   def show
     @chapter = Chapter.find(params[:id])
+
   end
 
   def new
@@ -18,6 +21,7 @@ class ChaptersController < ApplicationController
 
    def create
     @lesson = load_lesson
+    @course = @lesson.course
     @chapter = @lesson.chapters.build(chapter_params)
 
     respond_to do |format|
@@ -50,7 +54,7 @@ class ChaptersController < ApplicationController
 
 private
     def load_lesson
-      @lesson = Lesson.find(params[:id])
+      @lesson = Lesson.find(params[:lesson_id])
     end
 
     def chapter_params

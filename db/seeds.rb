@@ -91,7 +91,7 @@ def seed_that_shit
 
   puts "Course Seed Complete"
 
-  # courses = Course.all
+  courses = Course.all
   # order = 1
   # courses.each do |course|
   #   rand(6..10).times do
