@@ -89,7 +89,13 @@ def seed_that_shit
       print x.shuffle.sample
   end
 
-
+ Lesson.create!(
+    name: "Introduction to Web Development",
+    description: "This course will start from zero, answering the basic questions people have about the actual practice and career of web development. You'll gain a much better understanding of what you're about to get into!",
+    course_id: 1,
+    will_learn: "What a web developer really does",
+    will_build: "Hold on, you'll be building soon!",
+    )
 
   puts "Course Seed Complete"
 
