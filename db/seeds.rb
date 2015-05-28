@@ -42,7 +42,7 @@ User.create!(
   print '|'
 end
 
-3.times do
+10.times do
   User.create!(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
@@ -57,12 +57,19 @@ end
 puts
 puts "Users seeded."
 
-names  = ["Web Development", "Intro to Git and Github",
-  "Bashment Time: Learning Unix command line", "Front-End with JavaScript", "Dev Ops Technology"]
+names  = [
+  "Web Development", 
+  "Intro to Git and Github",
+  "Bashment Time: Learning Unix command line", 
+  "Front-End with JavaScript", 
+  "Dev Ops Technology"
+]
 prices = ["9000", "2000", "2000", "5000", "3000"]
-descriptions = ["Everything you need to know to be become a professional web developer and launch your own start-up",
-  "Learning the essentials of version control", "Embrace the power of the command line", "Style away with JS, HTML, and CSS",
-  "Learn back-end and web hosting technology"]
+descriptions = [
+  "Everything you need to know to be become a professional web developer and launch your own start-up",
+  "Learning the essentials of version control", "Embrace the power of the command line", 
+  "Style away with JS, HTML, and CSS", "Learn back-end and web hosting technology"
+]
 
 x = ["|","/","-","+","#"]
 i = 0
@@ -75,21 +82,23 @@ i = 0
     i+=1
     print x.shuffle.sample
 end
+
 puts "Course Seed Complete"
 
-# courses = Course.all
-# courses.each do |course|
-#   order = 1
-#   rand(6..10).times do
-#     Lesson.create!(
-#       name: Faker::Lorem.sentence,
-#       description: Faker::Lorem.paragraph,
-#       course_id: course.id,
-#       lesson_order: order
-#       )
-#     order += 1
-#   end
-# end
+courses = Course.all
+order = 1
+courses.each do |course|
+  rand(6..10).times do
+    Lesson.create!(
+      name: Faker::Lorem.sentence,
+      description: Faker::Lorem.paragraph,
+      course_id: course.id,
+      lesson_order: order,
+      video_url: "https://www.youtube.com/watch?v=0TEyAPae_f0"
+      )
+    order += 1
+  end
+end
 
 students = User.where(role: "student")
 
