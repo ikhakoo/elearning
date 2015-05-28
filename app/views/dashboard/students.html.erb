@@ -4,37 +4,36 @@
 <div class="two wide column sticky top"></div>
 <div class="seven wide column center aligned">
 
-<% if current_user.is_admin? %>
-<br>
-<%= form_tag students_path, {method: :get, authentication: false, id: 'search-form'} do %>
-        <%= text_field_tag :search, params[:search] %>
-        <%= submit_tag "Search" %>
-<% end %>
+		<% if current_user.is_admin? %>
+				<br>
+				<%= form_tag students_path, {method: :get, authentication: false, id: 'search-form'} do %>
+				        <%= text_field_tag :search, params[:search] %>
+				        <%= submit_tag "Search" %>
+				<% end %>
 
-<br>
+				<br>
 
-<% @users.each do |user| %>
-<div class="ui cards">
-  <div class="card" style="width: 450px;">
-		<div class="content">
-			<div class="header"><%= user.first_name %> <%= user.last_name %></div>
-				<div class="description">
-					<p><strong>Email: </strong> <%= user.email %></p>
-					<p>Courses:
-						<% user.courses.each do |course| %>
-							<%= course.name %>, 
-							<% end %>
-					</p>
-				</div>
-			</div>
-	</div>
-</div>
+				<% @users.each do |user| %>
+					<div class="ui cards">
+					  <div class="card" style="width: 450px;">
+							<div class="content">
+								<div class="header"><%= user.first_name %> <%= user.last_name %></div>
+									<div class="description">
+										<p><strong>Email: </strong> <%= user.email %></p>
+										<p>Courses:
+											<% user.courses.each do |course| %>
+												<%= course.name %>,
+												<% end %>
+										</p>
+									</div>
+								</div>
+						</div>
+					</div>
+				<% end %>
+		<% else %>
+				Access Denied
+		<% end %>
 
-
-<% end %>
-<% else %>
-Access Denied
-<% end %>
 </div>
 
 <div class="seven wide column">

@@ -1,4 +1,5 @@
 class DashboardController < ApplicationController
+  before_action :access_rights, only: :students
 
   def index
   end
