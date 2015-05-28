@@ -16,7 +16,7 @@
  */
 #menu-trigger{
 
-  position: absolute;
+  position: fixed;
   /*left: 0px;*/
   top: 100px;
   /*z-index: 1;*/
