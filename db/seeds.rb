@@ -93,20 +93,20 @@ def seed_that_shit
 
   puts "Course Seed Complete"
 
-  courses = Course.all
-  order = 1
-  courses.each do |course|
-    rand(6..10).times do
-      Lesson.create!(
-        name: Faker::Lorem.sentence,
-        description: Faker::Lorem.paragraph,
-        course_id: course.id,
-        lesson_order: order,
-        video_url: "https://www.youtube.com/watch?v=0TEyAPae_f0"
-        )
-      order += 1
-    end
-  end
+  # courses = Course.all
+  # order = 1
+  # courses.each do |course|
+  #   rand(6..10).times do
+  #     Lesson.create!(
+  #       name: Faker::Lorem.sentence,
+  #       description: Faker::Lorem.paragraph,
+  #       course_id: course.id,
+  #       lesson_order: order,
+  #       video_url: "https://www.youtube.com/watch?v=0TEyAPae_f0"
+  #       )
+  #     order += 1
+  #   end
+  # end
 
 
 
