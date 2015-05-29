@@ -21,7 +21,8 @@
 					</div>
 				<% else %>
 					<div class="ui buttons" style="position:absolute; top:-180px; right:20px;">
-						<%= link_to('Dashboard', enrollments_path, class: 'ui primary button' ) %>
+						<%= link_to ('Dashboard'), enrollments_path, class: 'ui primary button' %>
+						<%= link_to('Sign Out', destroy_user_session_path, :method => :delete, class: 'ui red button' ) %>
 					</div>
 				<% end %>
 

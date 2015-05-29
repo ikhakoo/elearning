@@ -41,6 +41,14 @@ def seed_that_shit
     password_confirmation: 'password',
     role: "student"
   )
+  User.create!(
+    first_name: "daniel",
+    last_name: "dvorkin",
+    email: "daniel@dvorkin.com",
+    password: 'password',
+    password_confirmation: 'password',
+    role: "student"
+  )
   puts ""
   puts "Users seeded."
 
@@ -184,6 +192,54 @@ def marking_it_down
   @lesson = @course.lessons.find(4)
 
   @file_paths = Dir.glob("lib/curriculum/lesson_4/*.md")
+
+  @file_paths.each do |file_path| 
+
+    page = File.open(File.join(file_path), 'r') { |f| f.read }
+
+    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true)
+    @markdown_to_html = markdown.render(page)
+
+    chapter_name = file_path.split("/").last.gsub(".md", "").titleize
+    @lesson.chapters.create!(title: chapter_name, content: @markdown_to_html)
+    print "|"
+  end
+
+  @lesson = @course.lessons.find(5)
+
+  @file_paths = Dir.glob("lib/curriculum/lesson_5/*.md")
+
+  @file_paths.each do |file_path| 
+
+    page = File.open(File.join(file_path), 'r') { |f| f.read }
+
+    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true)
+    @markdown_to_html = markdown.render(page)
+
+    chapter_name = file_path.split("/").last.gsub(".md", "").titleize
+    @lesson.chapters.create!(title: chapter_name, content: @markdown_to_html)
+    print "|"
+  end
+
+  @lesson = @course.lessons.find(6)
+
+  @file_paths = Dir.glob("lib/curriculum/lesson_6/*.md")
+
+  @file_paths.each do |file_path| 
+
+    page = File.open(File.join(file_path), 'r') { |f| f.read }
+
+    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true)
+    @markdown_to_html = markdown.render(page)
+
+    chapter_name = file_path.split("/").last.gsub(".md", "").titleize
+    @lesson.chapters.create!(title: chapter_name, content: @markdown_to_html)
+    print "|"
+  end
+
+  @lesson = @course.lessons.find(7)
+
+  @file_paths = Dir.glob("lib/curriculum/lesson_7/*.md")
 
   @file_paths.each do |file_path| 
 
