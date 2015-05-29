@@ -15,4 +15,24 @@ class ApplicationController < ActionController::Base
     ['blue', 'orange', 'green', 'red', 'purple', 'teal'].sample
   end
 
+  def access_rights
+    if logged_in?
+      if !admin_or_instructor?
+        render text: 'Permissions error!'
+      end
+    end
+  end
+
+  # This method does two things: returns a boolean and redirects visitor to login
+  def logged_in?
+    if current_user.nil?
+      redirect_to new_user_session_path
+      return false
+    end
+  end
+
+  def admin_or_instructor?
+    return current_user.is_admin? || current_user.is_instructor?
+  end
+
 end

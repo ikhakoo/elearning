@@ -125,7 +125,7 @@ def lessons_do_it
       "The last component in your web development arsenal is the ability to make your front ends dynamically react to the user. In this course you'll learn how to use Javascript and jQuery to interact with the DOM and make things like dropdown menus, parallax scroll effects, single page applications, and even games. It will tie together everything you've learned already into one awesome package.",
       "You've come extremely far and are now a capable web developer, but, as you've probably realized, the journey of discovery has only just begun. Luckily, you're now useful enough that others will pay you to keep building and learning. . . and in this short course, we'll show you how to make that happen."]
 
-i=0
+  i = 0
   7.times do
     Lesson.create!(
       name: names[i],

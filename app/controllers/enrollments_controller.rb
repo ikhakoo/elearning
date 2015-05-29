@@ -1,9 +1,8 @@
 class EnrollmentsController < ApplicationController
   # Must be a user (or logged in) to use this controller
-  before_action :logged_in?
+  before_action :access_rights
 
   def index
-    # user must be logged in
     if current_user.role == 'student'
       # display all courses enrolled in
       @user = current_user
@@ -41,14 +40,6 @@ class EnrollmentsController < ApplicationController
   end
 
 private
-  def logged_in?
-    if current_user.nil?
-      render text: 'You must be logged in!
-      Need to redirect visitor to login / sign-up page.
-      After sign-up or login user should be directed back to course enrollment'
-    end
-  end
-
   def load_course
     @course = Course.find(params[:course_id])
   end

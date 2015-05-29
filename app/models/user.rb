@@ -10,15 +10,16 @@ class User < ActiveRecord::Base
   has_many :steps, through: :lessons
 
   def is_admin?
-  	self.role != 'instructor' && self.role != 'student' 
+  	self.role != 'instructor' && self.role != 'student'
   end
 
   def is_instructor?
-  	self.role != 'admin' && self.role != 'student' 
+  	self.role != 'admin' && self.role != 'student'
   end
 
-  def is_student?
-  	self.role != 'instructor' && self.role != 'admin'
-  end
+  # Not sure if you need #is_student?; by default the user is a student
+  # def is_student?
+  # 	self.role != 'instructor' && self.role != 'admin'
+  # end
 
 end
