@@ -1,9 +1,10 @@
 <%= render :partial => 'dashboard/left_sidebar' %>
 <% color = ['blue', 'orange', 'green', 'red', 'purple', 'teal'] %>
-<div class="ui three column grid">
- <div class="two wide column"></div>
-   <div class="ten wide column">
-     <div class="ui segment" style="margin-top: 20px; margin-bottom: 20px;">
+<div class="pusher">
+      <div class="ui grid">
+        <div class="two wide column sticky top"></div>
+        <div class="nine wide column main container">
+        <div class="ui <%= color.sample %> segment" style="margin-top: 40px; margin-bottom: 40px;">
 			<% @chapters.each do |chapter| %>
 				<p><%= chapter.content.truncate(200).html_safe %></p>
 				<%= link_to 'Start', course_lesson_chapter_path(@course, @lesson, chapter), class: "ui button" %>
@@ -12,7 +13,7 @@
    </div>
  </div>
 
- <div class="four wide column" id="chat">
+
  	<%= render :partial => 'dashboard/chat' %>
  </div>
  </div>
