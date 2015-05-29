@@ -57,4 +57,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
    def after_inactive_sign_up_path_for(resource)
      super(resource)
    end
+
+   # def make_student
+   #  @user = current_user
+   #  @user.role = "student"
+   #  @user.save
+   # end
 end
