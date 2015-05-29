@@ -3,11 +3,11 @@ class Lesson < ActiveRecord::Base
 	has_many :chapters
 
 	def wl_show
-		self.will_learn.split()
+		will_learn.split(/\n/)
 	end
 
 	def wb_show
-		self.will_build.split()
+		will_build.split(/\n/)
 	end
 
 	# <iframe width="854" height="510" src="https://www.youtube.com/embed/0TEyAPae_f0" frameborder="0" allowfullscreen></iframe>

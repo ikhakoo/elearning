@@ -23,6 +23,7 @@
                   <div class="left-fact">
                     <h4 style="color:black">You Will Learn</h4>
                     <ul>
+                      
                       <% lesson.wl_show.each do |wl| %>
                         <li><%= wl %></li>
                       <% end %>
@@ -32,7 +33,7 @@
                     <h4 style="color:black">You Will Build</h4>
                     <ul>
                       <% lesson.wb_show.each do |wb| %>
-                      <li> <%= wb %>
+                        <li> <%= wb %>
                       <% end %>
                     </ul>
                   </div>
