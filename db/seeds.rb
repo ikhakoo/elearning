@@ -86,7 +86,7 @@ end
 #   end
 # end
 
-def marking_it_down(file_path)
+def marking_it_down1(file_path)
   begin
     page = File.open(File.join(file_path), 'r') { |f| f.read }
 
@@ -95,6 +95,22 @@ def marking_it_down(file_path)
 
     chapter_name = file_path.split("/").last.gsub(".md", "").titleize
     Chapter.create!(title: chapter_name, content: @markdown_to_html, lesson_id: "1")
+    print "|"
+  rescue => e
+    puts "Couldn't load: #{file_path}"
+    binding.pry
+  end
+end
+
+def marking_it_down2(file_path)
+  begin
+    page = File.open(File.join(file_path), 'r') { |f| f.read }
+
+    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true)
+    @markdown_to_html = markdown.render(page)
+
+    chapter_name = file_path.split("/").last.gsub(".md", "").titleize
+    Chapter.create!(title: chapter_name, content: @markdown_to_html, lesson_id: "2")
     print "|"
   rescue => e
     puts "Couldn't load: #{file_path}"
