@@ -9,7 +9,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
    def create
+      puts "top---------------------------------------------------------"
      super
+      puts "ntop---------------------------------------------------------"
+      p instance_variables
    end
 
   # GET /resource/edit

@@ -22,4 +22,12 @@ class User < ActiveRecord::Base
   # 	self.role != 'instructor' && self.role != 'admin'
   # end
 
+  before_save :ensure_there_is_a_role
+
+  def ensure_there_is_a_role
+    if role.blank?
+      self.role = "student"
+    end
+  end
+
 end
