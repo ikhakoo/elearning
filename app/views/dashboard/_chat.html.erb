@@ -1,3 +1,13 @@
+<div class="five wide column fixed top center aligned">
+  <h2><i class="chat icon"></i>Chat Section</h2>
+  <div id='firechat-wrapper'></div>    
+    <h4>Choose from the options below</h4>
+    <p id="logged-in-as"></p>
+    <a class="item ui button" id="login-firechat" onclick='login("facebook");'>Facebook</a>
+    <a class="item ui button" id="login-firechat" onclick='login("twitter");'>Twitter</a>
+    <a class="item ui button" id="login-firechat" onclick='login("google");'>Google</a>
+</div>
+
 <!-- FIREBASE AUTH -->
 <script>
 // Create a new Firebase reference, and a new instance of the Login client
@@ -55,14 +65,3 @@ $(function() {
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
 </script>
-
-<div class="five wide column fixed top center aligned">
-  <br><br>
-  <h1><i class="chat icon"></i>Chat Section</h1>
-  <div id='firechat-wrapper'></div>    
-    <h3>Choose from the options below</h3>
-    <p id="logged-in-as"></p>
-    <a class="item ui button" id="login-firechat" onclick='login("facebook");'>Facebook</a>
-    <a class="item ui button" id="login-firechat" onclick='login("twitter");'>Twitter</a>
-    <a class="item ui button" id="login-firechat" onclick='login("google");'>Google</a>
-</div>

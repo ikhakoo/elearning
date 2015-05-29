@@ -2,8 +2,8 @@
 <% color = ['blue', 'orange', 'green', 'red', 'purple', 'teal'] %>
 <div class="pusher">
       <div class="ui grid">
-        <div class="two wide column sticky top"></div>
-        <div class="nine wide column main container">
+        <div class="one wide column sticky top"></div>
+        <div class="ten wide column main container">
         <div class="ui <%= color.sample %> segment" style="margin-top: 40px; margin-bottom: 40px;">
           <% @course.lessons.each do |lesson| %>
           <div class="ui fluid card">
@@ -13,7 +13,7 @@
                 </h2>
               </div>
               <div class="content">
-                <a class="header" href="<%= course_lesson_chapters_path(@course, lesson) %>">Start Here!</a>
+                <a class="header ui button" href="<%= course_lesson_chapters_path(@course, lesson) %>">Start Here!</a>
                 <div class="description">
                   <%= lesson.description %>
                 </div>
