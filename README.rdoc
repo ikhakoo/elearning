@@ -33,3 +33,38 @@ Iteration 1:
 * Admin can upload new instructors into the system **
 
 * Instructors login and have access to curriculum for the day or week or whole course
+
+
+Update: Review of progress and things to be refined (Fri., May 29, 2015)
+
+1. Update content on landing page
+
+2. Disable E-Learn button on landing page
+
+3. Notice messages need to be reviewed; they are popping in unexpecting places and ways
+
+4. Course show page for visitors needs styling
+
+5. Remove the Track Record button (for all users)
+
+6. Add next page links, back button link, done button link at the button of the lesson/chapter pages
+
+7. Tracking progress needs to be completed
+
+8. Interactive page needs a 'back button' or 'menu bar'
+
+9. Need to add lesson 6 & 7
+
+10. Registration default type need to be addressed
+
+11. Lesson_order in the lessons table needs to be populated when the lessons are created in the database
+
+12. Payment system
+
+
+
+
+
+
+
+
