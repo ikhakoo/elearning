@@ -6,7 +6,7 @@
         <div class="nine wide column main container">
         <div class="ui <%= color.sample %> segment" style="margin-top: 40px; margin-bottom: 40px;">
           <% @chapters.each do |chapter| %>
-				<p><%= chapter.content.truncate(155).html_safe %></p>
+				<p><%= chapter.content.truncate(155).html_safe %></p><br>
 				<%= link_to 'Start', course_lesson_chapter_path(@course, @lesson, chapter), class: "ui button" %>
 				<hr>
 			<% end %> 
