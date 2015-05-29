@@ -160,7 +160,8 @@ destroy_that_shit
 seed_that_shit
 lessons_do_it
 # Dir.glob("lib/curriculum/*/*.md").each {|file_path| marking_it_down(file_path)}
-Dir.glob("lib/curriculum/lesson_1/*.md").each {|file_path| marking_it_down(file_path)}
+Dir.glob("lib/curriculum/lesson_1/*.md").each {|file_path| marking_it_down1(file_path)}
+
 
 
 
