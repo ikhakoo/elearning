@@ -13,7 +13,6 @@
                 </h2>
               </div>
               <div class="content">
-                <a class="header ui button" href="<%= course_lesson_chapters_path(@course, lesson) %>">Start Here!</a>
                 <div class="description">
                   <%= lesson.description %>
                 </div>
@@ -36,27 +35,31 @@
                         <li> <%= wb %>
                       <% end %>
                     </ul>
-                  </div>
+                  </div><hr />
+                  <% if lesson.video_id.nil? %>
+                    <iframe width="730" height="415" src="https://www.youtube.com/embed/Zyu7SWI6wh4" frameborder="0" allowfullscreen></iframe>
+                  <% else %>
+                    <iframe width="730" height="415" src="https://www.youtube.com/embed/<%= lesson.video_id %>" frameborder="0" allowfullscreen></iframe>
+                  <% end %>
+                  <a class="header ui button" href="<%= course_lesson_chapters_path(@course, lesson) %>">Start Here!</a>
                 </a>
               </div>
             </div>
-            <% if lesson.video_id.nil? %>
-        <% else %>
-        <iframe width="550" height="315" src="https://www.youtube.com/embed/<%= lesson.video_id %>" frameborder="0" allowfullscreen></iframe>
-        <% end %>
         <% if current_user.role == 'admin' || current_user.role == 'instructor' %>
-          <p><%= link_to 'Show', course_lesson_path(@course, lesson) %></p>
-          <p><%= link_to 'Edit', edit_course_lesson_path(@course, lesson) %></p>
-          <p><%= link_to 'Destroy', course_lesson_path(@course, lesson), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+          <p>
+            <%= link_to 'Show', course_lesson_path(@course, lesson), class: "ui button"%>
+            <%= link_to 'Edit', edit_course_lesson_path(@course, lesson), class: "ui button" %>
+            <%= link_to 'Destroy', course_lesson_path(@course, lesson), method: :delete, data: { confirm: 'Are you sure?' }, class: "ui button" %>
+          </p>
         <% end %>
-            <div class="progress">
+            <!-- <div class="progress">
               <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:14%">
                 <span class="sr-only">14% Complete</span>
               </div>
-            </div>
+            </div> -->
         <% end %>
     </div>
   </div>
-  <%= render :partial => 'dashboard/chat' %>
+  <%= render :partial => 'dashboard/chat'%>
 </div>
 </div>

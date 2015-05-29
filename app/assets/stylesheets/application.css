@@ -22,6 +22,10 @@
   /*z-index: 1;*/
 }
 
+#chat {
+  position: fixed;
+}
+
 #hero {
   z-index: -1;
   position: fixed;

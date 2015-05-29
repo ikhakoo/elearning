@@ -1,6 +1,12 @@
 <!-- First condition allows visitors to access the course listings and see what the site offers -->
 <% if current_user.nil? %>
-    <p id="notice"><%= notice %></p>
+    <div class="ui success message">
+      <i class="close icon"></i>
+        <div class="header">
+          Your user registration was successful.
+        </div>
+        <p id="notice"><%= notice %></p>
+      </div>
     <div style="text-align:center;">
       <h1>Find Your New Career Today!</h1>
 

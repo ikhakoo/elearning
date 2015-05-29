@@ -52,7 +52,7 @@ class LessonsController < ApplicationController
   def destroy
     @lesson = Lesson.find(params[:id])
     @lesson.destroy
-    redirect_to course_path
+    redirect_to course_lessons_path
   end
 
 
