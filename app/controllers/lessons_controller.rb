@@ -1,5 +1,5 @@
 class LessonsController < ApplicationController
-  before_action :logged_in?
+  before_action :access_rights
 
   def index
     @course = load_course
@@ -63,11 +63,5 @@ private
 
   def load_course
     Course.find(params[:course_id])
-  end
-
-  def logged_in?
-    if current_user.nil?
-      render text: "You must be logged in to see lessons!"
-    end
   end
 end

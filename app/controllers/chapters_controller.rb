@@ -55,6 +55,9 @@ class ChaptersController < ApplicationController
   end
 
 private
+    def load_chapter
+      @chapter = Chapter.find(params[:id])
+
     def load_lesson
       @lesson = Lesson.find(params[:lesson_id])
     end

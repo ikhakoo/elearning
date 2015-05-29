@@ -10,7 +10,7 @@ class CoursesController < ApplicationController
     if current_user
       @enrollment = @course.enrollments.build
       @not_enrolled = Enrollment.where(user_id: current_user.id, course_id: @course.id).empty?
-      @admin_or_instructor = (current_user.role == "admin" || current_user.role == "instuctor")
+      @admin_or_instructor = admin_or_instructor?
     end
   end
 
@@ -20,6 +20,9 @@ class CoursesController < ApplicationController
 
   def edit
     load_course
+    if current_user.is_instructor?
+      @disabled = true
+    end
   end
 
   def create
@@ -48,22 +51,17 @@ class CoursesController < ApplicationController
     redirect_to courses_path
   end
 
-
   private
     def course_params
-      params.require(:course).permit(:name, :price, :description, :date)
+      if current_user.is_admin?
+        params.require(:course).permit(:name, :price, :description, :date)
+      else
+        params.require(:course).permit(:name, :description, :date)
+      end
     end
 
     def load_course
       @course = Course.find(params[:id])
     end
 
-    def access_rights
-      if current_user.nil?
-        render text: "You must be logged in!
-        Need to redirect visitor to login / sign-up page."
-      elsif current_user.role != 'admin' && current_user.role != 'instructor'
-        render text: 'Permissions error!'
-      end
-    end
 end
