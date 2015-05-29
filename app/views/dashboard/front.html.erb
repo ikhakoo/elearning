@@ -4,24 +4,31 @@
 		</div> -->
 <!-- end preloader -->
 
+
 <div class="landing-page" id="landing-page"> 
-	<br><br><br><br><h1 class="huge-text">Become a Developer</h1>
+
+
+
+	<h2 class="huge-text" style="margin-top: 200px;">Become a Developer</h2>
+	<div class="ui inverted button" style="position:absolute; top:-180px; left:20px;">
+  <i class="icon student"></i>
+  E-Learn
+</div>
+				<% if !current_user %>
+					<div class="ui buttons" style="position:absolute; top:-180px; right:20px;">
+		  			<%= link_to('Log In', new_user_session_path, class: 'ui button' ) %>
+		  			<%= link_to('Sign Up', new_user_registration_path, class: 'ui teal button' ) %>
+					</div>
+				<% else %>
+					<div class="ui buttons" style="position:absolute; top:-180px; right:20px;">
+						<%= link_to('Dashboard', enrollments_path, class: 'ui primary button' ) %>
+					</div>
+				<% end %>
 
 	<div class="row">
 			<div class="col-md-12">
-				<% if !current_user %>
-					<div class="ui buttons" >
-		  			<%= link_to('Log In', new_user_session_path, class: 'ui primary button' ) %>
-		  			<%= link_to('Sign Up', new_user_registration_path, class: 'ui positive button' ) %>
-					</div>
-				<% else %>
-					<div class="ui buttons">
-						<%= link_to('View Enrollments', enrollments_path, class: 'ui primary button' ) %>
-					</div>
-				<% end %>
-				<br><br>
 				<div>
-					<%= link_to('Explore Course Offerings', courses_path, class: 'ui teal button' ) %>
+					<%= link_to('Explore Courses', courses_path, class: 'ui teal button' ) %>
 				</div>
 			</div>
 	</div>
@@ -43,14 +50,14 @@
 						<span class="icon icon-bar"></span>
 						<span class="icon icon-bar"></span>
 					</button>
-					<a href="#" class="navbar-brand">Learn</a>
+					<a href="#" class="navbar-brand">E-Learn</a>
 				</div>
 				<div class="collapse navbar-collapse">
 					<ul class="nav navbar-nav navbar-right text-uppercase">
-						<li><a href="#landing-page"><i class="fa fa-binoculars"></i> Explore</a></li>
-						<li><a href="#home"><i class="fa fa-info-circle"></i> Details</a></li>
-						<li><a href="#feature"><i class="fa fa-diamond"></i> About Us</a></li>
-						<li><a href="#contact"><i class="fa fa-envelope"></i> Contact</a></li>
+						<li><a href="#landing-page">Home</a></li>
+						<li><a href="#home">The Program</a></li>
+						<li><a href="#feature">Curriculum</a></li>
+						<li><a href="#contact">Contact</a></li>
 						<li>
 							<% if current_user %>
 									<div class="ui buttons">
@@ -180,7 +187,7 @@
 		<footer style="position: inherit; top: 1300px;">
 			<div class="container">
 				<div class="row">
-					<p>Copyright © 2015 Sup Mutha Fucka's | Bitmaker Labs </p>
+					<p>Copyright © 2015 e-learn.com | A Bitmaker Labs Project</p>
 				</div>
 			</div>
 		</footer>
