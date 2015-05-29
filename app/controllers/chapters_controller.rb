@@ -3,7 +3,7 @@ class ChaptersController < ApplicationController
   def index
     @course = Course.find(params[:course_id])
     @lesson = Lesson.find(params[:lesson_id])
-    @chapters = Chapter.all
+    @chapters = @lesson.chapters
   end
 
   def show

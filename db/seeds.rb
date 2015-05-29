@@ -148,6 +148,22 @@ def marking_it_down1
     @lesson.chapters.create!(title: chapter_name, content: @markdown_to_html)
     print "|"
   end
+
+  @lesson = @course.lessons.find(2)
+
+  @file_paths = Dir.glob("lib/curriculum/lesson_2/*.md")
+
+  @file_paths.each do |file_path| 
+
+    page = File.open(File.join(file_path), 'r') { |f| f.read }
+
+    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true)
+    @markdown_to_html = markdown.render(page)
+
+    chapter_name = file_path.split("/").last.gsub(".md", "").titleize
+    @lesson.chapters.create!(title: chapter_name, content: @markdown_to_html)
+    print "|"
+  end
 end
 
 def marking_it_down2(file_path)
