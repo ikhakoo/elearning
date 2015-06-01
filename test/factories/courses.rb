@@ -4,6 +4,8 @@ FactoryGirl.define do
     description 'learning things!'
     price 2000
 
+    associate :enrollment, factory: :enrollment, strategy: :build
+
   end
 
   factory :invalid_course, parent: :course do

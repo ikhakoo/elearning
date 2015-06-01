@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
   has_many :enrollments
   has_many :courses, through: :enrollments
-  has_many :steps
+  # has_many :steps
   has_many :steps, through: :lessons
 
   def is_admin?
