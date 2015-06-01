@@ -30,10 +30,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<div class="pusher">
+<% if !current_page?('/') %>
+  <%= render_breadcrumbs %>
+  <br>
+<% end %>
 
 <%= yield %>
-
-
+</div>
 </body>
 </html>

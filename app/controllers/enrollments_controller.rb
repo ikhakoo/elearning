@@ -2,6 +2,8 @@ class EnrollmentsController < ApplicationController
   # Must be a user (or logged in) to use this controller
   before_action :access_rights
 
+  add_breadcrumb "My Courses", :enrollments_path
+
   def index
     if current_user.role == 'student'
       # display all courses enrolled in

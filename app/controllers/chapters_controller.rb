@@ -1,5 +1,7 @@
 class ChaptersController < ApplicationController
 
+  before_filter :load_course, :load_lesson, :setup_breadcrumbs
+
   def index
     @course = Course.find(params[:course_id])
     @lesson = Lesson.find(params[:lesson_id])
@@ -7,9 +9,10 @@ class ChaptersController < ApplicationController
   end
 
   def show
+    @course = load_course
     @lesson = Lesson.find(params[:lesson_id])
     @chapter = Chapter.find(params[:id])
-
+    add_breadcrumb @chapter.title, course_lesson_chapters_path(@course, @lesson, @chapter)
   end
 
   def new
@@ -56,12 +59,22 @@ class ChaptersController < ApplicationController
   end
 
 private
+    def setup_breadcrumbs
+      add_breadcrumb "My Courses", :enrollments_path
+      add_breadcrumb @course.name, :course_lessons_path
+      add_breadcrumb @lesson.name, course_lesson_chapters_path(@course, @lesson)
+    end
+
     def load_chapter
       @chapter = Chapter.find(params[:id])
     end
 
     def load_lesson
       @lesson = Lesson.find(params[:lesson_id])
+    end
+
+    def load_course
+      @course = Course.find(params[:course_id])
     end
 
     def chapter_params
