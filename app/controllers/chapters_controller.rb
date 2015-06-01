@@ -7,7 +7,7 @@ class ChaptersController < ApplicationController
   end
 
   def show
-    @lesson = Lesson.find(params[:id])
+    @lesson = Lesson.find(params[:lesson_id])
     @chapter = Chapter.find(params[:id])
 
   end

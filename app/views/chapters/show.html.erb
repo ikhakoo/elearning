@@ -1,8 +1,12 @@
 <% color = ['blue', 'orange', 'green', 'red', 'purple', 'teal'] %>
 <div class="ui grid">
+
+	<!-- MAIN SIDEBAR COLUMN -->
  	<div class="one wide column">
  		<%= render :partial => 'dashboard/left_sidebar' %>
  	</div>
+ 	
+ 	<!-- MAIN VIDEO COLUMN -->
  	<div class="five wide column">
  		<% if @lesson.video_id.nil? %>
  			<br>
@@ -12,13 +16,17 @@
       <iframe id="lesson-video" width="400" height="615" src="https://www.youtube.com/embed/<%= @lesson.video_id %>" frameborder="0" allowfullscreen></iframe>
     <% end %>
  	</div>
-  <div class="six wide column">
+
+ 	<!-- MAIN CONTENT CLOUMN -->
+  <div class="seven wide column">
     <div class="ui segment" style="margin-top: 20px; margin-bottom: 20px;">
     	<%= render :partial => 'show' %>
   	</div>
  	</div>
 
- 	<div class="four wide column">
+ 	<!-- MAIN CHAT COLUMN -->
+ 	<div class="three wide column">
  		<%= render 'dashboard/chat' %>
  	</div>
+ 	
 </div>
