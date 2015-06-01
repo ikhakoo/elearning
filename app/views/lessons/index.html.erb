@@ -36,14 +36,9 @@
                       <% end %>
                     </ul>
                   </div><hr />
-                  <% if lesson.video_id.nil? %>
-                    <iframe width="730" height="415" src="https://www.youtube.com/embed/Zyu7SWI6wh4" frameborder="0" allowfullscreen></iframe>
-                  <% else %>
-                    <iframe width="730" height="415" src="https://www.youtube.com/embed/<%= lesson.video_id %>" frameborder="0" allowfullscreen></iframe>
-                  <% end %>
-                  <a class="header ui button" href="<%= course_lesson_chapters_path(@course, lesson) %>">Start Here!</a>
                 </a>
               </div>
+              <a class="header ui button primary" href="<%= course_lesson_chapters_path(@course, lesson) %>">Start Here!</a>
             </div>
         <% if current_user.role == 'admin' || current_user.role == 'instructor' %>
           <p>
