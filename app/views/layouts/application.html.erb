@@ -31,7 +31,7 @@
 </head>
 <body>
 
-<% if current_page?(root_path) %>
+<% if current_page?(root_path) || current_page?(interactive_path) %>
 
 <%= yield %>
 
