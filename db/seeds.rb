@@ -136,7 +136,8 @@ def marking_it_down
       description: descriptions[i],
       course_id: 1,
       will_learn: "#{x1}\n#{x2}\n#{x3}",
-      will_build: "Hold on, you'll be building soon!"
+      will_build: "Hold on, you'll be building soon!",
+      lesson_count: i + 1
     )
     i+=1
   end
@@ -145,7 +146,7 @@ def marking_it_down
 
   @file_paths = Dir.glob("lib/curriculum/lesson_1/*.md")
 
-  @file_paths.each do |file_path| 
+  @file_paths.inject(1) do |chapter_count, file_path| 
 
     page = File.open(File.join(file_path), 'r') { |f| f.read }
 
@@ -153,15 +154,16 @@ def marking_it_down
     @markdown_to_html = markdown.render(page)
 
     chapter_name = file_path.split("/").last.gsub(".md", "").titleize
-    @lesson.chapters.create!(title: chapter_name, content: @markdown_to_html)
-    print "|"
+    @lesson.chapters.create!(title: chapter_name, content: @markdown_to_html, chapter_count: chapter_count)
+    print "|" 
+    chapter_count + 1
   end
 
   @lesson = @course.lessons.find(2)
 
   @file_paths = Dir.glob("lib/curriculum/lesson_2/*.md")
 
-  @file_paths.each do |file_path| 
+  @file_paths.inject(1) do |chapter_count, file_path| 
 
     page = File.open(File.join(file_path), 'r') { |f| f.read }
 
@@ -169,15 +171,16 @@ def marking_it_down
     @markdown_to_html = markdown.render(page)
 
     chapter_name = file_path.split("/").last.gsub(".md", "").titleize
-    @lesson.chapters.create!(title: chapter_name, content: @markdown_to_html)
+    @lesson.chapters.create!(title: chapter_name, content: @markdown_to_html, chapter_count: chapter_count)
     print "|"
+    chapter_count + 1
   end
 
   @lesson = @course.lessons.find(3)
 
   @file_paths = Dir.glob("lib/curriculum/lesson_3/*.md")
 
-  @file_paths.each do |file_path| 
+  @file_paths.inject(1) do |chapter_count, file_path| 
 
     page = File.open(File.join(file_path), 'r') { |f| f.read }
 
@@ -185,15 +188,16 @@ def marking_it_down
     @markdown_to_html = markdown.render(page)
 
     chapter_name = file_path.split("/").last.gsub(".md", "").titleize
-    @lesson.chapters.create!(title: chapter_name, content: @markdown_to_html)
+    @lesson.chapters.create!(title: chapter_name, content: @markdown_to_html, chapter_count: chapter_count)
     print "|"
+    chapter_count + 1
   end
 
   @lesson = @course.lessons.find(4)
 
   @file_paths = Dir.glob("lib/curriculum/lesson_4/*.md")
 
-  @file_paths.each do |file_path| 
+  @file_paths.inject(1) do |chapter_count, file_path| 
 
     page = File.open(File.join(file_path), 'r') { |f| f.read }
 
@@ -201,15 +205,16 @@ def marking_it_down
     @markdown_to_html = markdown.render(page)
 
     chapter_name = file_path.split("/").last.gsub(".md", "").titleize
-    @lesson.chapters.create!(title: chapter_name, content: @markdown_to_html)
+    @lesson.chapters.create!(title: chapter_name, content: @markdown_to_html, chapter_count: chapter_count)
     print "|"
+    chapter_count + 1
   end
 
   @lesson = @course.lessons.find(5)
 
   @file_paths = Dir.glob("lib/curriculum/lesson_5/*.md")
 
-  @file_paths.each do |file_path| 
+  @file_paths.inject(1) do |chapter_count, file_path| 
 
     page = File.open(File.join(file_path), 'r') { |f| f.read }
 
@@ -217,15 +222,16 @@ def marking_it_down
     @markdown_to_html = markdown.render(page)
 
     chapter_name = file_path.split("/").last.gsub(".md", "").titleize
-    @lesson.chapters.create!(title: chapter_name, content: @markdown_to_html)
+    @lesson.chapters.create!(title: chapter_name, content: @markdown_to_html, chapter_count: chapter_count)
     print "|"
+    chapter_count + 1
   end
 
   @lesson = @course.lessons.find(6)
 
   @file_paths = Dir.glob("lib/curriculum/lesson_6/*.md")
 
-  @file_paths.each do |file_path| 
+  @file_paths.inject(1) do |chapter_count, file_path| 
 
     page = File.open(File.join(file_path), 'r') { |f| f.read }
 
@@ -233,15 +239,16 @@ def marking_it_down
     @markdown_to_html = markdown.render(page)
 
     chapter_name = file_path.split("/").last.gsub(".md", "").titleize
-    @lesson.chapters.create!(title: chapter_name, content: @markdown_to_html)
+    @lesson.chapters.create!(title: chapter_name, content: @markdown_to_html, chapter_count: chapter_count)
     print "|"
+    chapter_count + 1
   end
 
   @lesson = @course.lessons.find(7)
 
   @file_paths = Dir.glob("lib/curriculum/lesson_7/*.md")
 
-  @file_paths.each do |file_path| 
+  @file_paths.inject(1) do |chapter_count, file_path| 
 
     page = File.open(File.join(file_path), 'r') { |f| f.read }
 
@@ -249,8 +256,9 @@ def marking_it_down
     @markdown_to_html = markdown.render(page)
 
     chapter_name = file_path.split("/").last.gsub(".md", "").titleize
-    @lesson.chapters.create!(title: chapter_name, content: @markdown_to_html)
+    @lesson.chapters.create!(title: chapter_name, content: @markdown_to_html, chapter_count: chapter_count)
     print "|"
+    chapter_count + 1
   end
 end
 

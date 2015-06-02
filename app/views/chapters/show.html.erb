@@ -21,8 +21,12 @@
     	<%= render :partial => 'show' %>
   	</div>
   	<div style="float: left;">
-  		<%= link_to 'Before', course_lesson_chapter_path(@course, @lesson, @chapter.before), class: "ui button primary" %>
-  		<%= link_to 'Next', course_lesson_chapter_path(@course, @lesson, @chapter.next), class: "ui button primary pull right" %>
+  		<% if !@chapter.first_of_course? %>
+  			<%= link_to 'Before', course_lesson_chapter_path(@prev_chapter.course, @prev_chapter.lesson, @prev_chapter), class: "ui button primary" %>
+  		<% end %>
+  		<% if !@chapter.last_of_course? %>
+  			<%= link_to 'Next', course_lesson_chapter_path(@next_chapter.course, @next_chapter.lesson, @next_chapter), class: "ui button primary pull right" %>
+  		<% end %>
   	</div>
  	</div>
 

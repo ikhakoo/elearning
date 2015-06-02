@@ -10,8 +10,10 @@ class ChaptersController < ApplicationController
 
   def show
     @course = load_course
-    @lesson = Lesson.find(params[:lesson_id])
     @chapter = Chapter.find(params[:id])
+    @lesson = @chapter.lesson
+    @next_chapter = @chapter.next
+    @prev_chapter = @chapter.before
     add_breadcrumb @chapter.title, course_lesson_chapters_path(@course, @lesson, @chapter)
   end
 
