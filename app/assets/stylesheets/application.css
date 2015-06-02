@@ -240,3 +240,8 @@
   position: fixed;
   max-width: "80%"
 }
+
+#breadcrumbs {
+  position: fixed;
+  z-index: 1;
+}
