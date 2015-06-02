@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     resources :enrollments, only: [:new, :create]
 	end
 
+  resources :interactives
+
   # get 'courses/:course_id/enrollments/new', to: 'enrollments#new', as: :new_course_enrollment
   get 'markdowns/:page_id', to: 'markdowns#show', as: :markdown
   

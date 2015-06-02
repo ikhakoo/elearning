@@ -1,0 +1,19 @@
+<h1>New Interactive Session</h1>
+<%= link_to "Back to Interactive", interactives_path %>
+<%= form_for @interactive do |f| %>
+  <p>
+    <%= f.label :url %><br>
+    <%= f.text_field :url %>
+  </p>
+  <p>
+    <%= f.label :password %><br>
+    <%= f.text_field :password %>
+  </p>
+  <p>
+    <%= f.label :about %><br>
+    <%= f.text_field :about %>
+  </p>
+  <p>
+    <%= f.submit "Save" %>
+  </p>
+<% end %>
