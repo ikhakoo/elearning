@@ -1,5 +1,6 @@
 class Chapter < ActiveRecord::Base
   belongs_to :lesson
+  has_many :steps
 
   def next
   	id + 1
