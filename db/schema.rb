@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 20150602035750) do
   end
 
   create_table "steps", force: :cascade do |t|
-    t.integer  "lesson_id"
+    t.integer  "chapter_id"
     t.integer  "user_id"
     t.boolean  "completed"
     t.datetime "created_at", null: false
