@@ -1,19 +1,27 @@
-<h1>New Interactive Session</h1>
-<%= link_to "Back to Interactive", interactives_path %>
-<%= form_for @interactive do |f| %>
-  <p>
-    <%= f.label :url %><br>
-    <%= f.text_field :url %>
-  </p>
-  <p>
-    <%= f.label :password %><br>
-    <%= f.text_field :password %>
-  </p>
-  <p>
-    <%= f.label :about %><br>
-    <%= f.text_field :about %>
-  </p>
-  <p>
-    <%= f.submit "Save" %>
-  </p>
-<% end %>
+<div class="ui grid">
+  <div class="two wide column">
+    <%= render 'dashboard/left_sidebar' %>
+  </div>
+  <div class="ten wide column center aligned">
+    <div class="ui segment">
+      <h1>New Interactive Session</h1>
+      <%= form_for @interactive do |f| %>
+        <p>
+          <%= f.label :url %><br>
+          <%= f.text_field :url %>
+        </p>
+        <p>
+          <%= f.label :password %><br>
+          <%= f.text_field :password %>
+        </p>
+        <p>
+          <%= f.label :about %><br>
+          <%= f.text_field :about %>
+        </p>
+        <p><%= f.submit "Save", class: "ui button" %></p>
+        <p><%= link_to "Back to Interactive", interactives_path, class: "ui button" %></p>
+      <% end %>
+    </div>
+  </div>
+  <div class="four wide column"></div>
+</div>
