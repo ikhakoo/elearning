@@ -1,23 +1,20 @@
 <%= render 'dashboard/left_sidebar' %>
+
 <% color = ['blue', 'orange', 'green', 'red', 'purple', 'teal'] %>
+
 <div class="pusher">
-      <div class="ui grid">
-        <div class="one wide column sticky top"></div>
-        <div class="ten wide column main container">
+  <div class="ui grid">
+    <div class="one wide column sticky top"></div>
+      <div class="ten wide column main container">
         <div class="ui <%= color.sample %> segment" style="margin-top: 40px; margin-bottom: 40px;">
+          <h1 style="text-align:center;">Chapter Listing</h1><hr />
           <% @chapters.each do |chapter| %>
-				<p><%= chapter.content.truncate(155).html_safe %></p><br>
-				<%= link_to 'Start', course_lesson_chapter_path(@course, @lesson, chapter), class: "ui button" %>
-				<hr>
-			<% end %> 
-    </div>
+				    <p><%= chapter.content.truncate(155).html_safe %></p><br>
+				    <%= link_to 'Start', course_lesson_chapter_path(@course, @lesson, chapter), class: "ui button primary" %>
+				    <hr>
+			    <% end %> 
+        </div>
+      </div>
+    <%= render :partial => 'dashboard/chat' %>
   </div>
-  <%= render :partial => 'dashboard/chat' %>
 </div>
-</div>
-
-
-
-
-
- 

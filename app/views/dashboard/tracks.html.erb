@@ -1,36 +1,38 @@
-<%= render 'left_sidebar' %>
 <% color = ['blue', 'orange', 'green', 'red', 'purple', 'teal'] %>
 <div class="pusher">
-      <div class="ui grid">
-        <div class="two wide column sticky top"></div>
-        <div class="nine wide column main container">
-        <div class="ui <%= color.sample %> segment" style="margin-top: 40px; margin-bottom: 40px;">
-          <% current_user.courses.each do |course| %>
+  <div class="ui grid">
+    <div class="one wide column sticky top">
+      <%= render 'left_sidebar' %>
+    </div>
+    <div class="ten wide column main container">
+      <div class="ui <%= color.sample %> segment" style="margin-top: 40px; margin-bottom: 40px;">
+       <h1 style="text-align:center;">Track your Progress</h1>
+        <% current_user.courses.each do |course| %>
           <% course.lessons.each do |lesson| %>
-          <div class="ui fluid card">
+            <div class="ui fluid card">
               <div class="image">
                 <h2 style="text-align: center;">
                   <%= lesson.name %>
                 </h2>
               </div>
               <div class="content">
-                <a class="header ui button" href="<%= "courses/#{course.id}/lessons/" %>">Learn More!</a>
                 <div class="description">
                   <%= lesson.description %>
                 </div>
+                <a class="header ui button primary" href="<%= "courses/#{course.id}/lessons/" %>">Learn More!</a>
               </div>
             </div>
             <div class="progress">
-              <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:14%">
+              <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:0.5%">
                 <span class="sr-only">14% Complete</span>
               </div>
             </div>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
     </div>
+    <%= render :partial => 'chat' %>
   </div>
-  <%= render :partial => 'chat' %>
-</div>
 </div>
 
 

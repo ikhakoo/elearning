@@ -1,0 +1,11 @@
+<% if @interactive.password != '' %>
+	<div class="ui segment center aligned">
+		<p>Enter the password: </p>
+		<input type="textbox"/>
+		<button type="button" class="ui buttons">Submit</button>
+	</div>
+<% else %>
+
+<iframe width="100%" height="630px" src="<%= @interactive.url %>" frameborder="0" allowfullscreen></iframe>
+
+<% end %>

@@ -34,6 +34,8 @@ gem 'faker'
 
 gem 'font-awesome-rails'
 
+gem 'breadcrumbs_on_rails'
+
 # redcarpet gem to parse markdown
 gem 'redcarpet'
 

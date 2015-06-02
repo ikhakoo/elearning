@@ -1,9 +1,10 @@
 class LessonsController < ApplicationController
   before_action :access_rights
-
+  add_breadcrumb "My Courses", :enrollments_path
   def index
     @course = load_course
     @lessons = Lesson.all
+    add_breadcrumb @course.name, :course_lessons_path
   end
 
 

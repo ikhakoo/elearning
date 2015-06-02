@@ -1,13 +1,32 @@
-<%= render :partial => 'dashboard/left_sidebar' %>
 <% color = ['blue', 'orange', 'green', 'red', 'purple', 'teal'] %>
 <div class="ui grid">
- <div class="one wide column"></div>
-   <div class="ten wide column">
-     <div class="ui segment" style="margin-top: 20px; margin-bottom: 20px;">
-     <%= render :partial => 'show' %>
-   </div>
- </div>
 
- <div class="five wide column">
- 	<%= render 'dashboard/chat' %>
- </div>
+	<!-- MAIN SIDEBAR COLUMN -->
+ 	<div class="one wide column">
+ 		<%= render :partial => 'dashboard/left_sidebar' %>
+ 	</div>
+ 	
+ 	<!-- MAIN VIDEO COLUMN -->
+ 	<div class="eleven wide column">
+ 		<% if @lesson.video_id.nil? %>
+ 			<br>
+      <iframe id="lesson-video" width="870" height="400" src="https://www.youtube.com/embed/Zyu7SWI6wh4" frameborder="0" allowfullscreen></iframe>
+    <% else %>
+    	<br>
+      <iframe id="lesson-video" width="870" height="400" src="https://www.youtube.com/embed/<%= @lesson.video_id %>" frameborder="0" allowfullscreen></iframe>
+    <% end %>
+
+    <div class="ui <%= color.sample %> segment" style="margin-top: 420px; margin-bottom: 20px; z-index: -1;">
+    	<%= render :partial => 'show' %>
+  	</div>
+  	<div style="float: left;">
+  		<%= link_to 'Before', course_lesson_chapter_path(@course, @lesson, @chapter.before), class: "ui button primary" %>
+  		<%= link_to 'Next', course_lesson_chapter_path(@course, @lesson, @chapter.next), class: "ui button primary pull right" %>
+  	</div>
+ 	</div>
+
+ 	<!-- MAIN CONTENT CLOUMN -->
+  <div class="four wide column">
+  		<%= render 'dashboard/chat' %>
+ 	</div>
+</div>

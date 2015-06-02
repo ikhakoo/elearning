@@ -22,10 +22,6 @@
   /*z-index: 1;*/
 }
 
-#chat {
-  position: fixed;
-}
-
 #hero {
   z-index: -1;
   position: fixed;
@@ -240,3 +236,12 @@
   position: fixed;
 }
 
+#lesson-video {
+  position: fixed;
+  max-width: "80%"
+}
+
+#breadcrumbs {
+  position: fixed;
+  z-index: 1;
+}

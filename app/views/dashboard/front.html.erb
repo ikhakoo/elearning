@@ -3,25 +3,22 @@
 		<div class="sk-spinner sk-spinner-rotating-plane"></div>
 		</div> -->
 <!-- end preloader -->
-
-
 <div class="landing-page" id="landing-page"> 
-
-
-
 	<h2 class="huge-text" style="margin-top: 200px;">Become a Developer</h2>
 	<div class="ui inverted button" style="position:absolute; top:-180px; left:20px;">
   <i class="icon student"></i>
-  E-Learn
+  Learn-IT
 </div>
 				<% if !current_user %>
 					<div class="ui buttons" style="position:absolute; top:-180px; right:20px;">
 		  			<%= link_to('Log In', new_user_session_path, class: 'ui button' ) %>
+		  			<div class="or"></div>
 		  			<%= link_to('Sign Up', new_user_registration_path, class: 'ui teal button' ) %>
 					</div>
 				<% else %>
 					<div class="ui buttons" style="position:absolute; top:-180px; right:20px;">
 						<%= link_to ('Dashboard'), enrollments_path, class: 'ui primary button' %>
+						<div class="or"></div>
 						<%= link_to('Sign Out', destroy_user_session_path, :method => :delete, class: 'ui red button' ) %>
 					</div>
 				<% end %>
@@ -29,7 +26,7 @@
 	<div class="row">
 			<div class="col-md-12">
 				<div>
-					<%= link_to('Explore Courses', courses_path, class: 'ui teal button' ) %>
+					<%= link_to('Explore the Courses', courses_path, class: 'ui teal button' ) %>
 				</div>
 			</div>
 	</div>
@@ -51,7 +48,7 @@
 						<span class="icon icon-bar"></span>
 						<span class="icon icon-bar"></span>
 					</button>
-					<a href="#" class="navbar-brand">E-Learn</a>
+					<a href="#" class="navbar-brand">Learn-IT</a>
 				</div>
 				<div class="collapse navbar-collapse">
 					<ul class="nav navbar-nav navbar-right text-uppercase">
@@ -79,9 +76,9 @@
 					<div class="row">
 						<div class="col-md-1"></div>
 						<div class="col-md-10 wow fadeIn" data-wow-delay="0.3s">
-							<h1 class="text-upper">Software Landing Page</h1>
-							<p class="tm-white">This is a fully Responsive, Clean Design, Modern, and Flexible Software Landing Page for startups, businesses and agencies. It is built with HTML5 &amp; CSS3, Bootstrap 3.3.4, Font Awesome 4.3.0, and much more.</p>
-							<%= image_tag('software-img.png') %>
+							<h1 class="text-upper">The Program</h1>
+							<p class="tm-white">We offer a number of courses and update them regularly so that all our material is relevant in helping you launch or progress your Developer career!</p>
+							<%= image_tag('second.png') %>
 						</div>
 						<div class="col-md-1"></div>
 					</div>
@@ -96,18 +93,18 @@
 				<div class="row">
 					<div class="col-md-4 wow fadeInUp templatemo-box" data-wow-delay="0.3s">
 						<i class="fa fa-laptop"></i>
-						<h3 class="text-uppercase">RESPONSIVE LAYOUT</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation. </p>
+						<h3 class="text-uppercase">LEARN</h3>
+						<p>We'll guide you through the best videos, tutorials, blog posts, and courses on the web for learning each subject. </p>
 					</div>
 					<div class="col-md-4 wow fadeInUp templatemo-box" data-wow-delay="0.3s">
-						<i class="fa fa-twitter"></i>
-						<h3 class="text-uppercase">BOOTSTRAP 3.3.4</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation. </p>
+						<i class="fa fa-users"></i>
+						<h3 class="text-uppercase">WORK WITH OTHERS</h3>
+						<p>Learning on your own sucks (we've been there). We're building tools to connect you with other students along the way so you can pair up on the projects or just work through those annoying bugs with someone else across the world. </p>
 					</div>
 					<div class="col-md-4 wow fadeInUp templatemo-box" data-wow-delay="0.3s">
-						<i class="fa fa-font"></i>
-						<h3 class="text-uppercase">GOOGLE FONT</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation. </p>
+						<i class="fa fa-magic"></i>
+						<h3 class="text-uppercase">BUILD</h3>
+						<p>You will build dozens of projects along the way, from simple scripts to full programs and deployed websites </p>
 					</div>
 				</div>
 			</div>
@@ -119,24 +116,24 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6 wow fadeInLeft" data-wow-delay="0.6s">
-						<h2 class="text-uppercase">Our Software Features</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-						<p><span><i class="fa fa-mobile"></i></span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-						<p><i class="fa fa-code"></i>Quis autem velis reprehenderit et quis voluptate velit esse quam.</p>
+						<h2 class="text-uppercase">Our Curriculum</h2>
+						<p>The curriculum is really flexible -- when a better way to learn something comes along we can just use that instead!</p>
+						<p><span><i class="fa fa-mobile"></i></span>If you want to learn web development, you've come to the right place. We found the best free resources out there and grouped them into the courses listed below so you don't have to waste time doing it yourself. We've also created projects for you to build along the way so you can really learn the material and boost your portfolio.</p>
+						<p><i class="fa fa-code"></i>The courses are designed to be completed in order, so start from the top and work your way down. The best part is, it's free!</p>
 					</div>
 					<div class="col-md-6 wow fadeInRight" data-wow-delay="0.6s">
-						<%= image_tag('software-img.png') %>
+						<%= image_tag('first.png') %>
 					</div>
 				</div><hr />
 				<div class="row">
 					<div class="col-md-6 wow fadeInLeft" data-wow-delay="0.6s">
-						<%= image_tag('software-img.png') %>
+						<%= image_tag('second.png') %>
 					</div>
 					<div class="col-md-6 wow fadeInRight" data-wow-delay="0.6s">
-						<h2 class="text-uppercase">More of Your Software</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-						<p><span><i class="fa fa-mobile"></i></span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-						<p><i class="fa fa-code"></i>Quis autem velis reprehenderit et quis voluptate velit esse quam.</p>
+						<h2 class="text-uppercase">Full Stack Web Development</h2>
+						<p>Learn to rapidly develop and deploy websites using Ruby on Rails.</p>
+						<p><span><i class="fa fa-mobile"></i></span>Make your websites dynamic and smooth with javascript and jQuery.</p>
+						<p><i class="fa fa-code"></i>Once you've got the skills required we guide you into finding your dream job!</p>
 					</div>
 				</div>
 			</div>
@@ -150,11 +147,11 @@
 					<div class="row">
 						<div class="col-md-6 wow fadeInUp" data-wow-delay="0.6s">
 							<h2 class="text-uppercase">Contact Us</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation. </p>
+							<p>Please don't hesitate in contacting us if you have any questions or other inquires. </p>
 							<address>
-								<p><i class="fa fa-map-marker"></i>1234 Street Name, City Name, United States</p>
-								<p><i class="fa fa-phone"></i> 0992 234234 / 0234 234234</p>
-								<p><i class="fa fa-envelope-o"></i> hello@yoursite.com</p>
+								<p><i class="fa fa-map-marker"></i> 220 King St W, Suite 200, Toronto, ON M5H 1K4</p>
+								<p><i class="fa fa-phone"></i> (647) 498-5904</p>
+								<p><i class="fa fa-envelope-o"></i> contact@elearning-group.com</p>
 							</address>
 						</div>
 						<div class="col-md-6 wow fadeInUp" data-wow-delay="0.6s">
@@ -188,7 +185,7 @@
 		<footer style="position: inherit; top: 1300px;">
 			<div class="container">
 				<div class="row">
-					<p>Copyright © 2015 e-learn.com | A Bitmaker Labs Project</p>
+					<p>Copyright © 2015 elearngroup.com | A Bitmaker Labs Project</p>
 				</div>
 			</div>
 		</footer>

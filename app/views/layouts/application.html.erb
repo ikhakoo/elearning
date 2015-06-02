@@ -2,7 +2,7 @@
 <html>
 <head>
   <link rel="favicon" href="../../assets/images/e-learning-logo.ico" />
-  <title>eLearning Group</title>
+  <title>Learn-IT</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   
@@ -24,17 +24,23 @@
   <!-- Firepad -->
   <link rel="stylesheet" href="https://cdn.firebase.com/libs/firepad/1.1.0/firepad.css" />
   <script src="https://cdn.firebase.com/libs/firepad/1.1.0/firepad.min.js"></script>
-
-  <script src="../../assets/javascripts/firepad-userlist.js"></script>
-  <link rel="stylesheet" href="../../assets/stylesheets/firepad-userlist.css" />
+  <!-- <script src="../../assets/javascripts/firepad-userlist.js"></script> -->
+  <!-- <link rel="stylesheet" href="../../assets/stylesheets/firepad-userlist.css" /> -->
 <%= favicon_link_tag 'favicon.ico' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-
+<% if current_page?(root_path) %>
 <%= yield %>
 
+<% elsif !current_page?('/') %>
+<div class="pusher">
+  <div id="breadcrumbs"><%= render_breadcrumbs %></div>
+  <br>
 
+<%= yield %>
+</div>
+<% end %>
 </body>
 </html>

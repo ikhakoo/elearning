@@ -156,7 +156,7 @@ def marking_it_down
     "You've come extremely far and are now a capable web developer, but, as you've probably realized, the journey of discovery has only just begun. Luckily, you're now useful enough that others will pay you to keep building and learning. . . and in this short course, we'll show you how to make that happen."]
 
   i = 0
-  5.times do
+  7.times do
     course.lessons.create!(
       name: names[i],
       description: descriptions[i],
