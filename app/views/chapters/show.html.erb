@@ -7,16 +7,17 @@
  	</div>
  	
  	<!-- MAIN VIDEO COLUMN -->
- 	<div class="eleven wide column">
+ 	<div class="seven wide column">
  		<% if @lesson.video_id.nil? %>
  			<br>
-      <iframe id="lesson-video" width="870" height="400" src="https://www.youtube.com/embed/Zyu7SWI6wh4" frameborder="0" allowfullscreen></iframe>
+      <iframe id="lesson-video" width="550" height="400" src="https://www.youtube.com/embed/Zyu7SWI6wh4" frameborder="0" allowfullscreen></iframe>
     <% else %>
     	<br>
-      <iframe id="lesson-video" width="870" height="400" src="https://www.youtube.com/embed/<%= @lesson.video_id %>" frameborder="0" allowfullscreen></iframe>
+      <iframe id="lesson-video" width="550" height="400" src="https://www.youtube.com/embed/<%= @lesson.video_id %>" frameborder="0" allowfullscreen></iframe>
     <% end %>
-
-    <div class="ui <%= color.sample %> segment" style="margin-top: 420px; margin-bottom: 20px; z-index: -1;">
+  </div>
+  <div class="seven wide column">
+    <div class="ui <%= color.sample %> segment" style="margin-top: 70px;margin-bottom: 20px; z-index: -999;">
     	<%= render :partial => 'show' %>
   	</div>
   	<div style="float: left;">
@@ -26,7 +27,7 @@
  	</div>
 
  	<!-- MAIN CONTENT CLOUMN -->
-  <div class="four wide column">
-  		<%= render 'dashboard/chat' %>
+  <div class="one wide column">
+  		<%= render 'dashboard/right_sidebar' %>
  	</div>
 </div>
