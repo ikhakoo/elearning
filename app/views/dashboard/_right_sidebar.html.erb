@@ -1,19 +1,16 @@
-<div class="ui right vertical inverted labeled icon sidebar menu">
+<div class="ui large right vertical inverted labeled icon sidebar menu">
   <% if !current_user %>
     <%= new_user_session_path %>
   <% else %>
-    <%= render 'dashboard/chat' %>
+    <div class="item">
+      <%= render 'dashboard/chat' %>
+    </div>
   <% end %>
 </div>
 
-
-
-
-
-<div class="ui black big launch right attached fixed button" id="menu-trigger-right">
+<div class="ui black big launch left attached fixed button" id="menu-trigger-right">
   <i class="chat icon"></i>
 </div>
-
 
 <script>
   $('.black.big.launch').on('click', function() {
