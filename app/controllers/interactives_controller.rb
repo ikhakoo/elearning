@@ -56,8 +56,4 @@ class InteractivesController < ApplicationController
     params.require(:interactive).permit(:url, :is_private, :password, :about)
   end
 
-  def check_pass
-    Interactive.find(params[:password])
-  end
-
 end
