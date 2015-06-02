@@ -2,7 +2,7 @@
 <html>
 <head>
   <link rel="favicon" href="../../assets/images/e-learning-logo.ico" />
-  <title>eLearning Group</title>
+  <title>Learn-IT</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   
@@ -32,7 +32,6 @@
 <body>
 
 <% if current_page?(root_path) %>
-
 <%= yield %>
 
 <% elsif !current_page?('/') %>

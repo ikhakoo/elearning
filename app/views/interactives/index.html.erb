@@ -1,7 +1,29 @@
-<h1>Currently <%= @interactives.length %> public sessions</h1>
+<br>
+<div class="ui grid">
+	<div class="one wide column">
+		<%= render 'dashboard/left_sidebar' %>
+	</div>	
+	<div class="ten wide column center aligned">
+		<h1>Currently
+			
+			<% if @interactives.length <= 1 %>
+				<%= @interactives.length %> public session</h1>
+			<% elsif @interactives.length > 1 %>
+				<%= @interactives.length %> public sessions</h1>
+			<% end %>
 
-<% @interactives.each do |interactive| %>
-  <%= interactive.about %> | 
-  <a href="<%= interactive.url %>">Room</a> |
-<p><%= link_to "Edit", edit_interactive_path(interactive) %> | <%= link_to "Delete", (interactive), method: :delete, data: {confirm: "Are you sure you want to delete this session?"}  %></p> </div>
-<% end %>	
+		<%= link_to 'Add Room', new_interactive_path, class: "ui button" %>
+		<% @interactives.each do |interactive| %>
+			<div class="ui segment">
+  			<p><%= interactive.about %></p>
+ 				<%= link_to 'Go to Room', interactive_path(interactive.id), class: "ui button primary" %><hr />
+				<%= link_to "Edit", edit_interactive_path(interactive), class: "ui button" %>
+				<%= link_to "Delete", (interactive), method: :delete, data: {confirm: "Are you sure you want to delete this session?"}, class: "ui button" %>
+				</p>
+			</div>
+		<% end %>	
+	</div>
+	<div class="five wide column">
+		<%= render 'dashboard/chat' %>
+	</div>
+</div>
