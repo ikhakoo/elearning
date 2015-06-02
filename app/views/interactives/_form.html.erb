@@ -1,3 +1,4 @@
+<br><br>
 <div class="ui grid">
   <div class="two wide column">
     <%= render 'dashboard/left_sidebar' %>
@@ -6,20 +7,22 @@
     <div class="ui segment">
       <h1>New Interactive Session</h1>
       <%= form_for @interactive do |f| %>
-        <p>
-          <%= f.label :url %><br>
-          <%= f.text_field :url %>
+        <p>Step 1.<br>
+          <a href="https://kobra.io/#/" target="_blank" class="ui button">Create Kobra Room</a>
+          THEN ENTER
+          <%= f.text_field :url, placeholder: "Kobra Room url" %><br>
         </p>
-        <p>
-          <%= f.label :password %><br>
-          <%= f.text_field :password %>
+        <p>Step 2.
+          <%= f.text_field :password, placeholder: "Password for Room" %>
         </p>
-        <p>
-          <%= f.label :about %><br>
-          <%= f.text_field :about %>
+        <p>Step 3.
+          <%= f.text_field :about, placeholder: "Enter Details" %>
         </p>
-        <p><%= f.submit "Save", class: "ui button" %></p>
-        <p><%= link_to "Back to Interactive", interactives_path, class: "ui button" %></p>
+        <div class="ui buttons">
+          <%= f.submit "Save", class: "ui button primary" %>
+          <div class="or"></div>
+          <%= link_to "Back", interactives_path, class: "ui button red" %>
+        </div>
       <% end %>
     </div>
   </div>

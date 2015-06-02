@@ -1,4 +1,5 @@
 class InteractivesController < ApplicationController
+  before_filter :load_bread
 
 	def index
 		@interactives = Interactive.all
@@ -6,10 +7,13 @@ class InteractivesController < ApplicationController
 
   def show
     @interactive = Interactive.find(params[:id])
+    add_breadcrumb @interactive.about, interactive_path(@interactive)
+
   end
 
 	def new
     @interactive = Interactive.new
+    add_breadcrumb "Create New Room", :new_interactive_path
   end
 
   def create
@@ -54,6 +58,10 @@ class InteractivesController < ApplicationController
   private
   def interactive_params
     params.require(:interactive).permit(:url, :is_private, :password, :about)
+  end
+
+  def load_bread
+    add_breadcrumb "Interactive Hub", :interactives_path
   end
 
 end
