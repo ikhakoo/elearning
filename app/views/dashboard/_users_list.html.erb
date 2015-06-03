@@ -1,0 +1,16 @@
+
+  <div class="ui cards">
+    <div class="card" style="width: 450px;">
+      <div class="content">
+        <div class="header"><%= user.first_name %> <%= user.last_name %></div>
+        <div class="description">
+          <p><strong>Email: </strong> <%= user.email %></p>
+          <p>Courses:
+            <% user.courses.each do |course| %>
+              <%= course.name %>,
+            <% end %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>

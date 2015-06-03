@@ -30,7 +30,7 @@ Iteration 1:
 
 * Admin will be able to upload new courses and pricing plans - DONE
 
-* Admin can upload new instructors into the system **
+* Admin can upload new instructors into the system - AVERY
 
 * Instructors login and have access to curriculum for the day or week or whole course
 
