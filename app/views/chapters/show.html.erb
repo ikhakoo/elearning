@@ -7,7 +7,7 @@
  	</div>
  	
  	<!-- MAIN VIDEO COLUMN -->
- 	<div class="seven wide column">
+ 	<div class="seven wide column" style="margin-top: 100px;">
  		<% if @lesson.video_id.nil? %>
  			<br>
       <iframe id="lesson-video" width="550" height="400" src="https://www.youtube.com/embed/Zyu7SWI6wh4" frameborder="0" allowfullscreen></iframe>
@@ -32,6 +32,8 @@
 
  	<!-- MAIN CONTENT CLOUMN -->
   <div class="one wide column">
-  	<%= render 'dashboard/right_sidebar' %>
+  	<div class="pusher">
+  		<%= render :partial => 'dashboard/right_sidebar' %>
+  	</div>
  	</div>
 </div>
