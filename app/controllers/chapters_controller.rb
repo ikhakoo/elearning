@@ -60,34 +60,34 @@ class ChaptersController < ApplicationController
     redirect_to chapters_path
   end
 
-   def student_progress
-     @user = current_user
-     @chapter = Chapter.find(params[:id])
-     @user.chapters << @chapter
-     flash[:notice] = 'Well Done!'
-     redirect_to chapter_path(@chapter)
-   end
+ def student_progress
+   @user = current_user
+   @chapter = Chapter.find(params[:id])
+   @user.chapters << @chapter
+   flash[:notice] = 'Well Done!'
+   redirect_to chapter_path(@chapter)
+ end
 
 private
-    def setup_breadcrumbs
-      add_breadcrumb "My Courses", :enrollments_path
-      add_breadcrumb @course.name, :course_lessons_path
-      add_breadcrumb @lesson.name, course_lesson_chapters_path(@course, @lesson)
-    end
+  def setup_breadcrumbs
+    add_breadcrumb "My Courses", :enrollments_path
+    add_breadcrumb @course.name, :course_lessons_path
+    add_breadcrumb @lesson.name, course_lesson_chapters_path(@course, @lesson)
+  end
 
-    def load_chapter
-      @chapter = Chapter.find(params[:id])
-    end
+  def load_chapter
+    @chapter = Chapter.find(params[:id])
+  end
 
-    def load_lesson
-      @lesson = Lesson.find(params[:lesson_id])
-    end
+  def load_lesson
+    @lesson = Lesson.find(params[:lesson_id])
+  end
 
-    def load_course
-      @course = Course.find(params[:course_id])
-    end
+  def load_course
+    @course = Course.find(params[:course_id])
+  end
 
-    def chapter_params
-      params.require(:chapter).permit(:title, :content, :lesson_id)
-    end
+  def chapter_params
+    params.require(:chapter).permit(:title, :content, :lesson_id)
+  end
 end
