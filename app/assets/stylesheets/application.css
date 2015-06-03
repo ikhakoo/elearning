@@ -18,14 +18,15 @@
 
   position: fixed;
   /*left: 0px;*/
-  top: 40px;
-  /*z-index: 1;*/
+  top: 60px;
+  z-index: 99;
 }
 
 #menu-trigger-right {
   position: fixed;
   right: 0px;
-  top: 40px;
+  top: 60px;
+  z-index: 100;
 }
 
 #hero {
@@ -249,5 +250,5 @@
 
 #breadcrumbs {
   position: fixed;
-  z-index: 1;
+  z-index: 999;
 }

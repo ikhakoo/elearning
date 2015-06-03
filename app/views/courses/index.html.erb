@@ -54,12 +54,12 @@
         <%= render :partial => 'dashboard/left_sidebar' %>
       </div>
       <div class="fourteen wide column">
-        <div class="ui <%= color.sample %> segment" style="margin-top: 40px;">
+        <div class="ui <%= color.sample %> segment" style="margin-top: 90px;">
           <% if current_user.is_admin? %>
             <%= link_to 'New Course', new_course_path, class: "ui button" %>
           <% end %>
           <h2 style="text-align: center; margin-bottom: 20px;">Enroll In a Course</h2>
-          <div class="ui two wide centered column grid">
+          <div class="ui wide centered column grid">
             <% @courses.each do |course| %>
               <div class="five wide column">
                 <div class="ui cards">
