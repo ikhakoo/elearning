@@ -27,7 +27,7 @@ class ChaptersController < ApplicationController
     @chapter = Chapter.find(params[:id])
   end
 
-   def create
+  def create
     @lesson = load_lesson
     @course = @lesson.course
     @chapter = @lesson.chapters.build(chapter_params)
@@ -59,6 +59,14 @@ class ChaptersController < ApplicationController
     @chapter.destroy
     redirect_to chapters_path
   end
+
+   def student_progress
+     @user = current_user
+     @chapter = Chapter.find(params[:id])
+     @user.chapters << @chapter
+     flash[:notice] = 'Well Done!'
+     redirect_to chapter_path(@chapter)
+   end
 
 private
     def setup_breadcrumbs

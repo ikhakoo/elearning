@@ -1,7 +1,7 @@
 class Chapter < ActiveRecord::Base
   belongs_to :lesson
   has_one :course, through: :lesson
-  has_many :steps
+  has_and_belongs_to_many :users
 
   def next
   	if !last_of_course?
