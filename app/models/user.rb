@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_many :courses, through: :enrollments
   # has_many :steps
   has_many :steps, through: :lessons
+  has_and_belongs_to_many :chapters
 
   def is_admin?
   	self.role != 'instructor' && self.role != 'student'

@@ -7,7 +7,10 @@ Rails.application.routes.draw do
   resources :courses do
     # resources :lessons
     resources :lessons do
-      resources :chapters
+      resources :chapters #do
+        # get 'student_progress', :on => :collection
+        # post 'student_progress', :on => :collection
+      #end
     end
     resources :enrollments, only: [:new, :create]
 	end
@@ -25,5 +28,7 @@ Rails.application.routes.draw do
   get '/private_help', to: 'dashboard#private_help'
   get '/material', to: 'dashboard#material'
   get '/students', to: 'dashboard#students'
+
+  match 'student_progress' => 'chapters#student_progress', :as =>'student_progress', via: [:get, :post]
 
 end

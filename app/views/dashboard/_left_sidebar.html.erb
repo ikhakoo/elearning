@@ -22,7 +22,7 @@
     </a>
     <a href="<%= interactives_path %>" class="item">
       <i class="record icon"></i>
-      Placeholder
+      Interactive
     </a>
     <a href="<%= edit_user_registration_path %>" class="item">
       <i class="setting icon"></i>
@@ -63,18 +63,16 @@
 
 </div>
 
-
-
-
-
-<div class="ui black big launch right attached fixed button" id="menu-trigger">
+<div class="ui primary big launch right attached fixed button" id="menu-trigger">
   <i class="content icon"></i>
 </div>
 
 
 <script>
-  $('.black.big.launch').on('click', function() {
-    $('.left.sidebar').sidebar('toggle');
+  $('#menu-trigger').on('click', function() {
+    $('.left.sidebar')
+    .sidebar('setting', 'transition', 'push')
+    .sidebar('toggle')
   });
 </script>
 

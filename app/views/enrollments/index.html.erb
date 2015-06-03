@@ -1,36 +1,36 @@
 <!-- index view for courses the user is enrolled in -->
-<%= render :partial => 'dashboard/left_sidebar' %>
- 
 <% color = ['blue', 'orange', 'green', 'red', 'purple', 'teal'] %>  
 <div class="pusher">
-      <div class="ui grid">
-        <div class="one wide column sticky top"></div>
-        <div class="ten wide column main container">
-        <div class="ui <%= color.sample %> segment" style="margin-top: 40px; margin-bottom: 40px;">
-
- <h1 style="text-align: center;">My Courses</h1> 
-
-<% @courses_enrolled_in.each do |course|%>
+  <div class="ui grid">
+    
+    <div class="one wide column sticky top">
+      <%= render :partial => 'dashboard/left_sidebar' %>
+    </div>
+    
+    <div class="fourteen wide column main container">
+      <div class="ui <%= color.sample %> segment" style="margin-top: 40px; margin-bottom: 40px;">
+      <h1 style="text-align: center;">My Courses</h1> 
+      <% @courses_enrolled_in.each do |course|%>
         <div class="ui fluid card">
           <div class="image">
-           <h3 style="text-align: center;"><%= link_to course.name, course_lessons_path(course) %></h3>
+            <h3 style="text-align: center;"><%= link_to course.name, course_lessons_path(course) %></h3>
           </div>
           <div class="content">
             <div class="description">
               <%= course.description %>
             </div>
-            <a class="header"><%= link_to "Start", course_lessons_path(course.id), :class => "ui green button", :style => "width: 100%; margin-top: 20px;" %></a>
+            <a class="header">
+              <%= link_to "Start", course_lessons_path(course.id), :class => "ui green button", :style => "width: 100%; margin-top: 20px;" %>
+            </a>
           </div>
         </div>
-<% end %>
-
-
-
+      <% end %>
+      </div>
     </div>
-   
+    <div class="one wide column">
+      <%= render :partial => 'dashboard/right_sidebar' %> 
+    </div>
   </div>
-   <%= render :partial => 'dashboard/chat' %>
-</div>
 </div>
 
 

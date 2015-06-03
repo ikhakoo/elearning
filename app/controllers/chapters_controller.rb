@@ -1,6 +1,6 @@
 class ChaptersController < ApplicationController
   
-  before_filter :load_course, :load_lesson, :setup_breadcrumbs
+  # before_filter :load_course, :load_lesson, :setup_breadcrumbs
 
   def index
     @course = Course.find(params[:course_id])
@@ -10,8 +10,10 @@ class ChaptersController < ApplicationController
 
   def show
     @course = load_course
-    @lesson = Lesson.find(params[:lesson_id])
     @chapter = Chapter.find(params[:id])
+    @lesson = @chapter.lesson
+    @next_chapter = @chapter.next
+    @prev_chapter = @chapter.before
     add_breadcrumb @chapter.title, course_lesson_chapters_path(@course, @lesson, @chapter)
   end
 
@@ -25,7 +27,7 @@ class ChaptersController < ApplicationController
     @chapter = Chapter.find(params[:id])
   end
 
-   def create
+  def create
     @lesson = load_lesson
     @course = @lesson.course
     @chapter = @lesson.chapters.build(chapter_params)
@@ -57,6 +59,14 @@ class ChaptersController < ApplicationController
     @chapter.destroy
     redirect_to chapters_path
   end
+
+   def student_progress
+     @user = current_user
+     @chapter = Chapter.find(params[:id])
+     @user.chapters << @chapter
+     flash[:notice] = 'Well Done!'
+     redirect_to chapter_path(@chapter)
+   end
 
 private
     def setup_breadcrumbs

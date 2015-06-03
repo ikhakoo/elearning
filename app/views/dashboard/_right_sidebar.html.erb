@@ -1,0 +1,21 @@
+<div class="ui large right vertical inverted labeled icon sidebar menu">
+  <% if !current_user %>
+    <%= new_user_session_path %>
+  <% else %>
+    <div class="item">
+      <%= render 'dashboard/chat' %>
+    </div>
+  <% end %>
+</div>
+
+<div class="ui primary big launch left attached fixed button" id="menu-trigger-right">
+  <i class="chat icon"></i>
+</div>
+
+<script>
+  $('#menu-trigger-right').on('click', function() {
+    $('.right.sidebar')
+    .sidebar('setting', 'transition', 'push')
+    .sidebar('toggle');
+  });
+</script>

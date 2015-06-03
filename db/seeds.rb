@@ -163,7 +163,9 @@ def marking_it_down
       course_id: course.id,
       will_learn: "#{x1}\n#{x2}\n#{x3}",
       will_build: "Hold on, you'll be building soon!",
+
       lesson_order: i+1
+
     )
     i+=1
   end
@@ -174,7 +176,7 @@ def marking_it_down
   all_lessons.each do |lesson|
     file_paths = Dir.glob("lib/curriculum/lesson_#{lesson_number}/*.md")
 
-    file_paths.each do |file_path|
+  file_paths.inject(1) do |chapter_count, file_path|
 
       page = File.open(file_path, 'r') { |f| f.read }
 
@@ -182,10 +184,11 @@ def marking_it_down
       markdown_to_html = markdown.render(page)
 
       chapter_name = file_path.split("/").last.gsub(".md", "").titleize
-      lesson.chapters.create!(title: chapter_name, content: markdown_to_html)
+      lesson.chapters.create!(title: chapter_name, content: markdown_to_html, chapter_count: chapter_count)
       print w
       print 13.chr
       w = w + 1
+      chapter_count + 1
     end
     lesson_number+=1
   end
