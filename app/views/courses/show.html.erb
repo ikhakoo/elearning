@@ -55,9 +55,11 @@
   <!-- Instructor can edit course title and description, but not price -->
   <!-- Student does not have edit priviledge -->
   <% if current_user.is_admin? || current_user.is_instructor? %>
-    <%= link_to 'Edit', edit_course_path(@course) %> |
-    <%= link_to 'New Lesson', new_course_lesson_path(@course) %> |
-    <%= link_to 'All Lessons', course_lessons_path(@course) %>
+    <div style="text-align:center;"><br>
+      <%= link_to 'Edit', edit_course_path(@course) , class: "ui button"%>
+      <%= link_to 'New Lesson', new_course_lesson_path(@course), class: "ui button" %>
+      <%= link_to 'All Lessons', course_lessons_path(@course), class: "ui button" %>
+    </div>
   <% end %>
 
 <% end %>

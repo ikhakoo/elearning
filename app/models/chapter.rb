@@ -8,7 +8,8 @@ class Chapter < ActiveRecord::Base
 	  	if chapter_count != lesson.chapters.count
 		  	lesson.chapters.where(chapter_count: chapter_count + 1).first
 		  else
-		  	course.lessons.where(lesson_count: lesson.lesson_count + 1).first.chapters.where(chapter_count: 1).first
+		  	next_les = course.lessons.where(lesson_count: lesson.lesson_count + 1).first
+		  	next_les.chapters.where(chapter_count: 1).first
 		  end
 		end
   end
