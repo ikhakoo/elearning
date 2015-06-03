@@ -20,7 +20,9 @@
     <div class="ui <%= color.sample %> segment" style="margin-top: 90px;margin-bottom: 20px; z-index: -999;">
     	<%= render :partial => 'show' %>
   	</div>
-    <%= button_to "Mark Completed", :controller => 'chapters', :action => "student_progress" %>
+
+    <%= button_to "Mark Completed", :controller => 'chapters', :action => "student_progress"%>
+
   	<div style="float: left;">
   		<% if !@chapter.first_of_course? %>
   			<%= link_to 'Before', course_lesson_chapter_path(@prev_chapter.course, @prev_chapter.lesson, @prev_chapter), class: "ui button primary" %>
