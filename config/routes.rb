@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  resources :charges
+
   resources :enrollments, only: :index
 
   resources :courses do

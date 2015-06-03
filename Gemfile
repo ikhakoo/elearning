@@ -36,6 +36,8 @@ gem 'font-awesome-rails'
 
 gem 'breadcrumbs_on_rails'
 
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+
 # redcarpet gem to parse markdown
 gem 'redcarpet'
 
