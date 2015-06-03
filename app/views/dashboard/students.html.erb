@@ -9,13 +9,15 @@
 					<%= form_tag students_path, {method: :get, authentication: false, id: 'search-form'} do %>
 		        <%= text_field_tag :search, params[:search] %>
 		        <%= submit_tag "Search" %>
-			 			<%= button_to "Clear", students_path, {method: :get, :params => nil} %>
 					<% end %>
-				<%= check_box_tag :instructors, 1, true %>
+
+			 	<%= button_to "Clear", students_path, method: :get, id: "button_to_clear", params: {search: ""} %>
+
+				<%= check_box_tag :instructors, 1, false %>
 				<%= label_tag :instructors %>
-				<%= check_box_tag :students, 1, true %>
-				<%= label_tag :students %>
+
 				<br>
+
 				<div id="users_list_handle">
 					<%= render partial: 'users_list', collection: @users, as: :user %>
 				</div>
