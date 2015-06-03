@@ -1,6 +1,6 @@
 class ChaptersController < ApplicationController
   
-  before_filter :load_course, :load_lesson, :setup_breadcrumbs
+  # before_filter :load_course, :load_lesson, :setup_breadcrumbs
 
   def index
     @course = Course.find(params[:course_id])
