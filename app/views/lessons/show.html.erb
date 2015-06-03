@@ -1,19 +1,30 @@
-<p id="notice"><%= notice %></p>
+<div class="ui grid">
+	<div class="one wide column">
+		<%= render :partial => 'dashboard/left_sidebar' %>
+	</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @lesson.name %>
-</p>
+	<div class="fourteen wide column" style="margin-top: 100px;">
+		<div class="ui segment">
+			<p>
+  			<strong>Name:</strong>
+  			<%= @lesson.name %>
+			</p>
+			<p>
+  			<strong>Description:</strong>
+  			<%= @lesson.description %>
+			</p>
+			<p>
+  			<strong>Course:</strong>
+  			<%= @lesson.course.name %>
+			</p>
+		</div>
+		<div style="text-align:center;">
+			<%= link_to 'Edit', edit_course_lesson_path, class: 'ui button' %>
+			<%= link_to 'Back', course_lessons_path, class: 'ui button' %>
+		</div>
+	</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @lesson.description %>
-</p>
-
-<p>
-  <strong>Course:</strong>
-  <%= @lesson.course.name %>
-</p>
-
-<%= link_to 'Edit', edit_course_lesson_path %> |
-<%= link_to 'Back', course_lessons_path %>
+	<div class="one large column">
+	<%= render :partial => 'dashboard/right_sidebar' %>
+	</div>
+</div>

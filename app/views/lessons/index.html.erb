@@ -43,11 +43,11 @@
         </a>
       </div>
       <% if current_user.role == 'admin' || current_user.role == 'instructor' %>
-        <p>
+        <div style="text-align:center;">
           <%= link_to 'Show', course_lesson_path(@course, lesson), class: "ui button"%>
           <%= link_to 'Edit', edit_course_lesson_path(@course, lesson), class: "ui button" %>
           <%= link_to 'Destroy', course_lesson_path(@course, lesson), method: :delete, data: { confirm: 'Are you sure?' }, class: "ui button" %>
-        </p>
+        </div>
       <% end %>
     <% end %>
   </div>
