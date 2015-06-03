@@ -17,7 +17,7 @@
     <div class="two wide column">
       <%= render 'dashboard/left_sidebar' %>
     </div>
-    <div class="twelve wide column">
+    <div class="twelve wide column" style="margin-top: 90px;">
       <div class="ui segment">
         <div class="ui ribbon label">Course</div>
           <div style="text-align:center;" class="clearfix">
@@ -55,9 +55,11 @@
   <!-- Instructor can edit course title and description, but not price -->
   <!-- Student does not have edit priviledge -->
   <% if current_user.is_admin? || current_user.is_instructor? %>
-    <%= link_to 'Edit', edit_course_path(@course) %> |
-    <%= link_to 'New Lesson', new_course_lesson_path(@course) %> |
-    <%= link_to 'All Lessons', course_lessons_path(@course) %>
+    <div style="text-align:center;"><br>
+      <%= link_to 'Edit', edit_course_path(@course) , class: "ui button"%>
+      <%= link_to 'New Lesson', new_course_lesson_path(@course), class: "ui button" %>
+      <%= link_to 'All Lessons', course_lessons_path(@course), class: "ui button" %>
+    </div>
   <% end %>
 
 <% end %>

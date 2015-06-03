@@ -5,7 +5,7 @@
       <%= render 'dashboard/left_sidebar' %>
     </div>    
     <div class="fourteen wide column main container">
-      <div class="ui <%= color.sample %> segment" style="margin-top: 40px; margin-bottom: 40px;">
+      <div class="ui <%= color.sample %> segment" style="margin-top: 90px; margin-bottom: 40px; z-index: 1;">
         <% @course.lessons.each do |lesson| %>
           <div class="ui fluid card">
             <div class="image">
@@ -43,11 +43,11 @@
         </a>
       </div>
       <% if current_user.role == 'admin' || current_user.role == 'instructor' %>
-        <p>
+        <div style="text-align:center;">
           <%= link_to 'Show', course_lesson_path(@course, lesson), class: "ui button"%>
           <%= link_to 'Edit', edit_course_lesson_path(@course, lesson), class: "ui button" %>
           <%= link_to 'Destroy', course_lesson_path(@course, lesson), method: :delete, data: { confirm: 'Are you sure?' }, class: "ui button" %>
-        </p>
+        </div>
       <% end %>
     <% end %>
   </div>
