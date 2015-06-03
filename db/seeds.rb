@@ -16,8 +16,6 @@ def destroy_that_shit
   print "Shit "
   Lesson.delete_all
   print "Up "
-  Step.delete_all
-  print "Son"
   Chapter.delete_all
   print "!"
 end
