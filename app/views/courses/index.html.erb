@@ -48,14 +48,14 @@
 
   <!-- If the visitor logs in as a user then they can see dashboard -->
   <% elsif current_user %>
+    <%= render :partial => 'dashboard/left_sidebar' %>
     <% color = ['blue', 'orange', 'green', 'red', 'purple', 'teal'] %>
-    <div class="ui grid">
-      <div class="one wide column">
-        <%= render :partial => 'dashboard/left_sidebar' %>
-      </div>
-      <div class="fourteen wide column">
-        <div class="ui <%= color.sample %> segment" style="margin-top: 90px;">
-          <% if current_user.is_admin? %>
+    <div class="pusher">
+      <div class="ui grid">
+        <div class="three wide column sticky top"></div>
+          <div class="nine wide column main container">
+            <div class="ui <%= color.sample %> segment" style="margin-top: 90px;">
+              <% if current_user.is_admin? %>
             <%= link_to 'New Course', new_course_path, class: "ui button" %>
           <% end %>
           <h2 style="text-align: center; margin-bottom: 20px;">Enroll In a Course</h2>
