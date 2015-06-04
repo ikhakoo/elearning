@@ -23,6 +23,7 @@
     <% if current_user.chapters.include?(@chapter) %>
     <% else %>   
         <%= button_to "Mark Completed", :controller => 'chapters', :id => @chapter.id, :action => "student_progress" %>
+        <br>
     <%end %>
   	<div style="float: left;">
   		<% if !@chapter.first_of_course? %>
