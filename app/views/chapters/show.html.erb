@@ -33,12 +33,7 @@
   			<%= link_to 'Next', course_lesson_chapter_path(@next_chapter.course, @next_chapter.lesson, @next_chapter), class: "ui button primary pull right" %>
   		<% end %>
   	</div>
- 	</div>
-
- 	<!-- MAIN CONTENT CLOUMN -->
-  <div class="one wide column">
-  	<div class="pusher">
-  		<%= render :partial => 'dashboard/right_sidebar' %>
-  	</div>
- 	</div>
-</div>
+        </div>
+        <%= render :partial => 'dashboard/right_sidebar' %>
+      </div>
+    </div>
