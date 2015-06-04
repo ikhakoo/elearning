@@ -12,7 +12,7 @@
 					<% end %>
 
 			 	<%= button_to "Clear", students_path, method: :get, id: "button_to_clear", params: {search: ""} %>
-			 	<%= button_to "Add Instructor", new_user_registration_path, method: :get, id: "button_for_new_instructor" %>
+			 	<%= button_to "Add Instructor", new_instructor_path, method: :get, id: "button_for_new_instructor" %>
 
 				<%= check_box_tag :instructors, 1, false %>
 				<%= label_tag :instructors %>

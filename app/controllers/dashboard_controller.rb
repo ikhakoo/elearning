@@ -1,5 +1,5 @@
 class DashboardController < ApplicationController
-  before_action :access_rights, only: :students
+  before_action :access_rights, only: [:students, :destroy]
 
   def index
   end
@@ -28,5 +28,26 @@ class DashboardController < ApplicationController
     user_to_be_deleted.delete
     redirect_to(:back)
   end
+
+  def new_instructor
+    @instructor = User.new
+  end
+
+  def create_instructor
+    params[:user][:role] = 'instructor'
+    @instructor = User.new(instructor_params)
+
+    if @instructor.save
+      redirect_to students_path
+    else
+      redirect_to :back, alert: "Could not save to database! Try again."
+    end
+
+  end
+
+  private
+    def instructor_params
+      params.require(:user).permit(:email, :password, :password_confirmation, :first_name, :last_name, :role)
+    end
 
 end
