@@ -1,11 +1,17 @@
 <br>
+<% color = ['blue', 'orange', 'green', 'red', 'purple', 'teal'] %>
 <div class="ui grid">
 	<div class="one wide column">
 		<%= render 'dashboard/left_sidebar' %>
 	</div>	
-	<div class="fourteen wide column center aligned">
-	<br><br>
-		<h1>Currently<br>
+	<div class="ten wide column main container">
+        <div class="ui <%= color.sample %> segment" style="margin-top: 40px; margin-bottom: 40px;">
+        <h1> Interactive Sessions are available ... </h1>
+        <p>Public Sessions are available to all and Private Sessions are available 24/7 for a fee, please see the pricing chart for more information.</p>
+        <p>To Create a new public sessions <%= link_to "click here", new_interactive_path %></p>
+        <p>Remember, we only support kobra.io at the moment. We are hoping to add Hangouts soon!</p>
+        <h1>Currently
+
 			
 			<% if @interactives.length <= 1 %>
 				<%= @interactives.length %> public session</h1>
