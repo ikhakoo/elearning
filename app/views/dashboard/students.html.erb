@@ -1,21 +1,19 @@
-<%= render 'left_sidebar' %>
 <div class="pusher">
-<div class="ui grid">
-<div class="two wide column sticky top"></div>
-<div class="seven wide column center aligned">
-
-		<% if current_user.is_admin? %>
+	<div class="ui grid">
+		<div class="one wide column sticky top">
+			<%= render 'left_sidebar' %>
+		</div>
+		<div class="fourteen wide column center aligned">
+			<% if current_user.is_admin? %>
 				<br>
 				<%= form_tag students_path, {method: :get, authentication: false, id: 'search-form'} do %>
 				        <%= text_field_tag :search, params[:search] %>
 				        <%= submit_tag "Search" %>
 				<% end %>
-
 				<br>
-
 				<% @users.each do |user| %>
 					<div class="ui cards">
-					  <div class="card" style="width: 450px;">
+					  <div class="card">
 							<div class="content">
 								<div class="header"><%= user.first_name %> <%= user.last_name %></div>
 									<div class="description">
@@ -31,13 +29,14 @@
 					</div>
 				<% end %>
 		<% else %>
-				Access Denied
+				<h1>Access Denied</h1>
+				<%= link_to 'Home', root_path, class: "ui button" %>
 		<% end %>
 
 </div>
 
-<div class="seven wide column" id="chat">
-	<%= render 'chat' %>
+<div class="one wide column">
+	<%= render 'right_sidebar' %>
 </div>
 </div>
 </div>
