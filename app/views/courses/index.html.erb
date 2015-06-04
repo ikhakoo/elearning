@@ -1,48 +1,35 @@
 <!-- First condition allows visitors to access the course listings and see what the site offers -->
 <% if current_user.nil? %>
-  <div class="ui success message">
-    <i class="close icon"></i>
-    <div class="header">
-      Your user registration was successful.
+<%= render :partial => 'dashboard/left_sidebar' %>
+    <% color = ['blue', 'orange', 'green', 'red', 'purple', 'teal'] %>
+    <div class="pusher">
+      <div class="ui grid">
+        <div class="three wide column sticky top"></div>
+          <div class="nine wide column main container">
+            <div class="ui <%= color.sample %> segment" style="margin-top: 90px;">
+          <h2 style="text-align: center; margin-bottom: 20px;">Enroll In a Course</h2>
+          <div class="ui wide centered column grid">
+            <% @courses.each do |course| %>
+              <div class="five wide column">
+                <div class="ui cards">
+                  <div class="card">
+                    <div class="content">
+                      <div class="header">
+                        <%= course.name %>
+                      </div>
+                      <div class="description">
+                        <%= course.description %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+        <%= render :partial => 'dashboard/right_sidebar' %>
+      </div>
     </div>
-    <p id="notice"><%= notice %></p>
-  </div>
-  <div style="text-align:center;">
-    <h1>Find Your New Career Today!</h1>
-    <%= link_to 'Home', root_path %>
-    <%= link_to 'New Course', new_course_path %>
-    <div class="container">
-      <% @courses.each do |course| %>
-        <table class="ui celled structured table">
-          <thead>
-            <tr>
-              <th rowspan="2">Course</th>
-              <th rowspan="2">Price ($)</th>
-              <th colspan="5">Languages</th>
-            </tr>
-            <tr>
-              <th>Ruby on Rails</th>
-              <th>JavaScript</th>
-              <th>jQuery</th>
-              <th>AJAX</th>
-              <th>HTML5/CSS3</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><%= link_to course.name, course %></td>
-              <td><%= course.price %></td>
-              <td><i class="large green checkmark icon"></i></td>
-              <td><i class="large green checkmark icon"></i></td>
-              <td><i class="large green checkmark icon"></i></td>
-              <td><i class="large green checkmark icon"></i></td>
-              <td><i class="large green checkmark icon"></i></td>
-            </tr>
-          </tbody>
-        </table>
-      <% end %>
-    </div>
-  </div>
 
   <br>
 
