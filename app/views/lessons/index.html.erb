@@ -1,10 +1,9 @@
+<%= render :partial => 'dashboard/left_sidebar' %>
 <% color = ['blue', 'orange', 'green', 'red', 'purple', 'teal'] %>
 <div class="pusher">
   <div class="ui grid">
-    <div class="one wide column sticky top">
-      <%= render 'dashboard/left_sidebar' %>
-    </div>    
-    <div class="fourteen wide column main container">
+    <div class="three wide column sticky top"></div>
+      <div class="nine wide column main container">
       <div class="ui <%= color.sample %> segment" style="margin-top: 90px; margin-bottom: 40px; z-index: 1;">
         <% @course.lessons.each do |lesson| %>
           <div class="ui fluid card">

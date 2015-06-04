@@ -65,7 +65,7 @@ class ChaptersController < ApplicationController
    @chapter = Chapter.find(params[:id])
    @user.chapters << @chapter
    flash[:notice] = 'Well Done!'
-   redirect_to chapter_path(@chapter)
+   redirect_to course_lesson_chapter_path(@course, @lesson, @chapter)
  end
 
 private

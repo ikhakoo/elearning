@@ -20,7 +20,11 @@
     <div class="ui <%= color.sample %> segment" style="margin-top: 90px;margin-bottom: 20px; z-index: -999;">
     	<%= render :partial => 'show' %>
   	</div>
-    <%= button_to "Mark Completed", :controller => 'chapters', :id => @chapter.id, :action => "student_progress" %>
+    <% if current_user.chapters.include?(@chapter) %>
+    <% else %>   
+        <%= button_to "Mark Completed", :controller => 'chapters', :id => @chapter.id, :action => "student_progress" %>
+        <br>
+    <%end %>
   	<div style="float: left;">
   		<% if !@chapter.first_of_course? %>
   			<%= link_to 'Before', course_lesson_chapter_path(@prev_chapter.course, @prev_chapter.lesson, @prev_chapter), class: "ui button primary" %>
@@ -29,12 +33,7 @@
   			<%= link_to 'Next', course_lesson_chapter_path(@next_chapter.course, @next_chapter.lesson, @next_chapter), class: "ui button primary pull right" %>
   		<% end %>
   	</div>
- 	</div>
-
- 	<!-- MAIN CONTENT CLOUMN -->
-  <div class="one wide column">
-  	<div class="pusher">
-  		<%= render :partial => 'dashboard/right_sidebar' %>
-  	</div>
- 	</div>
-</div>
+        </div>
+        <%= render :partial => 'dashboard/right_sidebar' %>
+      </div>
+    </div>
