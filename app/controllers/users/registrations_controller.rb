@@ -9,6 +9,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
    def create
+      devise_parameter_sanitizer.for(:sign_up) << [:first_name, :last_name]
       puts "top---------------------------------------------------------"
      super
       puts "ntop---------------------------------------------------------"
@@ -39,11 +40,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
      super
    end
 
-   protected
+protected
 
   # You can put the params you want to permit in the empty array.
    def configure_sign_up_params
-     devise_parameter_sanitizer.for(:sign_up) << :attribute
+      devise_parameter_sanitizer.for(:sign_up) do |u| 
+        u.permit(:first_name, :last_name, :email, :password)
+      end
    end
 
   # You can put the params you want to permit in the empty array.
@@ -60,6 +63,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
    def after_inactive_sign_up_path_for(resource)
      super(resource)
    end
+ 
 
    # def make_student
    #  @user = current_user

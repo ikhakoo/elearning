@@ -35,6 +35,7 @@ class User < ActiveRecord::Base
     if role.blank?
       self.role = "student"
     end
+
   end
 
 end
