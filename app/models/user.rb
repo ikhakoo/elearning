@@ -16,6 +16,14 @@ class User < ActiveRecord::Base
   	self.role != 'admin' && self.role != 'student'
   end
 
+  def chapter_percentage
+    (self.chapters.count / @lesson.chapters.count) * 100
+  end 
+
+  def chapter_remaining
+    @lesson.chapters.count - self.chapters.count
+  end
+
   # Not sure if you need #is_student?; by default the user is a student
   # def is_student?
   # 	self.role != 'instructor' && self.role != 'admin'

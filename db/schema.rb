@@ -33,7 +33,6 @@ ActiveRecord::Schema.define(version: 20150603033756) do
 
   create_table "courses", force: :cascade do |t|
     t.string   "name"
-    t.integer  "price"
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
@@ -67,13 +66,6 @@ ActiveRecord::Schema.define(version: 20150603033756) do
     t.string   "will_build"
     t.string   "video_url"
     t.integer  "lesson_count"
-  end
-
-  create_table "steps", force: :cascade do |t|
-    t.integer  "chapter_id"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

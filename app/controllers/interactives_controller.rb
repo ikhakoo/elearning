@@ -8,7 +8,6 @@ class InteractivesController < ApplicationController
   def show
     @interactive = Interactive.find(params[:id])
     add_breadcrumb @interactive.about, interactive_path(@interactive)
-
   end
 
 	def new
@@ -53,6 +52,9 @@ class InteractivesController < ApplicationController
     @interactive = Interactive.find(params[:id])
     @interactive.destroy
     redirect_to interactives_url
+  end
+
+  def authenticate
   end
 
   private

@@ -9,15 +9,19 @@ Rails.application.routes.draw do
   resources :courses do
     # resources :lessons
     resources :lessons do
-      resources :chapters #do
-        # get 'student_progress', :on => :collection
-        # post 'student_progress', :on => :collection
-      #end
+      resources :chapters do
+        get 'student_progress', :on => :member
+        post 'student_progress', :on => :member
+      end
     end
     resources :enrollments, only: [:new, :create]
 	end
 
-  resources :interactives
+  resources :interactives do
+    member do
+      post 'authenticate'
+    end
+  end
 
   # get 'courses/:course_id/enrollments/new', to: 'enrollments#new', as: :new_course_enrollment
   get 'markdowns/:page_id', to: 'markdowns#show', as: :markdown
@@ -31,6 +35,6 @@ Rails.application.routes.draw do
   get '/material', to: 'dashboard#material'
   get '/students', to: 'dashboard#students'
 
-  match 'student_progress' => 'chapters#student_progress', :as =>'student_progress', via: [:get, :post]
+  # match 'student_progress' => 'chapters#student_progress', :as =>'student_progress', via: [:get, :post]
 
 end
