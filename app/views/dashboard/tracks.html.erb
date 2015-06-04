@@ -15,7 +15,7 @@
         <h1 style="text-align:center;">User Details</h1><hr />
           <strong>Name:</strong> <%= current_user.first_name %> <%= current_user.last_name %> <br>
           <strong>Email:</strong> <%= current_user.email %> <br>
-          <strong>Joined: </strong> <%= current_user.created_at.to_formatted_s(:long_ordinal) %><br>
+          <strong>Joined: </strong> <%= current_user.created_at.strftime('%B %-d, %Y') %><br>
           <strong>Last Logged In: </strong> <%= current_user.last_sign_in_at.to_formatted_s(:long_ordinal) %><hr />
           <%= link_to 'Edit Info', edit_user_registration_path, class: 'ui button' %>
       </div>
