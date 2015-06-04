@@ -6,4 +6,9 @@
 <hr />
 <p>
   <%= @chapter.content.html_safe %>
+
+  <% if current_user.chapters.include?(@chapter) %>
+  <% else %> 
+   <%= button_to "Mark Completed", :controller => 'chapters', :id => @chapter.id, :action => "student_progress" %>
+  <%end %>
 </p>
