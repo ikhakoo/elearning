@@ -1,13 +1,12 @@
 <!-- First condition allows visitors to access the course listings and see what the site offers -->
 <% if current_user.nil? %>
-<%= render :partial => 'dashboard/left_sidebar' %>
     <% color = ['blue', 'orange', 'green', 'red', 'purple', 'teal'] %>
     <div class="pusher">
       <div class="ui grid">
         <div class="three wide column sticky top"></div>
           <div class="nine wide column main container">
             <div class="ui <%= color.sample %> segment" style="margin-top: 90px;">
-          <h2 style="text-align: center; margin-bottom: 20px;">Enroll In a Course</h2>
+          <h2 style="text-align: center; margin-bottom: 20px;">Course Catalogue</h2>
           <div class="ui wide centered column grid">
             <% @courses.each do |course| %>
               <div class="five wide column">
@@ -27,7 +26,6 @@
             <% end %>
           </div>
         </div>
-        <%= render :partial => 'dashboard/right_sidebar' %>
       </div>
     </div>
 
