@@ -35,7 +35,6 @@
   <% elsif !current_page?(root_path) || !current_page?('front') %>
     <div class="pusher">
       <div id="breadcrumbs"><%= render_breadcrumbs %></div>
-      <br>
       <%= yield %>
     </div>
   <% end %>
