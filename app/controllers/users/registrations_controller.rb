@@ -9,10 +9,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
    def create
-      puts "top---------------------------------------------------------"
      super
-      puts "ntop---------------------------------------------------------"
-      p instance_variables
    end
 
   # GET /resource/edit
@@ -41,29 +38,29 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
    protected
 
-  # You can put the params you want to permit in the empty array.
-   def configure_sign_up_params
-     devise_parameter_sanitizer.for(:sign_up) << :attribute
-   end
+    # You can put the params you want to permit in the empty array.
+     def configure_sign_up_params
+       devise_parameter_sanitizer.for(:sign_up) << :attribute
+     end
 
-  # You can put the params you want to permit in the empty array.
-   def configure_account_update_params
-     devise_parameter_sanitizer.for(:account_update) << :attribute
-   end
+    # You can put the params you want to permit in the empty array.
+     def configure_account_update_params
+       devise_parameter_sanitizer.for(:account_update) << :attribute
+     end
 
-  # The path used after sign up.
-   def after_sign_up_path_for(resource)
-     super(resource)
-   end
+    # The path used after sign up.
+     def after_sign_up_path_for(resource)
+       super(resource)
+     end
 
-  # The path used after sign up for inactive accounts.
-   def after_inactive_sign_up_path_for(resource)
-     super(resource)
-   end
+    # The path used after sign up for inactive accounts.
+     def after_inactive_sign_up_path_for(resource)
+       super(resource)
+     end
 
-   # def make_student
-   #  @user = current_user
-   #  @user.role = "student"
-   #  @user.save
-   # end
+     # def make_student
+     #  @user = current_user
+     #  @user.role = "student"
+     #  @user.save
+     # end
 end

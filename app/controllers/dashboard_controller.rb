@@ -23,4 +23,10 @@ class DashboardController < ApplicationController
 
   end
 
+  def destroy
+    user_to_be_deleted = User.find(params[:id])
+    user_to_be_deleted.delete
+    redirect_to(:back)
+  end
+
 end

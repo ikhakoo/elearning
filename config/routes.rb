@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  # devise_for :users
+  devise_for :users, controllers: { registrations: "users/registrations" }
 
   resources :enrollments, only: :index
 
@@ -23,7 +24,7 @@ Rails.application.routes.draw do
 
   # get 'courses/:course_id/enrollments/new', to: 'enrollments#new', as: :new_course_enrollment
   get 'markdowns/:page_id', to: 'markdowns#show', as: :markdown
-  
+
 
   root :to => "dashboard#front"
 
@@ -34,5 +35,7 @@ Rails.application.routes.draw do
   get '/students', to: 'dashboard#students'
 
   # match 'student_progress' => 'chapters#student_progress', :as =>'student_progress', via: [:get, :post]
+
+  delete '/user/:id', to: 'dashboard#destroy', as: :delete_user
 
 end

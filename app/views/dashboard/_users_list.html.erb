@@ -2,7 +2,9 @@
   <div class="ui cards">
     <div class="card" style="width: 450px;">
       <div class="content">
+
         <div class="header"><%= user.first_name %> <%= user.last_name %></div>
+
         <div class="description">
           <p><strong>Email: </strong> <%= user.email %></p>
           <p>Courses:
@@ -11,6 +13,11 @@
             <% end %>
           </p>
         </div>
+
+        <p>
+          <%= link_to 'Delete', delete_user_path(user.id), method: :delete, data: {confirm: "You sure?"} %>
+        </p>
+
       </div>
     </div>
   </div>
