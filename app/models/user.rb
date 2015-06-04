@@ -16,6 +16,10 @@ class User < ActiveRecord::Base
   	self.role != 'admin' && self.role != 'student'
   end
 
+  def chapter_count
+    self.chapters.count / @lesson.chapters.count
+  end 
+
   # Not sure if you need #is_student?; by default the user is a student
   # def is_student?
   # 	self.role != 'instructor' && self.role != 'admin'
