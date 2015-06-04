@@ -1125,6 +1125,169 @@ def marking_it_down10
     chapter_count + 1
   end
 end
+
+def marking_it_down11
+
+  @course = Course.create!(
+              name: "Web Development Immersive",
+              description: "Learn the fundamentals and industry practises to become a Web Developer."
+            )
+
+  x1 = "What a web developer really does"
+  x2 = "The tools of the trade"
+  x3 = "How to get hired as a web developer"
+
+  names = ["1. Introduction to Web Development",
+          "2. The Basics",
+          "3. Front End",
+          "4. Back End",
+          "5. Frameworks",
+          "6. Additional Topics",
+          "7. Tying It All Together"]
+  
+  descriptions = 
+  [
+    "This course will start from zero, answering the basic questions people have about the actual practice and career of web development. You'll gain a much better understanding of what you're about to get into!",
+    "This section will cover the baseline knowledge you need before getting into the more 'programming' aspects of web development. You'll also get a chance to install the necessary software on your computer.",
+    "In this section you'll spend a good deal of time getting familiar with the major client-side (browser-based) languages like HTML, CSS, and Javascript. You'll get to build a webpage with HTML/CSS and learn some programming fundamentals with Javascript.",
+    "Here you'll learn about the back end, where we'll demystify what goes on behind the scenes on a web server. You'll get to take a crack at Ruby, the sublimely awesome language that runs Ruby on Rails.",
+    "You've probably heard about 'Ruby on Rails' and 'Backbone.js' and other sleek-sounding development frameworks. In this section, you'll learn what a framework is, why we use them, and get acquainted with the ones we'll be covering in future courses.",
+    "This section has a bunch of short lessons that will introduce you to a variety of essential supporting technologies for your journey into web development.",
+    "Now that you've had a healthy taste of all the major components in a web application, we'll take a step back and remember where they all fit into the bigger picture."
+  ]
+  i = 0
+  7.times do
+    @course.lessons.create!(
+      name: names[i],
+      description: descriptions[i],
+      course_id: 1,
+      lesson_count: i + 1,
+      will_learn: "#{x1}\n#{x2}\n#{x3}",
+      will_build: "Hold on, you'll be building soon!"
+    )
+    i+=1
+  end
+
+  @lesson = @course.lessons.find(40)
+
+  @file_paths = Dir.glob("lib/web_dev_immersive/lesson_1/*.md")
+
+  @file_paths.inject(1) do |chapter_count, file_path| 
+
+    page = File.open(File.join(file_path), 'r') { |f| f.read }
+
+    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true)
+    @markdown_to_html = markdown.render(page)
+
+    chapter_name = file_path.split("/").last.gsub(".md", "").titleize
+    @lesson.chapters.create!(title: chapter_name, content: @markdown_to_html, chapter_count: chapter_count)
+    print "|"
+    chapter_count + 1
+  end
+
+  @lesson = @course.lessons.find(41)
+
+  @file_paths = Dir.glob("lib/web_dev_immersive/lesson_2/*.md")
+
+  @file_paths.inject(1) do |chapter_count, file_path| 
+
+    page = File.open(File.join(file_path), 'r') { |f| f.read }
+
+    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true)
+    @markdown_to_html = markdown.render(page)
+
+    chapter_name = file_path.split("/").last.gsub(".md", "").titleize
+    @lesson.chapters.create!(title: chapter_name, content: @markdown_to_html, chapter_count: chapter_count)
+    print "|"
+    chapter_count + 1
+  end
+
+  @lesson = @course.lessons.find(42)
+
+  @file_paths = Dir.glob("lib/web_dev_immersive/lesson_3/*.md")
+
+  @file_paths.inject(1) do |chapter_count, file_path| 
+
+    page = File.open(File.join(file_path), 'r') { |f| f.read }
+
+    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true)
+    @markdown_to_html = markdown.render(page)
+
+    chapter_name = file_path.split("/").last.gsub(".md", "").titleize
+    @lesson.chapters.create!(title: chapter_name, content: @markdown_to_html, chapter_count: chapter_count)
+    print "|"
+    chapter_count + 1
+  end
+
+  @lesson = @course.lessons.find(43)
+
+  @file_paths = Dir.glob("lib/web_dev_immersive/lesson_4/*.md")
+
+  @file_paths.inject(1) do |chapter_count, file_path| 
+
+    page = File.open(File.join(file_path), 'r') { |f| f.read }
+
+    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true)
+    @markdown_to_html = markdown.render(page)
+
+    chapter_name = file_path.split("/").last.gsub(".md", "").titleize
+    @lesson.chapters.create!(title: chapter_name, content: @markdown_to_html, chapter_count: chapter_count)
+    print "|"
+    chapter_count + 1
+  end
+
+  @lesson = @course.lessons.find(44)
+
+  @file_paths = Dir.glob("lib/web_dev_immersive/lesson_5/*.md")
+
+  @file_paths.inject(1) do |chapter_count, file_path| 
+
+    page = File.open(File.join(file_path), 'r') { |f| f.read }
+
+    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true)
+    @markdown_to_html = markdown.render(page)
+
+    chapter_name = file_path.split("/").last.gsub(".md", "").titleize
+    @lesson.chapters.create!(title: chapter_name, content: @markdown_to_html, chapter_count: chapter_count)
+    print "|"
+    chapter_count + 1
+  end
+
+  @lesson = @course.lessons.find(45)
+
+  @file_paths = Dir.glob("lib/web_dev_immersive/lesson_6/*.md")
+
+  @file_paths.inject(1) do |chapter_count, file_path| 
+
+    page = File.open(File.join(file_path), 'r') { |f| f.read }
+
+    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true)
+    @markdown_to_html = markdown.render(page)
+
+    chapter_name = file_path.split("/").last.gsub(".md", "").titleize
+    @lesson.chapters.create!(title: chapter_name, content: @markdown_to_html, chapter_count: chapter_count)
+    print "|"
+    chapter_count + 1
+  end
+
+  @lesson = @course.lessons.find(46)
+
+  @file_paths = Dir.glob("lib/web_dev_immersive/lesson_7/*.md")
+
+  @file_paths.inject(1) do |chapter_count, file_path| 
+
+    page = File.open(File.join(file_path), 'r') { |f| f.read }
+
+    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true)
+    @markdown_to_html = markdown.render(page)
+
+    chapter_name = file_path.split("/").last.gsub(".md", "").titleize
+    @lesson.chapters.create!(title: chapter_name, content: @markdown_to_html, chapter_count: chapter_count)
+    print "|"
+    chapter_count + 1
+  end
+
+end
  
 
 
@@ -1145,6 +1308,7 @@ marking_it_down7
 marking_it_down8
 marking_it_down9
 marking_it_down10
+marking_it_down11
 
 
 
