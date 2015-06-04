@@ -31,7 +31,7 @@
   		<% end %>
   	</div>
   	<div style="float: right;">
-  		<% if current_user.chapters.include?(@chapter) %>
+  		<% if current_user.completed? @chapter %>
   		
   		<% else %>   
        <%= button_to "Mark Completed", :controller => 'chapters', :id => @chapter.id, :action => "student_progress" %>
