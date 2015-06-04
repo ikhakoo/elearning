@@ -11,20 +11,19 @@
   <%= devise_error_messages! %>
 
   <div class="field">
-   
-    <%= f.email_field :email, autofocus: true, :placeholder => "email" %>
+    <%= f.text_field :first_name, autofocus: true, :placeholder => "First Name" %>
+    <%= f.text_field :last_name, autofocus: true, :placeholder => "Last Name" %>
+    <%= f.email_field :email, autofocus: true, :placeholder => "Email" %>
   </div>
 
   <div class="field">
-    
     <% if @validatable %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "off", :placeholder => "Password" %>
   </div>
 
   <div class="field">
-    
     <%= f.password_field :password_confirmation, autocomplete: "off", :placeholder => "Password Confirmation" %>
   </div>
 
