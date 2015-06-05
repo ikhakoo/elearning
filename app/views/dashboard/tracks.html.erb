@@ -49,23 +49,23 @@
               <div class="ui <%= color.sample %> segment">
                 <h1 style="text-align:center;">Progress Tracker</h1>
                   <% current_user.courses.each do |course| %>
-                  <h1><%= course.name %></h1><br>
-                  <% course.lessons.each do |lesson| %>
-                  Lesson <%= lesson.lesson_count %>:
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="<%= current_user.progress(lesson) %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= current_user.progress(lesson) %>%;">
-                      <%= current_user.progress(lesson) %>%
-                    </div>
-                  </div>
-                  <% lesson.chapters.each do |chapter| %>
-                  <% if current_user.completed?(chapter) %>
-                  Chapter <%= chapter.chapter_count %>: <i class="large green checkmark icon"></i><br>
-                  <% else %>
-                  Chapter <%= chapter.chapter_count %>: <br>
-                  <%end%>
-                  <%end%>
-                  <br>
-                  <%end%>
+                    <h1><%= course.name %></h1><br>
+                      <% course.lessons.each do |lesson| %>
+                        Lesson <%= lesson.lesson_count %>:
+                          <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="<%= current_user.progress(lesson) %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= current_user.progress(lesson) %>%;">
+                              <%= current_user.progress(lesson) %>%
+                            </div>
+                          </div>
+                            <% lesson.chapters.each do |chapter| %>
+                              <% if current_user.completed?(chapter) %>
+                                Chapter <%= chapter.chapter_count %>: <i class="large green checkmark icon"></i><br>
+                              <% else %>
+                                Chapter <%= chapter.chapter_count %>: <br>
+                              <%end%>
+                            <%end%>
+                          <br>
+                      <%end%>
                   <%end%>
               </div>
             </div>
