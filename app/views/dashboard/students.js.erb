@@ -1,0 +1,7 @@
+// js & jQuery
+
+<% if params[:search] %>
+  $('#users_list_handle').html("<%= j(render partial: 'users_list', collection: @users, as: :user) %>");
+<% else %>
+  $('#users_list_handle').html("<%= j(render partial: 'users_list', collection: @users, as: :user) %>");
+<% end %>
