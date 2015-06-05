@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
 
 
   def progress(lesson)
-    "%0.2f" % (chapters_completed.where(lesson: lesson).count / lesson.chapters.count.to_f)
+    "%0.2f" % (chapters_completed.where(lesson: lesson).count / lesson.chapters.count.to_f * 100)
   end
 
   def is_admin?

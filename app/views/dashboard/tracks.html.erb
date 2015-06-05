@@ -49,8 +49,16 @@
               <div class="ui <%= color.sample %> segment">
                 <h1 style="text-align:center;">Progress Tracker</h1>
                   <% current_user.courses.each do |course| %>
+                  <h1><%= course.name %></h1><br>
                   <% course.lessons.each do |lesson| %>
-                  <%= current_user.progress(lesson) %>
+                  Lesson <%= lesson.lesson_count %>:<br> Progress <%= current_user.progress(lesson) %><br>
+                  <% lesson.chapters.each do |chapter| %>
+                  <% if current_user.completed?(chapter) %>
+                  Chapter <%= chapter.chapter_count %>: <i class="large green checkmark icon"></i><br>
+                  <% else %>
+                  Chapter <%= chapter.chapter_count %>: <br>
+                  <%end%>
+                  <%end%>
                   <%end%>
                   <%end%>
               </div>
