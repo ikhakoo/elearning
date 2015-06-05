@@ -29,20 +29,33 @@
     <div class="ten wide column">
       <div class="ui <%= color.sample %> segment" style="margin-top: 100px; margin-bottom: 40px;">
         <h1 style="text-align:center;">Activity Details</h1><hr />
-        <div class="ui <%= color.sample %> segment">
-          <h1>Recent Activity</h1>
-          <div class="ui accordion field">
-            <div class="active title">
-              <i class="dropdown icon"></i>
-              What is a dog?
+
+        <div role="tabpanel">
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs" role="tablist" style="font-size:21px;">
+            <li role="presentation" class="active"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Recent Activity</a></li>
+            <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Progress Tracker</a></li>
+          </ul>
+
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <br>
+            <div role="tabpanel" class="tab-pane active" id="profile">
+              <div class="ui <%= color.sample %> segment">
+                <h1 style="text-align:center;">Recent Activity</h1>
+              </div>
             </div>
-            <div class="active content field">
-              <p>A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.</p>
+            <div role="tabpanel" class="tab-pane" id="messages">
+              <div class="ui <%= color.sample %> segment">
+                <h1 style="text-align:center;">Progress Tracker</h1>
+              </div>
             </div>
+            <!-- <div role="tabpanel" class="tab-pane" id="settings">
+              <div class="ui <%= color.sample %> segment">
+                <h1 style="text-align:center;">User Settings</h1>
+              </div>
+            </div>-->
           </div>
-        </div>
-        <div class="ui <%= color.sample %> segment">
-          <h1>Progress</h1>
         </div>
       </div>
     </div>
@@ -55,7 +68,15 @@
 </div>
 
 <script>
+<<<<<<< HEAD
   $(document).ready(function(){
 
   });
 </script>
+=======
+  $('#myTab a').click(function (e) {
+  e.preventDefault()
+  $(this).tab('show')
+})
+</script> 
+>>>>>>> daniel
