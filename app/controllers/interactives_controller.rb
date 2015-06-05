@@ -55,6 +55,12 @@ class InteractivesController < ApplicationController
   end
 
   def authenticate
+    # @a ||= 1
+    # @a = @a || 1
+
+    session[:authenticated_rooms] ||= []
+    session[:authenticated_rooms] << theroom.id
+    redirect_to theroom
   end
 
   private
