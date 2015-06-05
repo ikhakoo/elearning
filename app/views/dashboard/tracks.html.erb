@@ -10,13 +10,13 @@
     <!-- Detail Column -->
     <div class="four wide column main container">
       <!-- User Section -->
-      <div class="ui <%= color.sample %> segment" style="margin-top: 100px; margin-bottom: 40px;">
+      <div class="ui <%= color.sample %> segment" style="margin-top: 100px; margin-bottom: 40px;position:fixed;">
         <h1 style="text-align:center;">User Details</h1><hr />
           <strong>Name:</strong> <%= current_user.first_name %> <%= current_user.last_name %> <br>
           <strong>Email:</strong> <%= current_user.email %> <br>
           <strong>Joined: </strong> <%= current_user.created_at.strftime('%B %-d, %Y') %><br>
           <strong>Last Logged In: </strong> <%= current_user.last_sign_in_at.to_formatted_s(:long_ordinal) %><hr />
-          <%= link_to 'Edit Info', edit_user_registration_path, class: 'ui button' %>
+          <%= link_to 'Edit Info', edit_user_registration_path, class: 'ui button', style: "float:right;" %>
       </div>
     </div>
 
@@ -84,11 +84,15 @@
                           </div>      
                             <% lesson.chapters.each do |chapter| %>
                               <% if current_user.completed?(chapter) %>
-                                Chapter <%= chapter.chapter_count %>: <i class="large green checkmark icon"></i><br>
+                                Chapter <%= chapter.chapter_count %>: 
+                                <i class="large green checkmark icon"></i>
+                                <br>
                               <% else %>
-                                Chapter <%= chapter.chapter_count %>: <br>
+                                Chapter <%= chapter.chapter_count %>: 
+                                <br>
                               <%end%>
                             <%end%>
+                            <hr/>
                           <%end%>
                         </div>
                       </div>
