@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
 
   # def chapter_percentage
   #   (self.chapters.count / @lesson.chapters.count) * 100
-  # end 
+  # end
 
   # def chapter_remaining
   #   @lesson.chapters.count - self.chapters.count

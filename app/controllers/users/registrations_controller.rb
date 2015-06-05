@@ -4,16 +4,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
    def new
-     super
+      super
    end
 
   # POST /resource
    def create
-      devise_parameter_sanitizer.for(:sign_up) << [:first_name, :last_name]
-      puts "top---------------------------------------------------------"
-     super
-      puts "ntop---------------------------------------------------------"
-      p instance_variables
+    devise_parameter_sanitizer.for(:sign_up) << [:first_name, :last_name]
+    super
    end
 
   # GET /resource/edit
@@ -41,35 +38,34 @@ class Users::RegistrationsController < Devise::RegistrationsController
    end
 
 protected
-
   # You can put the params you want to permit in the empty array.
    def configure_sign_up_params
-      devise_parameter_sanitizer.for(:sign_up) do |u| 
+      devise_parameter_sanitizer.for(:sign_up) do |u|
         u.permit(:first_name, :last_name, :email, :password)
       end
    end
 
   # You can put the params you want to permit in the empty array.
-  def configure_account_update_params
-    devise_parameter_sanitizer.for(:account_update) do |u| 
-      u.permit(:first_name, :last_name, :email, :password, :current_password)
+    def configure_account_update_params
+      devise_parameter_sanitizer.for(:account_update) do |u|
+        u.permit(:first_name, :last_name, :email, :password, :current_password)
+      end
     end
-  end
 
   # The path used after sign up.
    def after_sign_up_path_for(resource)
      super(resource)
    end
 
-  # The path used after sign up for inactive accounts.
-   def after_inactive_sign_up_path_for(resource)
-     super(resource)
-   end
- 
 
-   # def make_student
-   #  @user = current_user
-   #  @user.role = "student"
-   #  @user.save
-   # end
+    # The path used after sign up for inactive accounts.
+     def after_inactive_sign_up_path_for(resource)
+       super(resource)
+     end
+
+     # def make_student
+     #  @user = current_user
+     #  @user.role = "student"
+     #  @user.save
+     # end
 end
