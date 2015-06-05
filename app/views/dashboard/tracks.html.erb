@@ -48,7 +48,11 @@
             <div role="tabpanel" class="tab-pane" id="messages">
               <div class="ui <%= color.sample %> segment">
                 <h1 style="text-align:center;">Progress Tracker</h1>
-                <p><%= current_user.progress(lesson.id) %><p>
+                  <% current_user.courses.each do |course| %>
+                  <% course.lessons.each do |lesson| %>
+                  <%= current_user.progress(lesson) %>
+                  <%end%>
+                  <%end%>
               </div>
             </div>
             <!-- <div role="tabpanel" class="tab-pane" id="settings">
