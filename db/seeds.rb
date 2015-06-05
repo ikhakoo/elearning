@@ -104,7 +104,10 @@ def marking_it_down1
 
   puts "Loading markdown files..."
 
-  course = Course.first
+  course = Course.create!(
+              name: "Web Development 101",
+              description: "Learn the fundamentals and industry practises to become a Web Developer."
+            )
 
 
   x1 = "What a web developer really does"
@@ -626,7 +629,7 @@ def marking_it_down9
   ]
   i = 0
   1.times do
-    @course.lessons.create!(
+    course.lessons.create!(
       name: names[i],
       description: descriptions[i],
       course_id: course.id,
@@ -661,7 +664,7 @@ end
 
 def marking_it_down10
 
-  @course = Course.create!(
+  course = Course.create!(
               name: "Pair Programming",
               description: "The goals of this course is to improve your pair programming skills."
             )
@@ -677,7 +680,7 @@ def marking_it_down10
 
   i = 0
   1.times do
-    @course.lessons.create!(
+    course.lessons.create!(
       name: names[i],
       description: descriptions[i],
       course_id: course.id,
