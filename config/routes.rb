@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 
+
   # devise_for :users
   devise_for :users, controllers: { registrations: "users/registrations" }
+
+  resources :charges
 
   resources :enrollments, only: :index
 
@@ -40,6 +43,5 @@ Rails.application.routes.draw do
 
   get '/user/instructor/new', to: 'dashboard#new_instructor', as: :new_instructor
   post '/user/instructor/new', to: 'dashboard#create_instructor'
-
 
 end

@@ -1,7 +1,8 @@
 <% if @interactive.password != '' %>
 	<div class="ui segment center aligned">
 		<%= form_tag authenticate_interactive_path(@interactive), method: 'post' do |f| %>
-			<p><%= text_field_tag "interactive[password]", placeholder: "Password of doom" %></p>
+			<%= label_tag "PASSWORD of DOOM" %>
+			<%= text_field_tag "interactive[password]" %>
 			<%= submit_tag "Submit", class: "ui button primary" %>
 		<% end %>
 	</div>

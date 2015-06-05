@@ -3,7 +3,8 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  add_breadcrumb "Front Page", :root_path
+  # add_breadcrumb "Front Page", :root_path
+
 
   def after_sign_in_path_for(user)
     courses_path
@@ -37,4 +38,13 @@ class ApplicationController < ActionController::Base
     return current_user.is_admin? || current_user.is_instructor?
   end
 
+  protected
+    def configure_permitted_parameters
+      devise_parameter_sanitizer.for(:sign_up) do |u|
+        u.permit(:first_name, :last_name, :email, :password)
+      end
+      devise_parameter_sanitizer.for(:account_update) do |u|
+        u.permit(:first_name, :last_name, :email, :password, :current_password)
+      end
+    end
 end

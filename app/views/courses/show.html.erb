@@ -6,7 +6,6 @@
     <p>
       <%= @course.name %> <br>
       <%= @course.description %> <br>
-      <%= @course.price %>
     </p>
   </div>
 
@@ -17,7 +16,7 @@
     <div class="two wide column">
       <%= render 'dashboard/left_sidebar' %>
     </div>
-    <div class="twelve wide column" style="margin-top: 90px;">
+    <div class="twelve wide column" style="margin-top: 40px;">
       <div class="ui segment">
         <div class="ui ribbon label">Course</div>
           <div style="text-align:center;" class="clearfix">
@@ -27,7 +26,7 @@
             </p>
             <p>
               <strong>Price:</strong>
-              <%= @course.price %>
+              FREE!
             </p>
             <p>
               <strong>Description:</strong>
@@ -41,8 +40,8 @@
             <% end %>
           <% else %>
             <p>
-              Already enrolled
-              <%= link_to 'My Courses', enrollments_path, class: "ui button primary" %>
+              Already enrolled. Go to:
+              <%= link_to 'My Courses', enrollments_path, class: "ui black basic button" %>
             </p>
           <% end %>
         </div>

@@ -1,6 +1,6 @@
-<%= render 'left_sidebar' %>
 <div class="pusher">
 	<div class="ui grid">
+
 		<div class="two wide column sticky top"></div>
 		<div class="seven wide column center aligned">
 
@@ -23,13 +23,14 @@
 					<%= render partial: 'users_list', collection: @users, as: :user %>
 				</div>
 			<% else %>
-				Access Denied
+				<h1>Access Denied</h1>
+				<%= link_to 'Home', root_path, class: "ui button" %>
 			<% end %>
 
 		</div>
 
-	<div class="seven wide column" id="chat">
-		<%= render 'chat' %>
-	</div>
+		<div class="one wide column">
+			<%= render 'right_sidebar' %>
+		</div>
 	</div>
 </div>

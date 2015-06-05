@@ -16,11 +16,12 @@
       <iframe id="lesson-video" width="550" height="400" src="https://www.youtube.com/embed/<%= @lesson.video_id %>" frameborder="0" allowfullscreen></iframe>
     <% end %>
   </div>
+
   <div class="seven wide column">
-    <div class="ui <%= color.sample %> segment" style="margin-top: 90px;margin-bottom: 20px; z-index: -999;">
+    <div class="ui <%= color.sample %> segment" style="margin-top: 90px;margin-bottom: 20px; z-index: 0;">
     	<%= render :partial => 'show' %>
   	</div>
-    <%= button_to "Mark Completed", :controller => 'chapters', :id => @chapter.id, :action => "student_progress" %>
+
   	<div style="float: left;">
   		<% if !@chapter.first_of_course? %>
   			<%= link_to 'Before', course_lesson_chapter_path(@prev_chapter.course, @prev_chapter.lesson, @prev_chapter), class: "ui button primary" %>
@@ -29,12 +30,15 @@
   			<%= link_to 'Next', course_lesson_chapter_path(@next_chapter.course, @next_chapter.lesson, @next_chapter), class: "ui button primary pull right" %>
   		<% end %>
   	</div>
- 	</div>
-
- 	<!-- MAIN CONTENT CLOUMN -->
-  <div class="one wide column">
-  	<div class="pusher">
-  		<%= render :partial => 'dashboard/right_sidebar' %>
+  	<div style="float: right;">
+  		<% if current_user.completed? @chapter %>
+  		
+  		<% else %>   
+       <%= button_to "Mark Completed", :controller => 'chapters', :id => @chapter.id, :action => "student_progress" %>
+   		<% end %>
   	</div>
- 	</div>
+  </div>
+  <div class="one wide column">
+    <%= render :partial => 'dashboard/right_sidebar' %>
+  </div>
 </div>

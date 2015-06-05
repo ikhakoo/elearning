@@ -9,7 +9,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
    def create
-     super
+    devise_parameter_sanitizer.for(:sign_up) << [:first_name, :last_name]
+    super
    end
 
   # GET /resource/edit
@@ -36,22 +37,26 @@ class Users::RegistrationsController < Devise::RegistrationsController
      super
    end
 
-   protected
+protected
+  # You can put the params you want to permit in the empty array.
+   def configure_sign_up_params
+      devise_parameter_sanitizer.for(:sign_up) do |u|
+        u.permit(:first_name, :last_name, :email, :password)
+      end
+   end
 
-    # You can put the params you want to permit in the empty array.
-     def configure_sign_up_params
-       devise_parameter_sanitizer.for(:sign_up) << :attribute
-     end
+  # You can put the params you want to permit in the empty array.
+    def configure_account_update_params
+      devise_parameter_sanitizer.for(:account_update) do |u|
+        u.permit(:first_name, :last_name, :email, :password, :current_password)
+      end
+    end
 
-    # You can put the params you want to permit in the empty array.
-     def configure_account_update_params
-       devise_parameter_sanitizer.for(:account_update) << :attribute
-     end
+  # The path used after sign up.
+   def after_sign_up_path_for(resource)
+     super(resource)
+   end
 
-    # The path used after sign up.
-     def after_sign_up_path_for(resource)
-       super(resource)
-     end
 
     # The path used after sign up for inactive accounts.
      def after_inactive_sign_up_path_for(resource)

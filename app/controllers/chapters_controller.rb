@@ -63,9 +63,9 @@ class ChaptersController < ApplicationController
  def student_progress
    @user = current_user
    @chapter = Chapter.find(params[:id])
-   @user.chapters << @chapter
+   @user.chapters_completed << @chapter
    flash[:notice] = 'Well Done!'
-   redirect_to chapter_path(@chapter)
+   redirect_to course_lesson_chapter_path(@course, @lesson, @chapter) 
  end
 
 private

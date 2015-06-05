@@ -33,9 +33,8 @@
   <% if current_page?(root_path) %>
     <%= yield %>
   <% elsif !current_page?(root_path) || !current_page?('front') %>
-    <div class="pusher">
-      <div id="breadcrumbs"><%= render_breadcrumbs %></div>
-      <br>
+    <div class="pusher"><br>
+      <div id="breadcrumbs" style="z-index: 9999;"><%= render_breadcrumbs %></div>
       <%= yield %>
     </div>
   <% end %>
