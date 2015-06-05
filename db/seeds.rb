@@ -73,6 +73,17 @@ def load_users
     role: "instructor"
   )
 
+  3.times do
+    User.create!(
+      first_name: Faker::Name.first_name,
+      last_name: Faker::Name.last_name,
+      email: Faker::Internet.email,
+      password: 'password',
+      password_confirmation: 'password',
+      role: "instructor"
+  )
+  end
+
 
   puts
   puts "Users seeded."
@@ -725,6 +736,7 @@ marking_it_down7
 marking_it_down8
 marking_it_down9
 marking_it_down10
+
 
 load_users
 load_enrollments
