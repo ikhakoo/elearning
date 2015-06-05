@@ -2,17 +2,17 @@
 
 Iteration 1:
 
-* Users need to be able to sign up ** [User Controller/Devise Gem]
+* Users need to be able to sign up ** [User Controller/Devise Gem] - DONE
 
-* Users need to be able to select from a number of course options ** [Courses & Enrollments Controller]
+* Users need to be able to select from a number of course options ** [Courses & Enrollments Controller] - DONE
 
 * Users need to be able to process payment for selected courses (2nd iteration)
 
-* Users need to have a user dashboard page [Dashboard controller]
+* Users need to have a user dashboard page [Dashboard controller] - DONE
     My Courses page: user's associated/enrolled course (student or instructor) [Course/Enrollment Controller]
     Tracks page: displays lessons for each course enrolled in [Lessons controller]
 
-* User should be able watch video lessons [Video Controller]
+* User should be able watch video lessons [Video Controller] - DONE
 
 * User should be able to complete course (Student progress shown on My Course page)
     User should be able to start a lesson (lesson have several chapters)
@@ -28,9 +28,9 @@ Iteration 1:
 
 * Users will be able to register for private lessons with instructors in the afternoon (2nd iteration)
 
-* Admin will be able to upload new courses and pricing plans **
+* Admin will be able to upload new courses and pricing plans - DONE
 
-* Admin can upload new instructors into the system **
+* Admin can upload new instructors into the system - AVERY
 
 * Instructors login and have access to curriculum for the day or week or whole course
 
@@ -45,19 +45,19 @@ Update: Review of progress and things to be refined (Fri., May 29, 2015)
 
 4. Course show page for visitors needs styling
 
-5. Remove the Track Record button (for all users)
+5. Remove the Track Record button (for all users) - AVERY
 
-6. Add next page links, back button link, done button link at the button of the lesson/chapter pages
+6. Add next page links, back button link, done button link at the button of the lesson/chapter pages - DONE
 
 7. Tracking progress needs to be completed
 
-8. Interactive page needs a 'back button' or 'menu bar'
+8. Interactive page needs a 'back button' or 'menu bar' - DONE
 
-9. Need to add lesson 6 & 7
+9. Need to add lesson 6 & 7 - DONE
 
-10. Registration default type need to be addressed
+10. Registration default type need to be addressed - DONE
 
-11. Lesson_order in the lessons table needs to be populated when the lessons are created in the database
+11. Lesson_order in the lessons table needs to be populated when the lessons are created in the database - DONE
 
 12. Payment system
 

@@ -1,8 +1,9 @@
 FactoryGirl.define do
   factory :lesson do
-    name "New Lesson"
+    name "Dev Ops"
     description "Learning how to learn"
-    course_id 1
+    will_learn "Test data.\nIn factory lesson, in lesson test file.\nSuper duper super."
+    will_build "This is test text.\nTesting the method.\nHacker's paradise."
   end
 
 end
