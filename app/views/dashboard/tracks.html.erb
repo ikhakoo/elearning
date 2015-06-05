@@ -33,19 +33,19 @@
         <div role="tabpanel">
           <!-- Nav tabs -->
           <ul class="nav nav-tabs" role="tablist" style="font-size:21px;">
-            <li role="presentation" class="active"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Recent Activity</a></li>
-            <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Progress Tracker</a></li>
+            <li role="presentation" class="active"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Progress Tracker</a></li>
+            <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Recent Activity</a></li>
           </ul>
 
           <!-- Tab panes -->
           <div class="tab-content">
             <br>
-            <div role="tabpanel" class="tab-pane active" id="profile">
+            <div role="tabpanel" class="tab-pane" id="profile">
               <div class="ui <%= color.sample %> segment">
                 <h1 style="text-align:center;">Recent Activity</h1>
               </div>
             </div>
-            <div role="tabpanel" class="tab-pane" id="messages">
+            <div role="tabpanel" class="tab-pane active" id="messages">
               <div class="ui <%= color.sample %> segment">
                 <h1 style="text-align:center;">Progress Tracker</h1>
                   <% current_user.courses.each do |course| %>
