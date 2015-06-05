@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # devise_for :users
   devise_for :users, controllers: { registrations: "users/registrations" }
 
-  resources :charges
+  resources :charges, only: [:new]
 
   resources :enrollments, only: :index
 

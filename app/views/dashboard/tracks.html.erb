@@ -28,7 +28,7 @@
                 <% if current_user.completed?(chapter) && current_user.progress(lesson) != 100 %>
                   <%= lesson.name %><i class="large red x icon"></i>
                   <hr style="width: 30px;"/>
-                <% elsif current_user.completed?(chapter) && current_user.progress(lesson) === 100 %>
+                <% elsif current_user.progress(lesson) == 100 %>
                   <% lesson.name %><i class="large green checkmark icon"></i>
                 <%end%>
               <% end %>
@@ -72,19 +72,16 @@
                             <p style="text-align:center;"><%= course.name %></p>
                             <% course.lessons.each do |lesson| %>
                           </a>
-                          
-                          Lesson <%= lesson.lesson_count %>:
-                          
-                          <div class="progress">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="<%= current_user.progress(lesson) %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= current_user.progress(lesson) %>%;">
-                              <%= current_user.progress(lesson) %>%
-                            </div>
-                          </div>
                         </h4>
                       </div>
                       <div id="<%= course.id %>" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                         <div class="panel-body">
-                            
+                          Lesson <%= lesson.lesson_count %>:
+                            <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="<%= current_user.progress(lesson) %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= current_user.progress(lesson) %>%;">
+                              <%= current_user.progress(lesson) %>%
+                            </div>
+                          </div>      
                             <% lesson.chapters.each do |chapter| %>
                               <% if current_user.completed?(chapter) %>
                                 Chapter <%= chapter.chapter_count %>: <i class="large green checkmark icon"></i><br>
