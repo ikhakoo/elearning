@@ -1,5 +1,4 @@
 <% color = ['blue', 'orange', 'green', 'red', 'purple', 'teal'] %>
-
 <div class="pusher">
   <div class="ui grid">
 
@@ -30,23 +29,21 @@
     <div class="ten wide column">
       <div class="ui <%= color.sample %> segment" style="margin-top: 100px; margin-bottom: 40px;">
         <h1 style="text-align:center;">Activity Details</h1><hr />
-        
-        <!-- TAB MENU -->
-        <div class="ui top attached tabular menu">
-          <a class="active item" data-tab="first">Recent Activity</a>
-          <a class="item" data-tab="second">Progression Tracker</a>
+        <div class="ui <%= color.sample %> segment">
+          <h1>Recent Activity</h1>
+          <div class="ui accordion field">
+            <div class="active title">
+              <i class="dropdown icon"></i>
+              What is a dog?
+            </div>
+            <div class="active content field">
+              <p>A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.</p>
+            </div>
+          </div>
         </div>
-        
-        <!-- First Tab -->
-        <div class="ui bottom attached active tab segment" data-tab="first">
-          Activity
+        <div class="ui <%= color.sample %> segment">
+          <h1>Progress</h1>
         </div>
-        
-        <!-- Second Tab -->
-        <div class="ui bottom attached tab segment" data-tab="second">
-          Progress
-        </div>
-
       </div>
     </div>
 
@@ -57,11 +54,8 @@
   </div>
 </div>
 
-
 <script>
   $(document).ready(function(){
-    $('.menu .item')
-  .tab()
-;
+    $('.ui.accordion .field').accordion();
   });
-</script> 
+</script>
