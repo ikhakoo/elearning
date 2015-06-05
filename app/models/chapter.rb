@@ -1,8 +1,8 @@
 class Chapter < ActiveRecord::Base
   belongs_to :lesson
   has_one :course, through: :lesson
-  has_and_belongs_to_many :users
-
+  has_and_belongs_to_many :completed_by, :class_name => "User", :join_table => "chapters_users"
+  
   def next
   	if !last_of_course?
 	  	if chapter_count != lesson.chapters.count
