@@ -20,7 +20,10 @@ class DashboardController < ApplicationController
       format.js
 
     end
+  end
 
+  def tracks
+  
   end
 
   def destroy

@@ -496,7 +496,7 @@ def marking_it_down6
       course_id: course.id,
       lesson_count: i + 1,
       will_learn: "How to setup your machine to be a web developer",
-      will_build: "Hold on, you'll be building soon!"
+      will_build: "Hold on, you'll be building soon!",
     )
     i+=1
   end
@@ -546,7 +546,7 @@ def marking_it_down7
       course_id: course.id,
       lesson_count: i + 1,
       will_learn: "How to setup your machine to be a web developer",
-      will_build: "Hold on, you'll be building soon!"
+      will_build: "Hold on, you'll be building soon!",
     )
     i+=1
   end
@@ -596,7 +596,7 @@ def marking_it_down8
       course_id: course.id,
       lesson_count: i + 1,
       will_learn: "How to setup your machine to be a web developer",
-      will_build: "Hold on, you'll be building soon!"
+      will_build: "Hold on, you'll be building soon!",
     )
     i+=1
   end
@@ -646,7 +646,7 @@ def marking_it_down9
       course_id: course.id,
       lesson_count: i + 1,
       will_learn: "How to setup your machine to be a web developer",
-      will_build: "Hold on, you'll be building soon!"
+      will_build: "Hold on, you'll be building soon!",
     )
     i+=1
   end
