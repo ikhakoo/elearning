@@ -1,10 +1,11 @@
 FactoryGirl.define do
   factory :user do
-    first_name "Wale"
-    last_name "Akintimehin"
-    email "wale@bitmakerlabs.com"
+    email "sound-about-nothing@wale-music.com"
     password "password"
-    password_confirmation "password"
+    role nil
+  end
+
+  factory :student, parent: :user do
     role "student"
   end
 

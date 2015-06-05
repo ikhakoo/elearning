@@ -50,4 +50,8 @@ class DashboardController < ApplicationController
       params.require(:user).permit(:email, :password, :password_confirmation, :first_name, :last_name, :role)
     end
 
+    def ensure_role_is_an_instructor
+      self.role = "instructor"
+    end
+
 end
