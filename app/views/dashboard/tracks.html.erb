@@ -31,22 +31,34 @@
       <div class="ui <%= color.sample %> segment" style="margin-top: 100px; margin-bottom: 40px;">
         <h1 style="text-align:center;">Activity Details</h1><hr />
         
-        <!-- TAB MENU -->
-        <div class="ui top attached tabular menu">
-          <a class="active item" data-tab="first">Recent Activity</a>
-          <a class="item" data-tab="second">Progression Tracker</a>
-        </div>
-        
-        <!-- First Tab -->
-        <div class="ui bottom attached active tab segment" data-tab="first">
-          Activity
-        </div>
-        
-        <!-- Second Tab -->
-        <div class="ui bottom attached tab segment" data-tab="second">
-          Progress
-        </div>
+        <div role="tabpanel">
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs" role="tablist" style="font-size:21px;">
+            <li role="presentation" class="active"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Recent Activity</a></li>
+            <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Progress Tracker</a></li>
+          </ul>
 
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <br>
+            <div role="tabpanel" class="tab-pane active" id="profile">
+              <div class="ui <%= color.sample %> segment">
+                <h1 style="text-align:center;">Recent Activity</h1>
+              </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="messages">
+              <div class="ui <%= color.sample %> segment">
+                <h1 style="text-align:center;">Progress Tracker</h1>
+              </div>
+            </div>
+            <!-- <div role="tabpanel" class="tab-pane" id="settings">
+              <div class="ui <%= color.sample %> segment">
+                <h1 style="text-align:center;">User Settings</h1>
+              </div>
+            </div>-->
+          </div>
+
+        </div>
       </div>
     </div>
 
@@ -59,9 +71,8 @@
 
 
 <script>
-  $(document).ready(function(){
-    $('.menu .item')
-  .tab()
-;
-  });
+  $('#myTab a').click(function (e) {
+  e.preventDefault()
+  $(this).tab('show')
+})
 </script> 
