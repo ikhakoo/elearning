@@ -66,6 +66,7 @@ class InteractivesController < ApplicationController
 
    if @room && (@pass = @room.password)
       session[:authenticated_rooms] = @room.id
+      @session = session[:authenticated_rooms]
       redirect_to interactive_path(@room.id)
       flash.now[:notice] = "Login Successful!"
     else

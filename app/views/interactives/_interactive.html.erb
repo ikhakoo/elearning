@@ -1,4 +1,4 @@
-<% if @interactive.password != '' || !sessions[:authenticaed_users].contains?(@interactive.id) %>
+<% if @session != @interactive.id %>
 	<div class="ui segment center aligned">
 		<%= form_tag authenticate_interactive_path(@interactive), method: 'post' do |f| %>
 			<%= label_tag "PASSWORD of DOOM" %>
@@ -6,7 +6,7 @@
 			<%= submit_tag "Submit", class: "ui button primary" %>
 		<% end %>
 	</div>
-<% else %>
+<% elsif @session == @interactive.id || @interactive.password.nil %>
 <iframe width="100%" height="630px" src="<%= @interactive.url %>" frameborder="0" allowfullscreen></iframe>
 
 <% end %>
