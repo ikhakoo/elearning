@@ -1,10 +1,12 @@
 class BookingsController < ApplicationController
 	def new
+    @schedules = Schedule.all
   	@booking = Booking.new
   end
 
   def create
   	load_schedule
+    @user = current_user
   
   	@booking = @schedule.bookings.build(booking_params)
     @booking.user = current_user
@@ -28,7 +30,7 @@ private
     params.require(:booking).permit(:start_time, :end_time, :date)
   end
 
-  def load_restaurant
+  def load_schedule
     @schedule = Schedule.find(params[:schedule_id])
   end
 end
