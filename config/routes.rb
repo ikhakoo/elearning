@@ -7,6 +7,10 @@ Rails.application.routes.draw do
 
   resources :enrollments, only: :index
 
+  resources :schedules
+
+  resources :bookings
+
   resources :courses do
     # resources :lessons
     resources :lessons do
