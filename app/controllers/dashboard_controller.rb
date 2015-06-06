@@ -1,5 +1,5 @@
 class DashboardController < ApplicationController
-  before_action :access_rights, only: [:students, :destroy]
+  before_action :access_rights, only: [:students, :destroy, :new_instructor, :create_instructor]
 
   def index
   end
@@ -23,7 +23,7 @@ class DashboardController < ApplicationController
   end
 
   def tracks
-  
+
   end
 
   def destroy
@@ -53,8 +53,6 @@ class DashboardController < ApplicationController
       params.require(:user).permit(:email, :password, :password_confirmation, :first_name, :last_name, :role)
     end
 
-    def ensure_role_is_an_instructor
-      self.role = "instructor"
-    end
+
 
 end

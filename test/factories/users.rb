@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :user do
-    email "sound-about-nothing@wale-music.com"
+    email "song-about-nothing@wale-music.com"
     password "password"
     role nil
   end

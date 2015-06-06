@@ -27,6 +27,7 @@ class UserTest < ActiveSupport::TestCase
     # No test for the before_save callback. This would be testing rails methods.
   end
 
+  # No test for #completed? and #progress methods
 
 
 end

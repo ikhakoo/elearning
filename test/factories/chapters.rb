@@ -1,10 +1,8 @@
 FactoryGirl.define do
 
   factory :chapter do
-    title "MyString"
-    content "MyText"
-    lesson_id 1
-    user_id 1
+    title "Chapter title"
+    content "Super content"
   end
 
 end
