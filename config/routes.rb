@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :bookings
   end
 
-  resources :charges, only: [:new]
+  resources :charges, only: [:new, :show, :create]
 
   resources :enrollments, only: :index
 
