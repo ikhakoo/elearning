@@ -1,0 +1,16 @@
+<div class="ui form">
+  <%= form_for(@booking, url: new_user_booking_path) do |booking| %>
+    <div class="field">
+      <%= booking.label :start_time %><br/>
+      <%= booking.text_field :start_time %>
+    </div>
+    <div class="field">
+      <%= booking.label :end_time %><br/>
+      <%= booking.text_field :end_time %>
+    </div>
+
+    <div class="actions">
+      <%= booking.submit "Go", :class => "ui primary button" %>
+    </div>
+  <% end %>
+</div>

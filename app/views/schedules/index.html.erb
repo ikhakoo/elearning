@@ -4,15 +4,78 @@
 <div class="pusher">
   <div class="ui grid">
     <div class="three wide column sticky top"></div>
-      <div class="nine wide column main container">
-      <div class="ui <%= color.sample %> segment" style="margin-top: 90px; margin-bottom: 40px;">
-      <h2 style="text-align: center;">TA Schedule</h2> 
-     
-     </div>
+      <div class="ten wide column main container">
+        <div class="ui <%= color.sample %> segment" style="margin-top: 90px; margin-bottom: 40px;">
+         <h2 style="text-align: center;">TA Schedule</h2> 
+            <table class="ui blue celled structured table">
+              <thead>
+                <tr>
+                  <th rowspan="2">Instructor Name</th>
+                  <th rowspan="2">Days Available</th>
+                  <th rowspan="2">Times Available</th>
+                  <th colspan="3">Area of Expertise</th>
+                </tr>
+                <tr>
+                  <th>Ruby</th>
+                  <th>JavaScript</th>
+                  <th>Python</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Alpha Team</td>
+                  <td>Project 1</td>
+                  <td>2</td>
+                  <td>
+                    <i class="large green checkmark icon"></i>
+                  </td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td rowspan="3">Beta Team</td>
+                  <td>Project 1</td>
+                  <td>52</td>
+                  <td>
+                    <i class="large green checkmark icon"></i>
+                  </td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Project 2</td>
+                  <td>12</td>
+                  <td></td>
+                  <td>
+                    <i class="large green checkmark icon"></i>
+                  </td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Project 3</td>
+                  <td>21</td>
+                  <td>
+                    <i class="large green checkmark icon"></i>
+                  </td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          
+
+
+
         </div>
-        <%= render :partial => 'dashboard/right_sidebar' %>
       </div>
-    </div>
+
+
+
+  <div class="three wide column sticky top"></div>
+    <%= render :partial => 'dashboard/right_sidebar' %>
+  </div>
+
+</div>
 
 
       
