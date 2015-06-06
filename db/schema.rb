@@ -21,9 +21,9 @@ ActiveRecord::Schema.define(version: 20150606072224) do
     t.integer  "end_time"
     t.date     "date"
     t.integer  "user_id"
-    t.integer  "instructor_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.integer  "schedule_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "chapters", force: :cascade do |t|

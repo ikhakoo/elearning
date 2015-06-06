@@ -5,7 +5,7 @@ class CreateBookings < ActiveRecord::Migration
       t.integer :end_time
       t.date :date
       t.integer :user_id
-      t.integer :instructor_id
+      t.integer :schedule_id
 
       t.timestamps null: false
     end
