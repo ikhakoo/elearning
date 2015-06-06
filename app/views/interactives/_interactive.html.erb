@@ -1,4 +1,4 @@
-<% if @interactive.password != '' %>
+<% if @interactive.password != '' || !sessions[:authenticaed_users].contains?(@interactive.id) %>
 	<div class="ui segment center aligned">
 		<%= form_tag authenticate_interactive_path(@interactive), method: 'post' do |f| %>
 			<%= label_tag "PASSWORD of DOOM" %>
