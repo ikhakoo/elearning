@@ -2,6 +2,10 @@ class Schedule < ActiveRecord::Base
 	belongs_to :user
 	has_many :bookings
 
+	def availability(date, start_time)
+		current_availability = booking.where(date: date, start_time: start_time)
+	end
+
 	def hour_options
 		(opening...closing).map do |hour|
 			if hour >= 12
