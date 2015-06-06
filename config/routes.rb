@@ -1,15 +1,17 @@
 Rails.application.routes.draw do
 
   # devise_for :users
-  devise_for :users, controllers: { registrations: "users/registrations" }
+  devise_for :users, controllers: { registrations: "users/registrations" }, :paths => 'users'
+
+
+  resource :user do
+    resources :schedules
+    resources :bookings
+  end
 
   resources :charges, only: [:new]
 
   resources :enrollments, only: :index
-
-  resources :schedules
-
-  resources :bookings
 
   resources :courses do
     # resources :lessons

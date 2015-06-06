@@ -1,5 +1,10 @@
 class SchedulesController < ApplicationController
 
+	def new
+		@user = load_user
+    @schedule = @user.schedules.build
+  end
+
 	def show
 		@schedule = Schedule.find(params[:id])
 
@@ -8,5 +13,10 @@ class SchedulesController < ApplicationController
 	  end
 	end
 
+ private
+
+ 	def load_user
+    User.find(params[:user_id])
+  end
 
 end
