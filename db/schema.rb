@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150603033756) do
+ActiveRecord::Schema.define(version: 20150606072224) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.integer  "start_time"
+    t.integer  "end_time"
+    t.date     "date"
+    t.integer  "user_id"
+    t.integer  "instructor_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
 
   create_table "chapters", force: :cascade do |t|
     t.string   "title"
@@ -66,6 +76,15 @@ ActiveRecord::Schema.define(version: 20150603033756) do
     t.string   "will_build"
     t.string   "video_url"
     t.integer  "lesson_count"
+  end
+
+  create_table "schedules", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "start_time"
+    t.integer  "end_time"
+    t.date     "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
