@@ -55,6 +55,23 @@ class InteractivesController < ApplicationController
   end
 
   def authenticate
+    # @a ||= 1
+    # @a = @a || 1
+
+    # session[:authenticated_rooms] ||= []
+    # session[:authenticated_rooms] << theroom.id
+    # redirect_to theroom
+    @room = Interactive.find_by_id(params[:id])
+    @pass = params[:password]
+
+   if @room && (@pass = @room.password)
+      session[:authenticated_rooms] = @room.id
+      redirect_to interactive_path(@room.id)
+      flash.now[:notice] = "Login Successful!"
+    else
+      flash.now[:alert] = "Invalid password"
+      redirect_to interactives_path
+    end
   end
 
   private
