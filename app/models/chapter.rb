@@ -3,6 +3,7 @@ class Chapter < ActiveRecord::Base
   has_one :course, through: :lesson
   has_and_belongs_to_many :completed_by, :class_name => "User", :join_table => "chapters_users"
   
+  #defines the next chapter of the lesson on current chapter
   def next
   	if !last_of_course?
 	  	if chapter_count != lesson.chapters.count
@@ -14,6 +15,7 @@ class Chapter < ActiveRecord::Base
 		end
   end
 
+  #defines previous chapter of the lesson on current chapter
   def before
   	if !first_of_course?
 	  	if chapter_count != 1
@@ -25,10 +27,12 @@ class Chapter < ActiveRecord::Base
 	  end
   end
 
+  #defines 1st chapter and 1st lesson
   def first_of_course?
   	chapter_count == 1 && lesson.lesson_count == 1
   end
 
+  #define last chapter and last lesson
   def last_of_course?
   	chapter_count == lesson.chapters.count && lesson.lesson_count == course.lessons.count
   end

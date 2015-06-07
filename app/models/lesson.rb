@@ -2,10 +2,12 @@ class Lesson < ActiveRecord::Base
 	belongs_to :course
 	has_many :chapters
 
+	#method to split will learn
 	def wl_show
 		will_learn.split(/\n/)
 	end
 
+	#method to split will build
 	def wb_show
 		will_build.split(/\n/)
 	end
