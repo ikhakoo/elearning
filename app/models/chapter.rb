@@ -2,7 +2,7 @@ class Chapter < ActiveRecord::Base
   belongs_to :lesson
   has_one :course, through: :lesson
   has_and_belongs_to_many :completed_by, :class_name => "User", :join_table => "chapters_users"
-  
+
   def next
   	if !last_of_course?
 	  	if chapter_count != lesson.chapters.count
@@ -26,7 +26,7 @@ class Chapter < ActiveRecord::Base
   end
 
   def first_of_course?
-  	chapter_count == 1 && lesson.lesson_count == 1
+  	self.chapter_count == 1 && self.lesson.lesson_count == 1
   end
 
   def last_of_course?
