@@ -724,13 +724,6 @@ def marking_it_down10
 
 end
 
-def schedules
-
-
-  Schedule.create!(user_id: 1, start_time: 12, end_time: 24, date: Date.today)
-
-end
-
 
 destroy_that_shit
 marking_it_down1
@@ -743,7 +736,6 @@ marking_it_down7
 marking_it_down8
 marking_it_down9
 marking_it_down10
-schedules
 
 
 load_users
