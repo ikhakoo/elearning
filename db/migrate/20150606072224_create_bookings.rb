@@ -1,8 +1,7 @@
 class CreateBookings < ActiveRecord::Migration
   def change
     create_table :bookings do |t|
-      t.integer :start_time
-      t.integer :end_time
+      t.integer :time
       t.date :date
       t.integer :user_id
       t.integer :schedule_id
