@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   has_many :enrollments
   has_many :courses, through: :enrollments
   has_and_belongs_to_many :chapters_completed, :class_name => "Chapter", :join_table => "chapters_users"
+  has_many :schedules
 
   #check if chapter is completed
   def completed?(chapter)
