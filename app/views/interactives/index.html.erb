@@ -29,10 +29,10 @@
         <h1>Currently
 
 			
-			<% if @interactives.length <= 1 %>
-				<%= @interactives.length %> public session</h1>
-			<% elsif @interactives.length > 1 %>
-				<%= @interactives.length %> public sessions</h1>
+			<% if (@interactives.length - @interactives.where(is_private: true).count) <= 1 %>
+				<%= (@interactives.length - @interactives.where(is_private: true).count) %> public session</h1>
+			<% elsif (@interactives.length - @interactives.where(is_private: true).count) > 1 %>
+				<%= (@interactives.length - @interactives.where(is_private: true).count) %> public sessions</h1>
 			<% end %>
 
 			<% if current_user.is_instructor? || current_user.is_admin? %>

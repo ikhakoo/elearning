@@ -19,7 +19,7 @@ class InteractivesController < ApplicationController
     # make a new interactive with what interactive_params returns (which is a method we're calling)
     @interactive = Interactive.new(interactive_params)
     if @interactive.save
-    	if @interactive.password.nil?
+    	if @interactive.password == ""
     		@interactive.is_private = false
     		@interactive.save
     	else
