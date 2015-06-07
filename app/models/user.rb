@@ -11,7 +11,6 @@ class User < ActiveRecord::Base
     chapters_completed.include? chapter
   end
 
-
   def progress(lesson)
     "%0.2f%" % (chapters_completed.where(lesson: lesson).count / lesson.chapters.count.to_f * 100)
   end
