@@ -4,7 +4,7 @@
   <div class="ui grid">
     <div class="three wide column sticky top"></div>
       <div class="nine wide column main container">
-        <div class="ui <%= color.sample %> segment" style="margin-top: 90px; margin-bottom: 40px;">
+        <div class="ui <%= color.sample %> segment" style="margin-top: 40px; margin-bottom: 40px;">
           <h1 style="text-align: center;">Book time with a TA</h1> 
 
 <div class="ui special cards">
@@ -13,16 +13,16 @@
       <div class="ui dimmer">
         <div class="content">
           <div class="center">
-            <div class="ui inverted button">Add Friend</div>
+            <a href="<%= new_user_booking_path %>"><div class="ui inverted button">View Schedules</div></a>
           </div>
         </div>
       </div>
       <%= image_tag('steve.jpg') %>
     </div>
     <div class="content">
-      <a class="header">Team Fu</a>
+      <a class="header">Steve Jobes</a>
       <div class="meta">
-        <span class="date">Create in Sep 2014</span>
+        <span class="date">Ruby on Rails, Javascript, Python</span>
       </div>
     </div>
     <div class="extra content">
