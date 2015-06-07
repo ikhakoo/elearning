@@ -25,18 +25,12 @@
 		        <%= button_to "Add Instructor", new_instructor_path, method: :get, id: "button_for_new_instructor", :class => "ui basic button" %>
 		        <%= check_box_tag :instructors, 1, false %>
 						<%= label_tag :instructors %>
+						 <br>
+						<br>
 		      </div>
 					<% end %>
 
 
-
-			
-			 	
-			 	
-
-				
-
-				<br>
 
 				<div id="users_list_handle">
 					<%= render partial: 'users_list', collection: @users, as: :user %>
