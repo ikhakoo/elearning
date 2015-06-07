@@ -34,7 +34,7 @@
             </p><br>
           </div><br>
         <div class="ui bottom attached label">
-          <% if @not_enrolled && !@admin_or_instructor %>
+          <% if @not_enrolled || current_user.is_admin? %>
             <%= form_for [@course, @enrollment] do |f| %>
               <%= f.submit 'Confirm Enrollment' %>
             <% end %>

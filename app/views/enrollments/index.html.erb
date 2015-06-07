@@ -6,7 +6,11 @@
     <div class="three wide column sticky top"></div>
       <div class="ten wide column main container">
       <div class="ui <%= color.sample %> segment" style="margin-top: 90px; margin-bottom: 40px;">
-      <h1 style="text-align: center;">My Courses</h1> 
+        <% if current_user.is_instructor? %>
+          <h1 style="text-align: center;">Courses I Teach</h1>
+        <% elsif current_user.is_student? || current_user.is_admin? %>
+          <h1 style="text-align: center;">My Courses</h1> 
+        <% end %>
       <% @courses_enrolled_in.each do |course|%>
         <div class="ui fluid card">
           <div class="image">

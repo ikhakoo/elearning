@@ -47,7 +47,13 @@
             <% if current_user.is_admin? %>
               <%= link_to 'New Course', new_course_path, class: "ui button" %>
             <% end %>
-            <h2 style="text-align: center; margin-bottom: 20px;">Enroll In a Course</h2>
+            <% if current_user.is_instructor? %>
+            <h2 style="text-align: center; margin-bottom: 20px;">Teach a Course</h2>
+            <% elsif current_user.is_student? %>
+            <h2 style="text-align: center; margin-bottom: 20px;">Enroll in a Course</h2>
+            <% elsif current_user.is_admin? %>
+            <h2 style="text-align: center; margin-bottom: 20px;">All Courses</h2>
+            <% end %>
             <div class="ui wide centered column grid">
               <% @courses.each do |course| %>
                 <div class="five wide column">
@@ -63,7 +69,7 @@
                         <% end %>
                       </div>
                       <%= link_to course_path(course) do %>
-                        <% if !current_user.is_admin? %>
+                        <% if current_user.is_student? %>
                           <div class="ui bottom attached button">
                             <i class="add icon"></i>Enroll
                           </div>
