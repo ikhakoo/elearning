@@ -5,8 +5,8 @@ class EnrollmentsController < ApplicationController
   add_breadcrumb "My Courses", :enrollments_path
 
   def index
-    if current_user.role == 'student'
-      # display all courses enrolled in
+    if !current_user.is_admin?
+      # display all courses enrolled in for student or instructor
       @user = current_user
       @courses_enrolled_in = @user.courses
     else
@@ -20,7 +20,7 @@ class EnrollmentsController < ApplicationController
   end
 
   def create
-  	if admin_or_instructor?
+  	if current_user.is_admin?
       redirect_to courses_path, alert: "Please contact admissions for enrollment."
     else
       load_course
