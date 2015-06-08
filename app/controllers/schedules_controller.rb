@@ -1,6 +1,10 @@
 class SchedulesController < ApplicationController
 
-	def new
+	def index
+    @schedules = Schedule.all
+  end
+
+  def new
 		@user = load_user
     @schedule = @user.schedules.build
   end
