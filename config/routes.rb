@@ -30,6 +30,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :resumes, only: [:index, :create, :destroy]
+
   # get 'courses/:course_id/enrollments/new', to: 'enrollments#new', as: :new_course_enrollment
   get 'markdowns/:page_id', to: 'markdowns#show', as: :markdown
 
@@ -38,9 +40,8 @@ Rails.application.routes.draw do
 
   get '/front', to: 'dashboard#front'
   get '/tracks', to: 'dashboard#tracks'
-  get '/private_help', to: 'dashboard#private_help'
-  get '/material', to: 'dashboard#material'
   get '/students', to: 'dashboard#students', as: :students
+  get '/teach', to: 'resumes#new'
 
   # match 'student_progress' => 'chapters#student_progress', :as =>'student_progress', via: [:get, :post]
 
