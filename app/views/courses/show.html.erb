@@ -38,7 +38,7 @@
             <%= form_for [@course, @enrollment] do |f| %>
               <%= f.submit 'Confirm Enrollment' %>
             <% end %>
-          <% else %>
+          <% elsif !current_user.is_admin? %>
             <p>
               Already enrolled. Go to:
               <%= link_to 'My Courses', enrollments_path, class: "ui black basic button" %>
