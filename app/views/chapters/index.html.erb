@@ -1,11 +1,11 @@
-<%= render 'dashboard/left_sidebar' %>
-
 <% color = ['blue', 'orange', 'green', 'red', 'purple', 'teal'] %>
 
 <div class="pusher">
   <div class="ui grid">
-    <div class="three wide column sticky top"></div>
-      <div class="nine wide column main container">
+    <div class="one wide column">
+      <%= render :partial => 'dashboard/left_sidebar' %>
+    </div>
+      <div class="fourteen wide column main container">
         <div class="ui <%= color.sample %> segment" style="margin-top: 90px; margin-bottom: 40px;">
           <h1 style="text-align:center;">Chapter Listing</h1><hr />
           <% @chapters.each do |chapter| %>
@@ -15,6 +15,8 @@
 			    <% end %> 
         </div>
       </div>
-    <%= render :partial => 'dashboard/right_sidebar' %>
+      <div class="one wide column">
+        <%= render :partial => 'dashboard/right_sidebar' %>
+      </div>
   </div>
 </div>
