@@ -1,4 +1,5 @@
 <% color = ['blue', 'orange', 'green', 'red', 'purple', 'teal'] %>
+<% quotes = ['Good Job completing', 'Excellent Work! You\'ve completed', 'Well Done! You\'ve completed', 'Hard work\'s paying off! You\'ve completed'] %>
 <div class="pusher">
   <div class="ui grid">
 
@@ -39,6 +40,13 @@
             <div role="tabpanel" class="tab-pane" id="profile">
               <div class="ui <%= color.sample %> segment">
                 <h1 style="text-align:center;">Recent Activity</h1>
+                <% current_user.chapters_completed.last(5).each do |chapter| %>
+                  <% if current_user.completed?(chapter) %>
+                 <%= quotes.sample %> <%= chapter.title %>!
+                  <% else %>
+                    
+                  <% end %>
+                <% end %>
               </div>
             </div>
 
