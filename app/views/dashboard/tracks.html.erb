@@ -11,7 +11,7 @@
     <!-- Detail Column -->
     <div class="four wide column main container">
       <!-- User Section -->
-      <div class="ui <%= color.sample %> segment" style="margin-top: 40px; margin-bottom: 40px;position:fixed;">
+      <div class="ui <%= color.sample %> segment" style="margin-top: 100px; margin-bottom: 40px;position:fixed;">
         <h1 style="text-align:center;">User Details</h1><hr />
           <strong>Name:</strong> <%= current_user.first_name %> <%= current_user.last_name %> <br>
           <strong>Email:</strong> <%= current_user.email %> <br>
@@ -23,7 +23,7 @@
 
     <!-- Recent Activity & Progress Tracker Column -->
     <div class="ten wide column">
-      <div class="ui <%= color.sample %> segment" style="margin-top: 40px; margin-bottom: 40px;">
+      <div class="ui <%= color.sample %> segment" style="margin-top: 100px; margin-bottom: 40px;">
         <h1 style="text-align:center;">Activity Details</h1><hr />
 
         <div role="tabpanel">
@@ -42,7 +42,8 @@
                 <h1 style="text-align:center;">Recent Activity</h1>
                 <% current_user.chapters_completed.last(5).reverse_each do |chapter| %>
                   <% if current_user.completed?(chapter) %>
-                    <%= quotes.sample %> <%= chapter.title %>!<br>
+                    <h3><%= quotes.sample %> <%= chapter.title %>!</h3>
+                    <br>
                   <% else %>
                     
                   <% end %>
