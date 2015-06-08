@@ -41,7 +41,6 @@ Rails.application.routes.draw do
   get '/front', to: 'dashboard#front'
   get '/tracks', to: 'dashboard#tracks'
   get '/students', to: 'dashboard#students', as: :students
-  get '/teach', to: 'resumes#new'
 
   # match 'student_progress' => 'chapters#student_progress', :as =>'student_progress', via: [:get, :post]
 

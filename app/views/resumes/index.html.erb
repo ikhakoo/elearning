@@ -1,4 +1,3 @@
-<%= link_to "New Resume", teach_path, class: "btn btn-primary" %>
 <br />
 <br />
 <% if current_user.is_admin? %>
@@ -26,4 +25,6 @@
     <% end %>
   </tbody>
 </table>
+<% else %>
+<p>ACCESS DENIED</p>
 <% end %>
