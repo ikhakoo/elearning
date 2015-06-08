@@ -34,11 +34,11 @@
             </p><br>
           </div><br>
         <div class="ui bottom attached label">
-          <% if @not_enrolled || current_user.is_admin? %>
+          <% if @not_enrolled && !@admin_or_instructor %>
             <%= form_for [@course, @enrollment] do |f| %>
               <%= f.submit 'Confirm Enrollment' %>
             <% end %>
-          <% else %>
+          <% elsif !@admin_or_instructor %>
             <p>
               Already enrolled. Go to:
               <%= link_to 'My Courses', enrollments_path, class: "ui black basic button" %>

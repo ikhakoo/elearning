@@ -172,7 +172,12 @@ def marking_it_down1
       markdown_to_html = markdown.render(page)
 
       chapter_name = file_path.split("/").last.gsub(".md", "").titleize
-      lesson.chapters.create!(title: chapter_name, content: markdown_to_html, chapter_count: chapter_count)
+      lesson.chapters.create!(
+        title: chapter_name,
+        content: markdown_to_html,
+        chapter_count: chapter_count,
+        lesson_id: lesson.id
+        )
       print w
       print 13.chr
       w = w + 1
@@ -245,7 +250,12 @@ def marking_it_down2
       markdown_to_html = markdown.render(page)
 
       chapter_name = file_path.split("/").last.gsub(".md", "").titleize
-      lesson.chapters.create!(title: chapter_name, content: markdown_to_html, chapter_count: chapter_count)
+      lesson.chapters.create!(
+        title: chapter_name,
+        content: markdown_to_html,
+        chapter_count: chapter_count,
+        lesson_id: lesson.id
+        )
       print w
       print 13.chr
       w = w + 1
@@ -316,7 +326,12 @@ def marking_it_down3
       markdown_to_html = markdown.render(page)
 
       chapter_name = file_path.split("/").last.gsub(".md", "").titleize
-      lesson.chapters.create!(title: chapter_name, content: markdown_to_html, chapter_count: chapter_count)
+      lesson.chapters.create!(
+        title: chapter_name,
+        content: markdown_to_html,
+        chapter_count: chapter_count,
+        lesson_id: lesson.id
+        )
       print w
       print 13.chr
       w = w + 1
@@ -389,7 +404,12 @@ def marking_it_down4
       markdown_to_html = markdown.render(page)
 
       chapter_name = file_path.split("/").last.gsub(".md", "").titleize
-      lesson.chapters.create!(title: chapter_name, content: markdown_to_html, chapter_count: chapter_count)
+      lesson.chapters.create!(
+        title: chapter_name,
+        content: markdown_to_html,
+        chapter_count: chapter_count,
+        lesson_id: lesson.id
+        )
       print w
       print 13.chr
       w = w + 1
@@ -464,7 +484,12 @@ def marking_it_down5
       markdown_to_html = markdown.render(page)
 
       chapter_name = file_path.split("/").last.gsub(".md", "").titleize
-      lesson.chapters.create!(title: chapter_name, content: markdown_to_html, chapter_count: chapter_count)
+      lesson.chapters.create!(
+        title: chapter_name,
+        content: markdown_to_html,
+        chapter_count: chapter_count,
+        lesson_id: lesson.id
+        )
       print w
       print 13.chr
       w = w + 1
@@ -520,7 +545,12 @@ def marking_it_down6
         markdown_to_html = markdown.render(page)
 
         chapter_name = file_path.split("/").last.gsub(".md", "").titleize
-        lesson.chapters.create!(title: chapter_name, content: markdown_to_html, chapter_count: chapter_count)
+        lesson.chapters.create!(
+        title: chapter_name,
+        content: markdown_to_html,
+        chapter_count: chapter_count,
+        lesson_id: lesson.id
+        )
         print w
         print 13.chr
         w = w + 1
@@ -571,7 +601,12 @@ def marking_it_down7
         markdown_to_html = markdown.render(page)
 
         chapter_name = file_path.split("/").last.gsub(".md", "").titleize
-        lesson.chapters.create!(title: chapter_name, content: markdown_to_html, chapter_count: chapter_count)
+        lesson.chapters.create!(
+        title: chapter_name,
+        content: markdown_to_html,
+        chapter_count: chapter_count,
+        lesson_id: lesson.id
+        )
         print w
         print 13.chr
         w = w + 1
@@ -622,7 +657,12 @@ def marking_it_down8
         markdown_to_html = markdown.render(page)
 
         chapter_name = file_path.split("/").last.gsub(".md", "").titleize
-        lesson.chapters.create!(title: chapter_name, content: markdown_to_html, chapter_count: chapter_count)
+        lesson.chapters.create!(
+        title: chapter_name,
+        content: markdown_to_html,
+        chapter_count: chapter_count,
+        lesson_id: lesson.id
+        )
         print w
         print 13.chr
         w = w + 1
@@ -673,7 +713,12 @@ def marking_it_down9
         markdown_to_html = markdown.render(page)
 
         chapter_name = file_path.split("/").last.gsub(".md", "").titleize
-        lesson.chapters.create!(title: chapter_name, content: markdown_to_html, chapter_count: chapter_count)
+        lesson.chapters.create!(
+        title: chapter_name,
+        content: markdown_to_html,
+        chapter_count: chapter_count,
+        lesson_id: lesson.id
+        )
         print w
         print 13.chr
         w = w + 1
@@ -725,7 +770,12 @@ def marking_it_down10
         markdown_to_html = markdown.render(page)
 
         chapter_name = file_path.split("/").last.gsub(".md", "").titleize
-        lesson.chapters.create!(title: chapter_name, content: markdown_to_html, chapter_count: chapter_count)
+        lesson.chapters.create!(
+        title: chapter_name,
+        content: markdown_to_html,
+        chapter_count: chapter_count,
+        lesson_id: lesson.id
+        )
         print w
         print 13.chr
         w = w + 1

@@ -65,7 +65,7 @@ group :development, :test do
   #Factory-girl from ThoughtBot
   gem 'factory_girl_rails'
 
-  # Tired of waiting for the test environment to load
+  # Tired of waiting for the test environment to load, etc.
   gem 'guard'
   gem 'guard-minitest'
 

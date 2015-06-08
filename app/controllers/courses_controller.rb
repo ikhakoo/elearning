@@ -20,9 +20,6 @@ class CoursesController < ApplicationController
 
   def edit
     load_course
-    if current_user.is_instructor?
-      @disabled = true
-    end
   end
 
   def create

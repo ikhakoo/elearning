@@ -1,3 +1,8 @@
+<!-- Display for flash notice -->
+<% if flash[:alert] %>
+  <h2><%= flash[:alert] %></h2>
+<% end %>
+
 <!-- First condition allows visitors to access the course listings and see what the site offers -->
 <% if current_user.nil? %>
     <% color = ['blue', 'orange', 'green', 'red', 'purple', 'teal'] %>
@@ -37,11 +42,11 @@
     <% color = ['blue', 'orange', 'green', 'red', 'purple', 'teal'] %>
     <div class="pusher">
       <div class="ui grid">
-        
+
         <div class="one wide column sticky top">
           <%= render :partial => 'dashboard/left_sidebar' %>
         </div>
-        
+
         <div class="fourteen wide column main container">
           <div class="ui <%= color.sample %> segment" style="margin-top: 90px;">
             <% if current_user.is_admin? %>
