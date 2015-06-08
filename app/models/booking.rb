@@ -1,6 +1,6 @@
 class Booking < ActiveRecord::Base
 	belongs_to :user
-	has_many :schedules
+	belongs_to :schedule
 
 	def teacher_has_room_for_booking
   	if start_time > schedule.availability(date, start_time)
