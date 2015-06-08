@@ -152,7 +152,8 @@ def marking_it_down1
       course_id: course.id,
       will_learn: "#{x1}\n#{x2}\n#{x3}",
       will_build: "Hold on, you'll be building soon!",
-      lesson_count: i + 1
+      lesson_count: i + 1,
+      lesson_order: i + 1
     )
     i+=1
   end
@@ -163,7 +164,7 @@ def marking_it_down1
   all_lessons.each do |lesson|
     file_paths = Dir.glob("lib/curriculum/web_development_101/lesson_#{lesson_number}/*.md")
 
-    file_paths.inject(1) do |chapter_count, file_path|
+    file_paths.each_with_index do |file_path, chapter_count|
 
       page = File.open(file_path, 'r') { |f| f.read }
 
@@ -174,7 +175,7 @@ def marking_it_down1
       lesson.chapters.create!(
         title: chapter_name,
         content: markdown_to_html,
-        chapter_count: chapter_count,
+        chapter_count: chapter_count + 1,
         lesson_id: lesson.id
         )
       print w
@@ -229,7 +230,8 @@ def marking_it_down2
       course_id: course.id,
       will_learn: "#{x1}\n#{x2}\n#{x3}",
       will_build: "Hold on, you'll be building soon!",
-      lesson_count: i + 1
+      lesson_count: i + 1,
+      lesson_order: i + 1
     )
     i+=1
   end
@@ -240,7 +242,7 @@ def marking_it_down2
   all_lessons.each do |lesson|
     file_paths = Dir.glob("lib/curriculum/ruby/lesson_#{lesson_number}/*.md")
 
-    file_paths.inject(1) do |chapter_count, file_path|
+    file_paths.each_with_index do |file_path, chapter_count|
 
       page = File.open(file_path, 'r') { |f| f.read }
 
@@ -251,7 +253,7 @@ def marking_it_down2
       lesson.chapters.create!(
         title: chapter_name,
         content: markdown_to_html,
-        chapter_count: chapter_count,
+        chapter_count: chapter_count + 1,
         lesson_id: lesson.id
         )
       print w
@@ -304,7 +306,8 @@ def marking_it_down3
       course_id: course.id,
       will_learn: "#{x1}\n#{x2}\n#{x3}",
       will_build: "Hold on, you'll be building soon!",
-      lesson_count: i + 1
+      lesson_count: i + 1,
+      lesson_order: i + 1
     )
     i+=1
   end
@@ -315,7 +318,7 @@ def marking_it_down3
   all_lessons.each do |lesson|
     file_paths = Dir.glob("lib/curriculum/rails/lesson_#{lesson_number}/*.md")
 
-    file_paths.inject(1) do |chapter_count, file_path|
+    file_paths.each_with_index do |file_path, chapter_count|
 
       page = File.open(file_path, 'r') { |f| f.read }
 
@@ -326,7 +329,7 @@ def marking_it_down3
       lesson.chapters.create!(
         title: chapter_name,
         content: markdown_to_html,
-        chapter_count: chapter_count,
+        chapter_count: chapter_count + 1,
         lesson_id: lesson.id
         )
       print w
@@ -381,7 +384,8 @@ def marking_it_down4
       course_id: course.id,
       will_learn: "#{x1}\n#{x2}\n#{x3}",
       will_build: "Hold on, you'll be building soon!",
-      lesson_count: i + 1
+      lesson_count: i + 1,
+      lesson_order: i + 1
     )
     i+=1
   end
@@ -392,7 +396,8 @@ def marking_it_down4
   all_lessons.each do |lesson|
     file_paths = Dir.glob("lib/curriculum/html_css/lesson_#{lesson_number}/*.md")
 
-    file_paths.inject(1) do |chapter_count, file_path|
+    # Not sure inject is neccessary here? Statement below may be simpler way
+    file_paths.each_with_index do |file_path, chapter_count|
 
       page = File.open(file_path, 'r') { |f| f.read }
 
@@ -403,7 +408,7 @@ def marking_it_down4
       lesson.chapters.create!(
         title: chapter_name,
         content: markdown_to_html,
-        chapter_count: chapter_count,
+        chapter_count: chapter_count + 1,
         lesson_id: lesson.id
         )
       print w
@@ -460,7 +465,8 @@ def marking_it_down5
       course_id: course.id,
       will_learn: "#{x1}\n#{x2}\n#{x3}",
       will_build: "Hold on, you'll be building soon!",
-      lesson_count: i + 1
+      lesson_count: i + 1,
+      lesson_order: i + 1
     )
     i+=1
   end
@@ -471,7 +477,7 @@ def marking_it_down5
   all_lessons.each do |lesson|
     file_paths = Dir.glob("lib/curriculum/javascript/lesson_#{lesson_number}/*.md")
 
-    file_paths.inject(1) do |chapter_count, file_path|
+    file_paths.each_with_index do |file_path, chapter_count|
 
       page = File.open(file_path, 'r') { |f| f.read }
 
@@ -482,7 +488,7 @@ def marking_it_down5
       lesson.chapters.create!(
         title: chapter_name,
         content: markdown_to_html,
-        chapter_count: chapter_count,
+        chapter_count: chapter_count + 1,
         lesson_id: lesson.id
         )
       print w
@@ -520,6 +526,7 @@ def marking_it_down6
       description: descriptions[i],
       course_id: course.id,
       lesson_count: i + 1,
+      lesson_order: i + 1,
       will_learn: "How to setup your machine to be a web developer",
       will_build: "Hold on, you'll be building soon!",
     )
@@ -531,7 +538,7 @@ def marking_it_down6
   all_lessons.each do |lesson|
     file_paths = Dir.glob("lib/curriculum/extra_stuff/installations/*.md")
 
-    file_paths.inject(1) do |chapter_count, file_path|
+    file_paths.each_with_index do |file_path, chapter_count|
 
         page = File.open(file_path, 'r') { |f| f.read }
 
@@ -542,7 +549,7 @@ def marking_it_down6
         lesson.chapters.create!(
         title: chapter_name,
         content: markdown_to_html,
-        chapter_count: chapter_count,
+        chapter_count: chapter_count + 1,
         lesson_id: lesson.id
         )
         print w
@@ -575,6 +582,7 @@ def marking_it_down7
       description: descriptions[i],
       course_id: course.id,
       lesson_count: i + 1,
+      lesson_order: i + 1,
       will_learn: "How to setup your machine to be a web developer",
       will_build: "Hold on, you'll be building soon!",
     )
@@ -586,7 +594,7 @@ def marking_it_down7
   all_lessons.each do |lesson|
     file_paths = Dir.glob("lib/curriculum/extra_stuff/additional_resources/learning_sass.md")
 
-    file_paths.inject(1) do |chapter_count, file_path|
+    file_paths.each_with_index do |file_path, chapter_count|
 
         page = File.open(file_path, 'r') { |f| f.read }
 
@@ -597,7 +605,7 @@ def marking_it_down7
         lesson.chapters.create!(
         title: chapter_name,
         content: markdown_to_html,
-        chapter_count: chapter_count,
+        chapter_count: chapter_count + 1,
         lesson_id: lesson.id
         )
         print w
@@ -630,6 +638,7 @@ def marking_it_down8
       description: descriptions[i],
       course_id: course.id,
       lesson_count: i + 1,
+      lesson_order: i + 1,
       will_learn: "How to setup your machine to be a web developer",
       will_build: "Hold on, you'll be building soon!",
     )
@@ -641,7 +650,7 @@ def marking_it_down8
   all_lessons.each do |lesson|
     file_paths = Dir.glob("lib/curriculum/extra_stuff/additional_resources/sublimetext_windows_cli.md")
 
-      file_paths.inject(1) do |chapter_count, file_path|
+      file_paths.each_with_index do |file_path, chapter_count|
 
         page = File.open(file_path, 'r') { |f| f.read }
 
@@ -652,7 +661,7 @@ def marking_it_down8
         lesson.chapters.create!(
         title: chapter_name,
         content: markdown_to_html,
-        chapter_count: chapter_count,
+        chapter_count: chapter_count + 1,
         lesson_id: lesson.id
         )
         print w
@@ -685,6 +694,7 @@ def marking_it_down9
       description: descriptions[i],
       course_id: course.id,
       lesson_count: i + 1,
+      lesson_order: i + 1,
       will_learn: "How to setup your machine to be a web developer",
       will_build: "Hold on, you'll be building soon!",
     )
@@ -696,7 +706,7 @@ def marking_it_down9
   all_lessons.each do |lesson|
       file_paths = Dir.glob("lib/curriculum/extra_stuff/mobile/*.md")
 
-      file_paths.inject(1) do |chapter_count, file_path|
+      file_paths.each_with_index do |file_path, chapter_count|
 
         page = File.open(file_path, 'r') { |f| f.read }
 
@@ -707,7 +717,7 @@ def marking_it_down9
         lesson.chapters.create!(
         title: chapter_name,
         content: markdown_to_html,
-        chapter_count: chapter_count,
+        chapter_count: chapter_count + 1,
         lesson_id: lesson.id
         )
         print w
@@ -741,6 +751,7 @@ def marking_it_down10
       description: descriptions[i],
       course_id: course.id,
       lesson_count: i + 1,
+      lesson_order: i + 1,
       will_learn: "How to setup your machine to be a web developer",
       will_build: "Hold on, you'll be building soon!"
     )
@@ -752,7 +763,7 @@ def marking_it_down10
   all_lessons.each do |lesson|
       file_paths = Dir.glob("lib/curriculum/extra_stuff/pairing/*.md")
 
-      file_paths.inject(1) do |chapter_count, file_path|
+      file_paths.each_with_index do |file_path, chapter_count|
 
         page = File.open(file_path, 'r') { |f| f.read }
 
@@ -763,7 +774,7 @@ def marking_it_down10
         lesson.chapters.create!(
         title: chapter_name,
         content: markdown_to_html,
-        chapter_count: chapter_count,
+        chapter_count: chapter_count + 1,
         lesson_id: lesson.id
         )
         print w
@@ -790,8 +801,3 @@ marking_it_down10
 
 load_users
 load_enrollments
-
-
-
-
-
