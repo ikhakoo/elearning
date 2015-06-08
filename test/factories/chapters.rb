@@ -9,11 +9,10 @@ FactoryGirl.define do
       lesson
     end
 
-    # factory :last_chapter do
-    #   chapter_count
-    # end
+    factory :last_chapter do
+      chapter_count 5
+      lesson
+    end
   end
-
-
 
 end
