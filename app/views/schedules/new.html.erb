@@ -7,34 +7,37 @@
       <div class="ten wide column main container">
         <div class="ui <%= color.sample %> segment" style="margin-top: 90px; margin-bottom: 40px;">
          <h2 style="text-align: center;">New Schedule</h2> 
-            
+   
           <%= form_for(@schedule, url: user_schedules_path)  do |s| %>
             
             <div class="field">
 
-            <%
-            x = ["12-1pm", "1-2pm", "2-3pm", "3-4pm", "4-5pm", "5-6pm", "6-7pm", "7-8pm", "8-9pm", "9-10pm", "10-11pm", "11-12am","12-1am", "1-2am", "2-3am", "3-4am", "4-5am", "5-6am", "6-7am", "7-8am", "8-9am", "9-10am", "10-11am", "11-12pm"]
-            i = 1
-            24.times do 
+              <%
+                x = ["12-1pm", "1-2pm", "2-3pm", "3-4pm", "4-5pm", "5-6pm", "6-7pm", "7-8pm", "8-9pm", "9-10pm", "10-11pm", "11-12am","12-1am", "1-2am", "2-3am", "3-4am", "4-5am", "5-6am", "6-7am", "7-8am", "8-9am", "9-10am", "10-11am", "11-12pm"]
+                i = 1
+                24.times do  
+              %>
+              <table class="ui striped table">
+                
+                <td><%= s.label x[i-1] %></td>
+                <td><%= s.check_box :time, {:multiple => "true"}, i %></td>
+                <% i += 1 %>
 
+                <% end %>
+              </table>
+              </div>
+
+              <div class="field">
+                <%= s.label :date %><br/>
+                <%= s.date_select :date %>
+              </div>
+
+               <div class="actions">
+                <%= s.submit "Save", :class => "ui primary button", :time => [:time] %>
+              </div>
             
-            %>
+              <% end %>
 
-
-              <%= s.label x[i-1] %>
-              <%= s.check_box :time, {:multiple => "true"}, i %>
-              <% i += 1 %>
-            <% end %>
-            </div>
-            <div class="field">
-              <%= s.label :date %><br/>
-              <%= s.date_select :date %>
-            </div>
-             <div class="actions">
-              <%= s.submit "Save", :class => "ui primary button", :time => [:time] %>
-            </div>
-
-          <% end %>
 
         </div>
       </div>
@@ -47,4 +50,9 @@
 
 </div>
 
+<script>
+$('select.dropdown')
+  .dropdown()
+;
+</script>
 
