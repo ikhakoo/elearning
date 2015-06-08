@@ -1,3 +1,4 @@
+<% color = ['blue', 'orange', 'green', 'red', 'purple', 'teal', 'yellow', 'orange'] %>
 <!-- Display for flash notice -->
 <% if flash[:alert] %>
   <h2><%= flash[:alert] %></h2>
@@ -5,7 +6,6 @@
 
 <!-- First condition allows visitors to access the course listings and see what the site offers -->
 <% if current_user.nil? %>
-    <% color = ['blue', 'orange', 'green', 'red', 'purple', 'teal'] %>
     <div class="pusher">
       <div class="ui grid">
         <div class="three wide column sticky top"></div>
@@ -17,7 +17,7 @@
                 <% @courses.each do |course| %>
                   <div class="five wide column">
                     <div class="ui cards">
-                      <div class="card">
+                      <div class="<%= color.sample %> card">
                         <div class="content">
                           <div class="header">
                             <%= course.name %>
@@ -39,7 +39,6 @@
 
   <!-- If the visitor logs in as a user then they can see dashboard -->
   <% elsif current_user %>
-    <% color = ['blue', 'orange', 'green', 'red', 'purple', 'teal'] %>
     <div class="pusher">
       <div class="ui grid">
 
@@ -63,7 +62,7 @@
               <% @courses.each do |course| %>
                 <div class="five wide column">
                   <div class="ui cards">
-                    <div class="card">
+                    <div class="<%= color.sample %> card">
                       <div class="content">
                         <div class="header"><%= course.name %></div>
                         <div class="description"><%= course.description %></div>
