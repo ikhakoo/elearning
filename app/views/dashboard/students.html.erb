@@ -8,20 +8,29 @@
 			<div class="two wide column sticky top"></div>
 			<div class="seven wide column center aligned">
 
+
+
+
 			<% if current_user.is_admin? %>
 				<br>
 					<%= form_tag students_path, {method: :get, authentication: false, id: 'search-form'} do %>
-		        <%= text_field_tag :search, params[:search] %>
-		        <%= submit_tag "Search" %>
+					<div class="ui form" style="float:left;">
+						<i class="search icon"></i>
+		        <%= text_field_tag :search, params[:search], :class => "six wide field" %>
+		        <%= submit_tag "Search", :class => "ui teal button" %>
+		        <%= button_to "Clear", students_path, method: :get, id: "button_to_clear", params: {search: ""}, :class => "ui button" %>
+
+		        <br>
+						<br>
+		        <%= button_to "Add Instructor", new_instructor_path, method: :get, id: "button_for_new_instructor", :class => "ui basic button" %>
+		        <%= check_box_tag :instructors, 1, false %>
+						<%= label_tag :instructors %>
+						 <br>
+						<br>
+		      </div>
 					<% end %>
 
-			 	<%= button_to "Clear", students_path, method: :get, id: "button_to_clear", params: {search: ""} %>
-			 	<%= button_to "Add Instructor", new_instructor_path, method: :get, id: "button_for_new_instructor" %>
 
-				<%= check_box_tag :instructors, 1, false %>
-				<%= label_tag :instructors %>
-
-				<br>
 
 				<div id="users_list_handle">
 					<%= render partial: 'users_list', collection: @users, as: :user %>

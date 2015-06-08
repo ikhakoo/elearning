@@ -17,10 +17,30 @@
   			<strong>Course:</strong>
   			<%= @lesson.course.name %>
 			</p>
+			<h3>Quick Summary</h3>
+			<ul>
+        <% @lesson.wl_show.each do |wl| %>
+        	<li>
+        		<%= wl %>
+        	</li>
+        <% end %>
+      </ul>
+      <h3>Project Summary</h3>
+      <ul>
+        <% @lesson.wb_show.each do |wb| %>
+        	<li>
+        		<%= wb %>
+        	</li>
+        <% end %>
+      </ul>
 		</div>
 		<div style="text-align:center;">
-			<%= link_to 'Edit', edit_course_lesson_path, class: 'ui button' %>
-			<%= link_to 'Back', course_lessons_path, class: 'ui button' %>
+			<% if current_user.is_admin? %>
+				<%= link_to 'Edit', edit_course_lesson_path, class: 'ui button' %>
+				<%= link_to 'Back', course_lessons_path, class: 'ui button' %>
+			<% elsif current_user.is_student? %>
+				<%= link_to 'Back', course_lessons_path, class: 'ui button' %>	
+			<% end %>
 		</div>
 	</div>
 

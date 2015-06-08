@@ -5,7 +5,7 @@ class EnrollmentsController < ApplicationController
   add_breadcrumb "My Courses", :enrollments_path
 
   def index
-    if current_user.role == 'student'
+    if current_user.role == 'student' || 'instructor'
       # display all courses enrolled in
       @user = current_user
       @courses_enrolled_in = @user.courses

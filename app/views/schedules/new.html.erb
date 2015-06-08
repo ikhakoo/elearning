@@ -1,0 +1,51 @@
+<!-- index view for courses the user is enrolled in -->
+<%= render :partial => 'dashboard/left_sidebar' %>
+<% color = ['blue', 'orange', 'green', 'red', 'purple', 'teal'] %>  
+<div class="pusher">
+  <div class="ui grid">
+    <div class="three wide column sticky top"></div>
+      <div class="ten wide column main container">
+        <div class="ui <%= color.sample %> segment" style="margin-top: 90px; margin-bottom: 40px;">
+         <h2 style="text-align: center;">New Schedule</h2> 
+            
+          <%= form_for(@schedule, url: user_schedules_path)  do |s| %>
+            
+            <div class="field">
+              <%= s.label :time %><br/>
+              <input id="time" name="12-1pm" type="checkbox" value="1" />
+              <label for="time">12-1pm</label>
+              <input id="time" name="12-1pm" type="checkbox" value="2" />
+              <label for="time">12-1pm</label>
+              <input id="time" name="12-1pm" type="checkbox" value="3" />
+              <label for="time">12-1pm</label>
+              <input id="time" name="12-1pm" type="checkbox" value="4" />
+              <label for="time">12-1pm</label>
+              <input id="time" name="12-1pm" type="checkbox" value="5" />
+              <label for="time">12-1pm</label>
+              <input id="time" name="12-1pm" type="checkbox" value="6" />
+              <label for="time">12-1pm</label>
+
+
+            </div>
+            <div class="field">
+              <%= s.label :date %><br/>
+              <%= s.date_select :date %>
+            </div>
+             <div class="actions">
+              <%= s.submit "Save", :class => "ui primary button" %>
+            </div>
+
+          <% end %>
+
+        </div>
+      </div>
+
+
+
+  <div class="three wide column sticky top"></div>
+    <%= render :partial => 'dashboard/right_sidebar' %>
+  </div>
+
+</div>
+
+

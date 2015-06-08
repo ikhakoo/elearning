@@ -16,6 +16,9 @@
             <div class="description">
               <%= lesson.description %>
             </div>
+            <a class="ui button default" style="float:right;" href="<%= course_lesson_path(@course, lesson) %>">
+            Further Details
+          </a>
           </div>
           <div class="extra content">
             <a>
@@ -37,9 +40,9 @@
               </div><hr />
             </a>
           </div>
-        <a class="header ui button primary" href="<%= course_lesson_chapters_path(@course, lesson) %>">
-          Start Here!
-        </a>
+          <a class="header ui button primary" href="<%= course_lesson_chapters_path(@course, lesson) %>">
+            Start Here!
+          </a>
       </div>
       <% if current_user.role == 'admin' || current_user.role == 'instructor' %>
         <div style="text-align:center;">

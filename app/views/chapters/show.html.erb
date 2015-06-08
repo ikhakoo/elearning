@@ -7,7 +7,7 @@
  	</div>
  	
  	<!-- MAIN VIDEO COLUMN -->
- 	<div class="seven wide column" style="margin-top:90px;">
+ 	<!-- <div class="seven wide column" style="margin-top:90px;">
  		<% if @lesson.video_id.nil? %>
  			<br>
       <iframe id="lesson-video" width="550" height="400" src="https://www.youtube.com/embed/Zyu7SWI6wh4" frameborder="0" allowfullscreen></iframe>
@@ -15,10 +15,10 @@
     	<br>
       <iframe id="lesson-video" width="550" height="400" src="https://www.youtube.com/embed/<%= @lesson.video_id %>" frameborder="0" allowfullscreen></iframe>
     <% end %>
-  </div>
+  </div> -->
 
-  <div class="seven wide column">
-    <div class="ui <%= color.sample %> segment" style="margin-top: 90px;margin-bottom: 20px; z-index: 0;">
+  <div class="fourteen wide column">
+    <div class="ui <%= color.sample %> segment" style="margin-top: 90px;margin-bottom:20px;z-index:0;">
     	<%= render :partial => 'show' %>
   	</div>
 
@@ -31,8 +31,7 @@
   		<% end %>
   	</div>
   	<div style="float: right;">
-  		<% if current_user.completed? @chapter %>
-  		
+  		<% if (current_user.completed?(@chapter) && current_user.is_student?) || current_user.is_instructor? || current_user.is_admin? %>	
   		<% else %>   
        <%= button_to "Mark Completed", :controller => 'chapters', :id => @chapter.id, :action => "student_progress" %>
    		<% end %>

@@ -10,24 +10,19 @@
     <!-- Detail Column -->
     <div class="four wide column main container">
       <!-- User Section -->
-      <div class="ui <%= color.sample %> segment" style="margin-top: 100px; margin-bottom: 40px;">
+      <div class="ui <%= color.sample %> segment" style="margin-top: 40px; margin-bottom: 40px;position:fixed;">
         <h1 style="text-align:center;">User Details</h1><hr />
           <strong>Name:</strong> <%= current_user.first_name %> <%= current_user.last_name %> <br>
           <strong>Email:</strong> <%= current_user.email %> <br>
           <strong>Joined: </strong> <%= current_user.created_at.strftime('%B %-d, %Y') %><br>
           <strong>Last Logged In: </strong> <%= current_user.last_sign_in_at.to_formatted_s(:long_ordinal) %><hr />
-          <%= link_to 'Edit Info', edit_user_registration_path, class: 'ui button' %>
-      </div>
-
-      <!-- Reward & Badges Section -->
-      <div class="ui <%= color.sample %> segment" style="margin-bottom: 40px;">
-        <h1 style="text-align:center;">Reward Badges</h1><hr />
+          <%= link_to 'Edit Info', edit_user_registration_path, class: 'ui button', style: "float:right;" %>
       </div>
     </div>
 
     <!-- Recent Activity & Progress Tracker Column -->
     <div class="ten wide column">
-      <div class="ui <%= color.sample %> segment" style="margin-top: 100px; margin-bottom: 40px;">
+      <div class="ui <%= color.sample %> segment" style="margin-top: 40px; margin-bottom: 40px;">
         <h1 style="text-align:center;">Activity Details</h1><hr />
 
         <div role="tabpanel">
@@ -35,6 +30,7 @@
           <ul class="nav nav-tabs" role="tablist" style="font-size:21px;">
             <li role="presentation" class="active"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Progress Tracker</a></li>
             <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Recent Activity</a></li>
+            <li role="presentation"><a href="#badges" aria-controls="badges" role="tab" data-toggle="tab">Reward Badges</a></li>
           </ul>
 
           <!-- Tab panes -->
@@ -45,6 +41,24 @@
                 <h1 style="text-align:center;">Recent Activity</h1>
               </div>
             </div>
+
+            <div role="tabpanel" class="tab-pane" id="badges">
+              <div class="ui <%= color.sample %> segment">
+                <h1 style="text-align:center;">Badges You've Won!!!</h1>
+                <% current_user.courses.each do |course| %>
+                <% course.lessons.each do |lesson| %>
+                <% lesson.chapters.each do |chapter| %>
+                  <% if current_user.completed?(chapter) && !current_user.completed_lesson?(lesson) %>
+                 
+                  <% elsif current_user.completed?(chapter) && current_user.completed_lesson?(lesson)%>
+                    <%= lesson.name %><i class="large green checkmark icon"></i><br>
+                  <% end %>
+                <% end %>
+                <% end %>
+                <% end %>     
+              </div>
+            </div>
+
             <div role="tabpanel" class="tab-pane active" id="messages">
               <div class="ui <%= color.sample %> segment">
                 <h1 style="text-align:center;">Progress Tracker</h1>
@@ -53,28 +67,33 @@
                     <div class="panel panel-default">
                       <div class="panel-heading" role="tab" id="headingOne">
                         <h4 class="panel-title">
+                          
                           <a data-toggle="collapse" data-parent="#accordion" href="#<%= course.id %>" aria-expanded="true" aria-controls="collapseOne">
                             <p style="text-align:center;"><%= course.name %></p>
-                            <% course.lessons.each do |lesson| %>
-                              Lesson <%= lesson.lesson_count %>:
-                              <div class="progress">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="<%= current_user.progress(lesson) %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= current_user.progress(lesson) %>%;">
-                                  <%= current_user.progress(lesson) %>%
-                                </div>
-                              </div>
                           </a>
                         </h4>
                       </div>
                       <div id="<%= course.id %>" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                         <div class="panel-body">
+                        <% course.lessons.each do |lesson| %>
+                          <h3>Lesson <%= lesson.name %>:</h3>
+                            <div class="progress">
+                              <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<%= current_user.progress(lesson) %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= current_user.progress(lesson) %>%;">
+                              <%= current_user.progress(lesson) %>
+                            </div>
+                          </div>      
                             <% lesson.chapters.each do |chapter| %>
                               <% if current_user.completed?(chapter) %>
-                                Chapter <%= chapter.chapter_count %>: <i class="large green checkmark icon"></i><br>
+                                <%= chapter.title %>: 
+                                <i class="large green checkmark icon"></i>
+                                <span style="color:green;font-size:18px;">Done!!</span>
+                                <br>
                               <% else %>
-                                Chapter <%= chapter.chapter_count %>: <br>
+                                <%= chapter.title %>: 
+                                <br>
                               <%end%>
                             <%end%>
-                            <br>
+                            <hr/>
                           <%end%>
                         </div>
                       </div>
@@ -99,5 +118,8 @@
   $('#myTab a').click(function(e){
     e.preventDefault();
     $(this).tab('show');
-});
+  });
+  $(document).ready(function(){
+    $('#accordion').collapse();
+  });
 </script> 
