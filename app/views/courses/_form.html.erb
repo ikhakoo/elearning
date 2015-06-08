@@ -1,4 +1,3 @@
-<% disabled ||= false %>
 
 <%= form_for(@course) do |f| %>
   <% if @course.errors.any? %>
@@ -10,6 +9,7 @@
         <li><%= message %></li>
       <% end %>
       </ul>
+
     </div>
   <% end %>
 
@@ -17,15 +17,14 @@
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
-  <div class="field">
-    <%= f.label :price %><br>
-    <%= f.number_field :price, disabled: @disabled %>
-  </div>
+
   <div class="field">
     <%= f.label :description %><br>
     <%= f.text_area :description %>
   </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
+
 <% end %>

@@ -6,6 +6,9 @@ class DashboardController < ApplicationController
 
   def front
     @resume = Resume.new
+    if current_user
+      @admin_or_instructor = admin_or_instructor?
+    end
   end
 
   def students

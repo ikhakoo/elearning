@@ -29,5 +29,4 @@ class UserTest < ActiveSupport::TestCase
 
   # No test for #completed? and #progress methods
 
-
 end

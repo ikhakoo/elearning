@@ -30,26 +30,26 @@ Iteration 1:
 
 * Admin will be able to upload new courses and pricing plans - DONE
 
-* Admin can upload new instructors into the system - AVERY
+* Admin can upload new instructors into the system - DONE
 
 * Instructors login and have access to curriculum for the day or week or whole course
 
 
 Update: Review of progress and things to be refined (Fri., May 29, 2015)
 
-1. Update content on landing page
+1. Update content on landing page - DONE
 
-2. Disable E-Learn button on landing page
+2. Disable Learn-IT button on landing page
 
 3. Notice messages need to be reviewed; they are popping in unexpecting places and ways
 
-4. Course show page for visitors needs styling
+4. Course show page for visitors needs styling - DONE
 
-5. Remove the Track Record button (for all users) - AVERY
+5. Remove the Track Record button (for all users) - DONE
 
 6. Add next page links, back button link, done button link at the button of the lesson/chapter pages - DONE
 
-7. Tracking progress needs to be completed
+7. Tracking progress needs to be completed - DONE
 
 8. Interactive page needs a 'back button' or 'menu bar' - DONE
 
