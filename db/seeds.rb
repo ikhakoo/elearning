@@ -152,7 +152,8 @@ def marking_it_down1
       course_id: course.id,
       will_learn: "#{x1}\n#{x2}\n#{x3}",
       will_build: "Hold on, you'll be building soon!",
-      lesson_count: i + 1
+      lesson_count: i + 1,
+      lesson_order: i + 1
     )
     i+=1
   end
@@ -224,7 +225,8 @@ def marking_it_down2
       course_id: course.id,
       will_learn: "#{x1}\n#{x2}\n#{x3}",
       will_build: "Hold on, you'll be building soon!",
-      lesson_count: i + 1
+      lesson_count: i + 1,
+      lesson_order: i + 1
     )
     i+=1
   end
@@ -294,7 +296,8 @@ def marking_it_down3
       course_id: course.id,
       will_learn: "#{x1}\n#{x2}\n#{x3}",
       will_build: "Hold on, you'll be building soon!",
-      lesson_count: i + 1
+      lesson_count: i + 1,
+      lesson_order: i + 1
     )
     i+=1
   end
@@ -366,7 +369,8 @@ def marking_it_down4
       course_id: course.id,
       will_learn: "#{x1}\n#{x2}\n#{x3}",
       will_build: "Hold on, you'll be building soon!",
-      lesson_count: i + 1
+      lesson_count: i + 1,
+      lesson_order: i + 1
     )
     i+=1
   end
@@ -440,7 +444,8 @@ def marking_it_down5
       course_id: course.id,
       will_learn: "#{x1}\n#{x2}\n#{x3}",
       will_build: "Hold on, you'll be building soon!",
-      lesson_count: i + 1
+      lesson_count: i + 1,
+      lesson_order: i + 1
     )
     i+=1
   end
@@ -495,6 +500,7 @@ def marking_it_down6
       description: descriptions[i],
       course_id: course.id,
       lesson_count: i + 1,
+      lesson_order: i + 1,
       will_learn: "How to setup your machine to be a web developer",
       will_build: "Hold on, you'll be building soon!",
     )
@@ -545,6 +551,7 @@ def marking_it_down7
       description: descriptions[i],
       course_id: course.id,
       lesson_count: i + 1,
+      lesson_order: i + 1,
       will_learn: "How to setup your machine to be a web developer",
       will_build: "Hold on, you'll be building soon!",
     )
@@ -595,6 +602,7 @@ def marking_it_down8
       description: descriptions[i],
       course_id: course.id,
       lesson_count: i + 1,
+      lesson_order: i + 1,
       will_learn: "How to setup your machine to be a web developer",
       will_build: "Hold on, you'll be building soon!",
     )
@@ -645,6 +653,7 @@ def marking_it_down9
       description: descriptions[i],
       course_id: course.id,
       lesson_count: i + 1,
+      lesson_order: i + 1,
       will_learn: "How to setup your machine to be a web developer",
       will_build: "Hold on, you'll be building soon!",
     )
@@ -696,6 +705,7 @@ def marking_it_down10
       description: descriptions[i],
       course_id: course.id,
       lesson_count: i + 1,
+      lesson_order: i + 1,
       will_learn: "How to setup your machine to be a web developer",
       will_build: "Hold on, you'll be building soon!"
     )
