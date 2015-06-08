@@ -89,7 +89,7 @@ ActiveRecord::Schema.define(version: 20150608042118) do
 
   create_table "schedules", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "time"
+    t.string   "time"
     t.date     "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
