@@ -25,13 +25,6 @@ class CoursesControllerTest < ActionController::TestCase
   #   assert_redirected_to course_path(assigns(:course))
   # end
 
-  # test "shouldn't create course if price is negative" do
-  #     assert_no_difference('Course.count') do
-  #       post :create, course: attributes_for(:invalid_course)
-  #     end
-  #     assert_template :new
-  # end
-
   # test "should show course" do
   #   get :show, id: @course
   #   assert_response :success

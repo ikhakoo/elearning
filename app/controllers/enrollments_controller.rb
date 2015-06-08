@@ -5,12 +5,12 @@ class EnrollmentsController < ApplicationController
   add_breadcrumb "My Courses", :enrollments_path
 
   def index
-    if current_user.role == 'student' || 'instructor'
+    if current_user.role == 'student'
       # display all courses enrolled in
       @user = current_user
       @courses_enrolled_in = @user.courses
     else
-      render text: "You are not a student"
+      render text: "Info not available."
     end
   end
 
@@ -20,18 +20,19 @@ class EnrollmentsController < ApplicationController
   end
 
   def create
-  	# If there is a current user:
-    load_course
-    @enrollment = @course.enrollments.new(course_id: @course.id, user_id: current_user.id)
-
-  	if @enrollment.save
-       redirect_to enrollments_path, notice: 'Registration created successfully. Please check your e-mail for confirmation'
-      # UserMailer.conf_email(current_user).deliver_now
+  	if admin_or_instructor?
+      redirect_to courses_path, alert: "Please contact admissions for enrollment."
     else
-      redirect_to root_path, notice: 'Registration failed. Please try again'
-    end
+      load_course
+      @enrollment = @course.enrollments.new(course_id: @course.id, user_id: current_user.id)
 
-    # Else redirect to login/sign-up page
+    	if @enrollment.save
+         redirect_to enrollments_path, notice: 'Registration created successfully. Please check your e-mail for confirmation'
+        # UserMailer.conf_email(current_user).deliver_now
+      else
+        redirect_to root_path, notice: 'Registration failed. Please try again'
+      end
+    end
 
   end
 

@@ -7,6 +7,7 @@ class ResumesController < ApplicationController
   def new
     @resume = Resume.new
   end
+
   #need to add user mailer function so admin is notified of the new application
   def create
     @resume = Resume.new(resume_params)
