@@ -12,9 +12,9 @@ class ResumesController < ApplicationController
     @resume = Resume.new(resume_params)
 
     if @resume.save
-      redirect_to resumes_path, notice: "Hey #{@resume.first_name} #{@resume.last_name}, thanks for applying!"
+      redirect_to root_path, notice: "Hey #{@resume.first_name} #{@resume.last_name}, thanks for applying!"
     else
-      render "new"
+      redirect_to root_path, alert: "Error: Please try again!"
     end
   end
 
