@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  #main root
+  root :to => "dashboard#front"
+
   # devise_for :users
   devise_for :users, controllers: { registrations: "users/registrations" }, :paths => 'users'
 
@@ -31,12 +34,6 @@ Rails.application.routes.draw do
   end
 
   resources :resumes, only: [:index, :create, :destroy]
-
-  # get 'courses/:course_id/enrollments/new', to: 'enrollments#new', as: :new_course_enrollment
-  get 'markdowns/:page_id', to: 'markdowns#show', as: :markdown
-
-
-  root :to => "dashboard#front"
 
   get '/front', to: 'dashboard#front'
   get '/tracks', to: 'dashboard#tracks'
