@@ -11,11 +11,12 @@
           <%= form_for(@schedule, url: user_schedules_path)  do |s| %>
             
             <div class="field">
-    <%= s.check_box :time, {:multiple => "true"}, 500 %>500
+    
+              <%= s.check_box :time, {:multiple => "true"}, 1 %> 12-1pm
 
-    <%= s.check_box :time, {:multiple => "true"}, 1000 %>1000
+              <%= s.check_box :time, {:multiple => "true"}, 2 %>1-2pm
 
-    <%= s.check_box :time, {:multiple => "true"}, 2000 %>2000
+              <%= s.check_box :time, {:multiple => "true"}, 3 %>2-3pm
   
 
 
