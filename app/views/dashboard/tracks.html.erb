@@ -40,9 +40,9 @@
             <div role="tabpanel" class="tab-pane" id="profile">
               <div class="ui <%= color.sample %> segment">
                 <h1 style="text-align:center;">Recent Activity</h1>
-                <% current_user.chapters_completed.last(5).each do |chapter| %>
+                <% current_user.chapters_completed.last(5).reverse_each do |chapter| %>
                   <% if current_user.completed?(chapter) %>
-                 <%= quotes.sample %> <%= chapter.title %>!
+                    <%= quotes.sample %> <%= chapter.title %>!<br>
                   <% else %>
                     
                   <% end %>
