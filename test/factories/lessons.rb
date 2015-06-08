@@ -8,7 +8,7 @@ FactoryGirl.define do
 
     # associations
     course
-    chapters {create_list :chapter, 5}
+    chapters {create_list :chapter, 4}
   end
 
 end

@@ -30,6 +30,7 @@ class Chapter < ActiveRecord::Base
   end
 
   def last_of_course?
+    binding.pry
   	chapter_count == lesson.chapters.count && lesson.lesson_count == course.lessons.count
   end
 
