@@ -8,7 +8,7 @@
       <h1 style="text-align: center;">Book time with a TA</h1> 
 
 
-        <div class="ui form">
+        
           <%= form_for(@booking, url: user_bookings_path) do |booking| %>
           <div class="field">
               <%= booking.label :Instructor %><br/>
@@ -29,7 +29,7 @@
               <%= booking.submit "Submit", :class => "ui primary button" %>
             </div>
           <% end %>
-        </div>
+        
 
             </div>
         </div>
