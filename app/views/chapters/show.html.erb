@@ -2,7 +2,7 @@
 <div class="ui grid">
 
 	<!-- MAIN SIDEBAR COLUMN -->
- 	<div class="one wide column">
+ 	<div class="two wide column">
  		<%= render :partial => 'dashboard/left_sidebar' %>
  	</div>
  	
@@ -17,7 +17,7 @@
     <% end %>
   </div> -->
 
-  <div class="fourteen wide column">
+  <div class="twelve wide column">
     <div class="ui <%= color.sample %> segment" style="margin-top: 90px;margin-bottom:20px;z-index:0;">
     	<%= render :partial => 'show' %>
   	</div>
@@ -30,14 +30,8 @@
   			<%= link_to 'Next', course_lesson_chapter_path(@next_chapter.course, @next_chapter.lesson, @next_chapter), class: "ui button primary pull right" %>
   		<% end %>
   	</div>
-  	<div style="float: right;">
-  		<% if (current_user.completed?(@chapter) && current_user.is_student?) || current_user.is_instructor? || current_user.is_admin? %>	
-  		<% else %>   
-       <%= button_to "Mark Completed", :controller => 'chapters', :id => @chapter.id, :action => "student_progress" %>
-   		<% end %>
-  	</div>
   </div>
-  <div class="one wide column">
+  <div class="two wide column">
     <%= render :partial => 'dashboard/right_sidebar' %>
   </div>
 </div>

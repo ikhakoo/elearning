@@ -4,6 +4,10 @@ class DashboardController < ApplicationController
   def index
   end
 
+  def front
+    @resume = Resume.new
+  end
+
   def students
   	@users = if params[:search] && params[:instructors]
       User.where("LOWER(email) LIKE LOWER(?)", "%#{params[:search]}%").where(role: 'instructor')

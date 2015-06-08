@@ -41,6 +41,9 @@ gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 # redcarpet gem to parse markdown
 gem 'redcarpet'
 
+# carrierwave to allow for uploading resumes
+gem 'carrierwave'
+
 
 # Use Unicorn as the app server
 # gem 'unicorn'

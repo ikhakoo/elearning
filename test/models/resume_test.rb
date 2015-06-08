@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class MarkdownsControllerTest < ActionController::TestCase
+class ResumeTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
