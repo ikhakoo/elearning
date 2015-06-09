@@ -5,14 +5,18 @@ FactoryGirl.define do
     content "Super content"
 
     factory :first_chapter do
+      title "First chapter of first lesson"
       chapter_count 1
-      lesson
+      lesson {create :first_lesson}
     end
 
     factory :last_chapter do
-      chapter_count 5
-      lesson
+      title "Last chapter of last lesson."
+      chapter_count 7
+      lesson {create :last_lesson, name: "Last lesson of Web Dev 101."}
     end
+
   end
+
 
 end

@@ -5,13 +5,15 @@ class Chapter < ActiveRecord::Base
 
 
   #defines the next chapter of the lesson on current chapter
+  # the where method in active record returns an array of objects, therefore index 0 is used to access the
+  # first (and only) element of the array.
   def next
   	if !last_of_course?
 	  	if chapter_count != lesson.chapters.count
-		  	lesson.chapters.where(chapter_count: chapter_count + 1).first
+		  	lesson.chapters.where(chapter_count: chapter_count + 1)[0]
 		  else
-		  	next_les = course.lessons.where(lesson_count: lesson.lesson_count + 1).first
-		  	next_les.chapters.where(chapter_count: 1).first
+		  	next_les = course.lessons.where(lesson_count: lesson.lesson_count + 1)[0]
+		  	next_les.chapters.where(chapter_count: 1)[0]
 		  end
 		end
   end
@@ -20,10 +22,10 @@ class Chapter < ActiveRecord::Base
   def before
   	if !first_of_course?
 	  	if chapter_count != 1
-	  		lesson.chapters.where(chapter_count: chapter_count - 1).first
+	  		lesson.chapters.where(chapter_count: chapter_count - 1)[0]
 	  	else
-	  		prev_les = course.lessons.where(lesson_count: lesson.lesson_count - 1).first
-	  		prev_les.chapters.where(chapter_count: prev_les.chapters.count).first
+	  		prev_les = course.lessons.where(lesson_count: lesson.lesson_count - 1)[0]
+	  		prev_les.chapters.where(chapter_count: prev_les.chapters.count)[0]
 	  	end
 	  end
   end
