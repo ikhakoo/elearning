@@ -20,7 +20,7 @@
               <table class="ui striped table">
                 
                 <td><%= s.label x[i-1] %></td>
-                <td><%= s.check_box :time, {:multiple => "true"}, i %></td>
+                <td><%= s.check_box :time, {:name => "#{s.object_name}[time][]", :multiple => "true"},  i, nil %></td>
                 <% i += 1 %>
 
                 <% end %>
