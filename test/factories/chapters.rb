@@ -12,7 +12,7 @@ FactoryGirl.define do
 
     factory :last_chapter do
       title "Last chapter of last lesson."
-      chapter_count 7
+      chapter_count 6
       lesson {create :last_lesson, name: "Last lesson of Web Dev 101."}
     end
 

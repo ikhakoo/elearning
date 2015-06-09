@@ -5,7 +5,7 @@ FactoryGirl.define do
 
 
     factory :course_of_last_lesson do
-      lessons {create_list :lesson, 2}
+      lessons {create_pair :lesson}
     end
   end
 
