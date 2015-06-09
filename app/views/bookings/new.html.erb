@@ -17,11 +17,11 @@
             </div>
             <div class="field">
               <%= booking.label :date %><br/>
-              <%= booking.date_select :date %>
+              <%= booking.collection_select :date, Schedule.order(:date),:id,:date, include_blank: true %>
             </div>
             <div class="field">
               <%= booking.label "Available Timeslots" %><br/>
-              <%= booking.select :time, [["1:00", 1],["2:00", 2],["3:00", 3],["4:00", 4],["5:00", 5]] %>
+              <%= booking.collection_select :time, Schedule.order(:date),:id,:time, include_blank: true %>
             </div>
 
 
