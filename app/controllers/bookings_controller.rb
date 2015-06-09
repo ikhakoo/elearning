@@ -13,7 +13,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
 
   	if @booking.save
-      redirect_to interactives_path, notice: 'Booking created successfully. Please check your e-mail for confirmation'
+      redirect_to new_charge_path, notice: 'Booking created successfully. Please check your e-mail for confirmation'
       #UserMailer.conf_email(current_user).deliver_now
     else
       redirect_to interactives_path notice: 'Booking creation failed.'
