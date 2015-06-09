@@ -9,7 +9,7 @@ class Booking < ActiveRecord::Base
   end
 
 	def hour_options
-		(start_time...end_time).map do |hour|
+		time.each do |hour|
 			if hour >= 12
 				nicehour = hour - 12
 				ampm = "pm"
