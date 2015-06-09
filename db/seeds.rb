@@ -337,11 +337,6 @@ def marking_it_down1
   puts
   puts "Markdown3 loading complete."
 
-end
-
-
-def marking_it_down4
-
   course = Course.create!(
               name: "Intro to HTML5/CSS3",
               description: "Learn CSS and begin to understand some of the more fundamental tenets of good site design."

@@ -30,7 +30,9 @@
 				<%= (@interactives.length - @interactives.where(is_private: true).count) %> public sessions</h1>
 			<% end %>
 
-			<p><%= link_to 'Add Room', new_interactive_path, class: "ui button" %></p>
+			<% if !current_user.is_student? %>
+				<p><%= link_to 'Add Room', new_interactive_path, class: "ui button" %></p>
+			<% end %>
 
 			<div class="ui wide centered column grid">
 		    <% @interactives.each do |interactive| %>
