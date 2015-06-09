@@ -14,7 +14,7 @@
                   <div class="ui dimmer">
                     <div class="content">
                       <div class="center">
-                        <a href="<%= schedules_path %>"><div class="ui inverted button">View Schedules</div></a>
+                        <a href="<%= new_schedule_booking_path(s.id) %>"><div class="ui inverted button">View Schedules</div></a>
                       </div>
                     </div>
                   </div>
@@ -46,5 +46,9 @@
   </div>
 </div>
 
-
+<script>
+$('.special.cards .image').dimmer({
+  on: 'hover'
+});
+</script>
       
