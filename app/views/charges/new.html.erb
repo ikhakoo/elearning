@@ -1,37 +1,64 @@
-<%= form_tag charges_path do %>
-  <article>
-    <label class="amount">
-      <span>1 hour: $100</span>
-    </label>
-  </article>
+<% color = ['blue', 'orange', 'green', 'red', 'purple', 'teal'] %>  
+<div class="pusher">
+  <div class="ui grid">
+    <div class="three wide column sticky top"></div>
+      <div class="nine wide column main container">
+      <div class="ui <%= color.sample %> segment" style="margin-top: 90px; margin-bottom: 40px;">
+      <h1 style="text-align: center;">Process Payment</h1> 
 
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="1 hour with TA"
-          data-amount="10000"></script>
-<% end %>
+      <div class="ui two column grid">
 
-<div class="ui hidden divider"></div>
-<div class="ui vertical steps">
-  <a class="completed step">
-<i class="truck icon"></i>
-<div class="content">
-  <div class="title">Previous Step</div>
-  <div class="description">Description</div>
-</div>
-  </a>
-  <a class="active step">
-<i class="payment icon"></i>
-<div class="content">
-  <div class="title">Active Step</div>
-  <div class="description">Description</div>
-</div>
-  </a>
-  <a class="disabled step">
-<i class="info icon"></i>
-<div class="content">
-  <div class="title">Disabled Step</div>
-  <div class="description">Description</div>
-</div>
-  </a>
-</div>
+<div class="column">
+        <div class="ui hidden divider"></div>
+        <div class="ui vertical steps" style="float:right;">
+          <a class="completed step">
+        <i class="truck icon"></i>
+            <div class="content">
+              <div class="title">Schedule Booking</div>
+              <div class="description">Booking Form</div>
+            </div>
+              </a>
+              <a class="active step">
+            <i class="payment icon"></i>
+            <div class="content">
+              <div class="title">Process Payment</div>
+              <div class="description">Pay with Stripe</div>
+            </div>
+              </a>
+              <a class="disabled step">
+            <i class="info icon"></i>
+            <div class="content">
+              <div class="title">Confirmation</div>
+              <div class="description">Transaction Complete</div>
+        </div>
+          </a>
+        </div>
+  </div>
+
+
+
+<div class="column">
+  <br>
+  <br>
+  <br>
+        <%= form_tag charges_path do %>
+          <article>
+            <label class="amount">
+              <span>1 hour: $100</span>
+            </label>
+          </article>
+
+          <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                  data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                  data-description="1 hour with TA"
+                  data-amount="10000"></script>
+        <% end %>
+
+      </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
