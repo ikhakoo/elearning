@@ -12,6 +12,8 @@
         <% elsif current_user.is_student? || current_user.is_admin? %>
           <h1 style="text-align: center;">My Courses</h1> 
         <% end %>
+
+        
         <% @courses_enrolled_in.each do |course|%>
           <div class="ui fluid card">
             <div class="image">
