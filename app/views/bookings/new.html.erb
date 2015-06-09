@@ -21,7 +21,7 @@
             </div>
             <div class="field">
               <%= booking.label "Available Timeslots" %><br/>
-              <%= booking.select :time, options_for_select(@schedule.time)%>
+              <%= booking.select :time, options_for_select(@schedule.hour_options) %>
             </div>
 
 
