@@ -12,7 +12,7 @@
           <%= form_for([@schedule, @booking], method: 'POST') do |booking| %>
           <div class="field">
               <%= booking.label :Instructor %><br/>
-              <%= booking.collection_select :user_id, Schedule.order(:date),:id,:user_id, include_blank: true %>
+              <%= @schedule.user.first_name %>
 
             </div>
             <div class="field">
