@@ -8,8 +8,9 @@ Rails.application.routes.draw do
 
 
   resource :user do
-    resources :schedules
-    resources :bookings
+    resources :schedules do
+      resources :bookings
+    end
   end
 
   resources :charges, only: [:new, :show, :create]

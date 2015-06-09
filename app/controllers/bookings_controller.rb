@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
 	def new
-    @schedules = Schedule.all
-  	@booking = Booking.new
+    @schedule = load_schedule
+  	@booking = @schedule.bookings.build
   end
 
   def create
@@ -18,6 +18,7 @@ class BookingsController < ApplicationController
       redirect_to root_path notice: 'Booking creation failed.'
     end
   end
+
 
   def edit
   end

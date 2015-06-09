@@ -9,10 +9,10 @@
 
 
         
-          <%= form_for(@booking, url: user_bookings_path) do |booking| %>
+          <%= form_for([@booking, @schedule], url: new_user_schedule_booking_path) do |booking| %>
           <div class="field">
               <%= booking.label :Instructor %><br/>
-              <%= booking.collection_select :schedule_id, Schedule.order(:date),:id,:user_id, include_blank: true %>
+              <%= booking.collection_select :user_id, Schedule.order(:date),:id,:user_id, include_blank: true %>
 
             </div>
             <div class="field">
@@ -21,7 +21,7 @@
             </div>
             <div class="field">
               <%= booking.label "Available Timeslots" %><br/>
-              <%= booking.collection_select :time, Schedule.order(:date),:id,:time, include_blank: true %>
+              <%= booking.collection_select :time, Schedule.order(:time),:id,:time, include_blank: true %>
             </div>
 
 
