@@ -1,6 +1,29 @@
 <!DOCTYPE html>
 <html>
-<head></head>
+<head>
+    <link rel="favicon" href="../../assets/images/e-learning-logo.ico" />
+  <title>Learn-IT</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  
+  <!-- Firebase -->
+  <script src='https://cdn.firebase.com/js/client/2.1.0/firebase.js'></script>
+
+  <!-- Firechat -->
+  <link rel='stylesheet' href='https://cdn.firebase.com/libs/firechat/2.0.1/firechat.min.css' />
+  <script src='https://cdn.firebase.com/libs/firechat/2.0.1/firechat.min.js'></script>
+
+  <!-- CodeMirror and its JavaScript mode file -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.2.0/codemirror.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.2.0/mode/javascript/javascript.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.2.0/codemirror.css" />
+
+  <%= favicon_link_tag 'favicon.ico' %>
+  <%= csrf_meta_tags %>
+</head>
   <body>
     <%= yield %>
   </body>
