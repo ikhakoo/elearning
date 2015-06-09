@@ -19,7 +19,7 @@
 	  </div>
 
 		<div class="ui center aligned segment">
-		  <%= link_to 'Schedule time with a TA', user_bookings_path, class: "teal ui button" %>
+		  <%= link_to 'Schedule time with a TA', schedules_path, class: "teal ui button" %>
 		</div>
 
       <div class="ui <%= color.sample %> segment" style="margin-top: 40px; margin-bottom: 40px;"> 
@@ -30,7 +30,9 @@
 				<%= (@interactives.length - @interactives.where(is_private: true).count) %> public sessions</h1>
 			<% end %>
 
-			<p><%= link_to 'Add Room', new_interactive_path, class: "ui button" %></p>
+			<% if !current_user.is_student? %>
+				<p><%= link_to 'Add Room', new_interactive_path, class: "ui button" %></p>
+			<% end %>
 
 			<div class="ui wide centered column grid">
 		    <% @interactives.each do |interactive| %>

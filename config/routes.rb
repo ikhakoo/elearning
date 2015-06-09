@@ -7,10 +7,11 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: "users/registrations" }, :paths => 'users'
 
 
-  resource :user do
-    resources :schedules
+  
+  resources :schedules do
     resources :bookings
   end
+
 
   resources :charges, only: [:new, :show, :create]
 

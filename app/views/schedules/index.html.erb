@@ -7,75 +7,48 @@
       <div class="ten wide column main container">
         <div class="ui <%= color.sample %> segment" style="margin-top: 90px; margin-bottom: 40px;">
          <h2 style="text-align: center;">TA Schedule</h2> 
-            <table class="ui blue celled structured table">
-              <thead>
-                <tr>
-                  <th rowspan="2">Instructor Name</th>
-                  <th rowspan="2">Days Available</th>
-                  <th rowspan="2">Times Available</th>
-                  <th colspan="3">Area of Expertise</th>
-                </tr>
-                <tr>
-                  <th>Ruby</th>
-                  <th>JavaScript</th>
-                  <th>Python</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Alpha Team</td>
-                  <td>Project 1</td>
-                  <td>2</td>
-                  <td>
-                    <i class="large green checkmark icon"></i>
-                  </td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td rowspan="3">Beta Team</td>
-                  <td>Project 1</td>
-                  <td>52</td>
-                  <td>
-                    <i class="large green checkmark icon"></i>
-                  </td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>Project 2</td>
-                  <td>12</td>
-                  <td></td>
-                  <td>
-                    <i class="large green checkmark icon"></i>
-                  </td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>Project 3</td>
-                  <td>21</td>
-                  <td>
-                    <i class="large green checkmark icon"></i>
-                  </td>
-                  <td></td>
-                  <td></td>
-                </tr>
-              </tbody>
-            </table>
-          
-
-
-
-        </div>
-      </div>
-
-
-
-  <div class="three wide column sticky top"></div>
+           <% @schedules.each do |s| %>
+            <div class="ui special cards">
+              <div class="card">
+                <div class="dimmable image">
+                  <div class="ui dimmer">
+                    <div class="content">
+                      <div class="center">
+                        <a href="<%= new_schedule_booking_path(s.id) %>"><div class="ui inverted button">View Schedules</div></a>
+                      </div>
+                    </div>
+                  </div>
+                  <%= image_tag('steve.jpg') %>
+                </div>
+                <div class="content">
+                  <a class="header"><%= s.user.first_name %></a>
+                  <div class="meta">
+                    <span class="date">Available Days: <%= s.date %>.</span>
+                  </div>
+                </div>
+                <div class="extra content">
+                  <a>
+                  Teaches:<%= s.user.enrollments.each do |enroll| %>
+                  <% if enroll.nil? %>
+                  <%else%>
+                    <%= enroll.course.name %>,
+                    <% end %>
+                    <%end%>
+                  </a>
+                </div>
+              </div>            
+            </div>
+            <% end %>
+          </div>
+        </div> 
+      <div class="three wide column sticky top"></div>
     <%= render :partial => 'dashboard/right_sidebar' %>
   </div>
-
 </div>
 
-
+<script>
+$('.special.cards .image').dimmer({
+  on: 'hover'
+});
+</script>
       

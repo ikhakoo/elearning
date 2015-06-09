@@ -1,7 +1,8 @@
 class BookingsController < ApplicationController
-	def new
-    @schedules = Schedule.all
-  	@booking = Booking.new
+	
+  def new
+    @schedule = load_schedule
+  	@booking = @schedule.bookings.build
   end
 
   def create
@@ -12,12 +13,13 @@ class BookingsController < ApplicationController
     @booking.user = current_user
 
   	if @booking.save
-      redirect_to root_path, notice: 'Booking created successfully. Please check your e-mail for confirmation'
+      redirect_to interactives_path, notice: 'Booking created successfully. Please check your e-mail for confirmation'
       #UserMailer.conf_email(current_user).deliver_now
     else
-      redirect_to root_path notice: 'Booking creation failed.'
+      redirect_to interactives_path notice: 'Booking creation failed.'
     end
   end
+
 
   def edit
   end
@@ -27,7 +29,7 @@ class BookingsController < ApplicationController
 
 private
   def booking_params
-    params.require(:booking).permit(:start_time, :end_time, :date)
+    params.require(:booking).permit(:time, :date)
   end
 
   def load_schedule

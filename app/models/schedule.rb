@@ -8,7 +8,8 @@ class Schedule < ActiveRecord::Base
 	end
 
 	def hour_options
-		(opening...closing).map do |hour|
+		time.map do |hour|
+			hour = hour.to_i
 			if hour >= 12
 				nicehour = hour - 12
 				ampm = "pm"
@@ -19,7 +20,7 @@ class Schedule < ActiveRecord::Base
 			if nicehour == 0
 				nicehour = 12 
 			end
-			["#{nicehour} #{ampm}", hour]
+			["#{nicehour} #{ampm} to #{nicehour+1}", hour]
 		end
 	end
 

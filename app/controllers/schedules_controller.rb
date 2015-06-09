@@ -1,6 +1,10 @@
 class SchedulesController < ApplicationController
 
-	def new
+	def index
+    @schedules = Schedule.all
+  end
+
+  def new
 		@user = load_user
     @schedule = @user.schedules.build
   end
@@ -20,11 +24,11 @@ class SchedulesController < ApplicationController
     respond_to do |format|
       if @schedule.save
         format.html do
-          redirect_to new_user_schedule_path, notice: 'Schedule created successfully'
+          redirect_to interactives_path, notice: 'Schedule created successfully'
         end
         format.js
       else
-        format.html { render new_user_schedule_path, alert: 'There was an error' }
+        format.html { render new_schedule_path, alert: 'There was an error' }
       end
     end
   end

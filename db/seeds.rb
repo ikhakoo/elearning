@@ -189,10 +189,7 @@ def marking_it_down1
   puts
   puts "Markdown1 loading complete."
 
-end
 
-
-def marking_it_down2
 
   course = Course.create!(
               name: "Programming with Ruby",
@@ -263,12 +260,9 @@ def marking_it_down2
 
     lesson_number+=1
   end
-
   puts
   puts "Markdown2 loading complete."
-end
 
-def marking_it_down3
 
   course = Course.create!(
               name: "Ruby on Rails Concepts",
@@ -343,11 +337,6 @@ def marking_it_down3
   puts
   puts "Markdown3 loading complete."
 
-end
-
-
-def marking_it_down4
-
   course = Course.create!(
               name: "Intro to HTML5/CSS3",
               description: "Learn CSS and begin to understand some of the more fundamental tenets of good site design."
@@ -421,9 +410,7 @@ def marking_it_down4
 
   puts
   puts "Markdown4 loading complete."
-end
 
-def marking_it_down5
 
   course = Course.create!(
               name: "Let's Learn JavaScript and jQuery!",
@@ -502,9 +489,7 @@ def marking_it_down5
   puts
   puts "Markdown5 loading complete."
 
-end
 
-def marking_it_down6
 
   course = Course.create!(
               name: "Setting up Your Computer",
@@ -557,9 +542,7 @@ def marking_it_down6
         w = w + 1
       end
     end
-end
 
-def marking_it_down7
 
   course = Course.create!(
               name: "Learning Sass",
@@ -613,9 +596,7 @@ def marking_it_down7
         w = w + 1
       end
     end
-end
 
-def marking_it_down8
 
   course = Course.create!(
               name: "SublimeText and CLI",
@@ -670,9 +651,7 @@ def marking_it_down8
       end
     end
 
-end
 
-def marking_it_down9
 
   course = Course.create!(
               name: "Mobile Development Resources",
@@ -726,9 +705,7 @@ def marking_it_down9
       end
     end
 
-end
 
-def marking_it_down10
 
   course = Course.create!(
               name: "Pair Programming",
@@ -788,15 +765,15 @@ end
 
 destroy_that_shit
 marking_it_down1
-marking_it_down2
-marking_it_down3
-marking_it_down4
-marking_it_down5
-marking_it_down6
-marking_it_down7
-marking_it_down8
-marking_it_down9
-marking_it_down10
+# marking_it_down2
+# marking_it_down3
+# marking_it_down4
+# marking_it_down5
+# marking_it_down6
+# marking_it_down7
+# marking_it_down8
+# marking_it_down9
+# marking_it_down10
 
 
 load_users
