@@ -9,7 +9,7 @@
 
 
         
-          <%= form_for([@booking, @schedule], url: new_user_schedule_booking_path) do |booking| %>
+          <%= form_for([@schedule, @booking], url: new_user_schedule_booking_path) do |booking| %>
           <div class="field">
               <%= booking.label :Instructor %><br/>
               <%= booking.collection_select :user_id, Schedule.order(:date),:id,:user_id, include_blank: true %>
