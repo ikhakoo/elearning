@@ -87,7 +87,8 @@
 
 
 <script>
-  function init() {
+  $(function() { 
+    function init() {
     //// Initialize Firebase.
     var firepadRef = getExampleRef();
     // TODO: Replace above line with:
@@ -123,8 +124,9 @@
       console.log('Firebase data: ', ref.toString());
     return ref;
   }
-  a = new TBStart("1127", "opentokVideos");
-	a.startVideo();
-  init();
+ //  a = new TBStart("1127", "opentokVideos");
+	// a.startVideo();
+  init(); 
+}
 </script>
 
