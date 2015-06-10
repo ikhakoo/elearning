@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     resources :bookings
   end
 
+  get "/newchat", to: 'dashboard#newchat' 
+
 
   resources :charges, only: [:new, :show, :create]
 
