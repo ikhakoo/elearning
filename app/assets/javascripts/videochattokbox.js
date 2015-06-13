@@ -13,6 +13,7 @@ window.TBStart = function(apiKey, parentDiv){
   this.parentDiv = parentDiv;
   this.send = function(){
     var room = encodeURIComponent( document.URL );
+    console.log( room );
     var xhr = new XMLHttpRequest();
     var url =  "http://apigenerator.herokuapp.com/getSession?room="+room;
     var method = "GET";

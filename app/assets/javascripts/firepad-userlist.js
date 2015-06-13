@@ -1,8 +1,6 @@
 var FirepadUserList = (function() {
-  function FirepadUserList(ref, place, userId, displayName) {
-    if (!(this instanceof FirepadUserList)) {
-      return new FirepadUserList(ref, place, userId, displayName);
-    }
+  function FirepadUserList(ref, place, userId) {
+    if (!(this instanceof FirepadUserList)) { return new FirepadUserList(ref, place, userId); }
 
     this.ref_ = ref;
     this.userId_ = userId;
@@ -10,8 +8,7 @@ var FirepadUserList = (function() {
     this.firebaseCallbacks_ = [];
 
     var self = this;
-    this.hasName_ = !!displayName;
-    this.displayName_ = displayName || 'Guest ' + Math.floor(Math.random() * 1000);
+    this.displayName_ = 'Guest ' + Math.floor(Math.random() * 1000);
     this.firebaseOn_(ref.root().child('.info/connected'), 'value', function(s) {
       if (s.val() === true && self.displayName_) {
         var nameRef = ref.child(self.userId_).child('name');
@@ -63,7 +60,7 @@ var FirepadUserList = (function() {
     var colorDiv = elt('div', null, { 'class': 'firepad-userlist-color-indicator' });
     this.firebaseOn_(myUserRef.child('color'), 'value', function(colorSnapshot) {
       var color = colorSnapshot.val();
-      if (isValidColor(color)) {
+      if (typeof color === 'string' && color.match(/^#[a-fA-F0-9]{3,6}$/)) {
         colorDiv.style.backgroundColor = color;
       }
     });
@@ -72,7 +69,6 @@ var FirepadUserList = (function() {
     nameInput.value = this.displayName_;
 
     var nameHint = elt('div', 'ENTER YOUR NAME', { 'class': 'firepad-userlist-name-hint'} );
-    if (this.hasName_) nameHint.style.display = 'none';
 
     // Update Firebase when name changes.
     on(nameInput, 'change', function(e) {
@@ -86,9 +82,7 @@ var FirepadUserList = (function() {
 
     var nameDiv = elt('div', [nameInput, nameHint]);
 
-    return elt('div', [ colorDiv, nameDiv ], {
-      'class': 'firepad-userlist-user ' + 'firepad-user-' + this.userId_
-    });
+    return elt('div', [ colorDiv, nameDiv ], { 'class': 'firepad-userlist-user' });
   };
 
   FirepadUserList.prototype.makeUserEntriesForOthers_ = function() {
@@ -97,7 +91,7 @@ var FirepadUserList = (function() {
     var userId2Element = { };
 
     function updateChild(userSnapshot, prevChildName) {
-      var userId = userSnapshot.key();
+      var userId = userSnapshot.name();
       var div = userId2Element[userId];
       if (div) {
         userList.removeChild(div);
@@ -108,7 +102,7 @@ var FirepadUserList = (function() {
       name = name.substring(0, 20);
 
       var color = userSnapshot.child('color').val();
-      if (!isValidColor(color)) {
+      if (typeof color !== 'string' || !color.match(/^#[a-fA-F0-9]{3,6}$/)) {
         color = "#ffb"
       }
 
@@ -117,9 +111,7 @@ var FirepadUserList = (function() {
 
       var nameDiv = elt('div', name || 'Guest', { 'class': 'firepad-userlist-name' });
 
-      var userDiv = elt('div', [ colorDiv, nameDiv ], {
-        'class': 'firepad-userlist-user ' + 'firepad-user-' + userId
-      });
+      var userDiv = elt('div', [ colorDiv, nameDiv ], { 'class': 'firepad-userlist-user' });
       userId2Element[userId] = userDiv;
 
       if (userId === self.userId_) {
@@ -136,7 +128,7 @@ var FirepadUserList = (function() {
     this.firebaseOn_(this.ref_, 'child_changed', updateChild);
     this.firebaseOn_(this.ref_, 'child_moved', updateChild);
     this.firebaseOn_(this.ref_, 'child_removed', function(removedSnapshot) {
-      var userId = removedSnapshot.key();
+      var userId = removedSnapshot.name();
       var div = userId2Element[userId];
       if (div) {
         userList.removeChild(div);
@@ -171,13 +163,6 @@ var FirepadUserList = (function() {
     }
     this.firebaseCallbacks_ = [];
   };
-
-  /** Assorted helpers */
-
-  function isValidColor(color) {
-    return typeof color === 'string' &&
-      (color.match(/^#[a-fA-F0-9]{3,6}$/) || color == 'transparent');
-  }
 
 
   /** DOM helpers */
