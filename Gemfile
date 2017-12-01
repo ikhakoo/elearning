@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass', branch: 'v1.0beta'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
+gem 'pgreset'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
 # Use SCSS for stylesheets
@@ -27,8 +28,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'pg'
+gem 'coffee-rails'
 
-gem 'devise'
+gem 'devise', '~> 4.1.0'
 
 gem 'faker'
 

@@ -9,7 +9,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
    def create
-    devise_parameter_sanitizer.for(:sign_up) << [:first_name, :last_name]
+    # devise_parameter_sanitizer.for(:sign_up) << [:first_name, :last_name]
     super
    end
 
